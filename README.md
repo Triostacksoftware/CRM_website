@@ -84,6 +84,22 @@ Then open:
 http://localhost:3000
 ```
 
+### Faster start (don’t rebuild every time)
+
+The long delay you see is because `--build` rebuilds the image (runs `npm ci` + `next build`) on every start.
+
+Do this once:
+
+```bash
+docker compose build
+```
+
+Then start quickly:
+
+```bash
+docker compose up
+```
+
 ### Troubleshooting (Windows)
 
 If you see errors like `permission denied while trying to connect to the docker API`:
