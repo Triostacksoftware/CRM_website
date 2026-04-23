@@ -70,6 +70,43 @@ In the current local environment, the dev server was verified at:
 http://localhost:3000
 ```
 
+## Docker (Production)
+
+### Build and run with Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Then open:
+
+```text
+http://localhost:3000
+```
+
+### Troubleshooting (Windows)
+
+If you see errors like `permission denied while trying to connect to the docker API`:
+
+- Ensure Docker Desktop is running and your user has access to the Docker engine (often via the `docker-users` group), then reopen your terminal.
+
+If you see `Access is denied` for `C:\\Users\\<you>\\.docker\\...`:
+
+- Use a project-local Docker CLI config folder for the session:
+
+```powershell
+$env:DOCKER_CONFIG = (Join-Path $PWD ".docker")
+New-Item -ItemType Directory -Force -Path $env:DOCKER_CONFIG | Out-Null
+docker compose up --build
+```
+
+### Build and run with Docker (no Compose)
+
+```bash
+docker build -t crm_website .
+docker run --rm -p 3000:3000 crm_website
+```
+
 ### 3. Create a production build
 
 ```bash
