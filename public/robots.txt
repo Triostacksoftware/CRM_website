@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Main Keywords: Trio-CRM, Triostack
+Sitemap: https://triostack.in/sitemap.xml
+Sitemap: https://triocrm.triostack.in/sitemap.xml

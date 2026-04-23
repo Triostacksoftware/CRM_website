@@ -23,9 +23,11 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=5015
 
-RUN useradd --system --uid 1001 nextjs && \
+RUN useradd -m --system --uid 1001 nextjs && \
     mkdir -p /app && \
-    chown -R nextjs:root /app
+    chown -R nextjs:root /app && \
+    mkdir -p /home/nextjs/.npm && \
+    chown -R nextjs:root /home/nextjs/.npm
 
 COPY --from=builder --chown=nextjs:root /app/public ./public
 COPY --from=builder --chown=nextjs:root /app/.next ./.next

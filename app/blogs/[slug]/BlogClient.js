@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { slugify } from "@/lib/utils";
+import SEOComponent from "@/components/SEOComponent";
 
 export default function BlogClient({ slug }) {
   const router = useRouter();
