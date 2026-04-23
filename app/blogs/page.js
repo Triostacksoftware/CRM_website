@@ -56,12 +56,17 @@ export default function BlogsPage() {
   }, []);
 
   useEffect(() => {
+    if (!posts || !Array.isArray(posts)) return;
+
     if (activeCategory === "All") {
       setFilteredPosts(posts);
     } else {
-      setFilteredPosts(
-        posts.filter((post) => post.category?.toLowerCase() === activeCategory.toLowerCase())
-      );
+      const filtered = posts.filter((post) => {
+        const postCat = (post.category || "").trim().toLowerCase();
+        const activeCat = activeCategory.trim().toLowerCase();
+        return postCat === activeCat;
+      });
+      setFilteredPosts(filtered);
     }
   }, [activeCategory, posts]);
 
