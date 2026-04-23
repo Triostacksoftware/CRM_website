@@ -74,9 +74,8 @@ export default function PricingPage() {
     <main className="min-h-screen bg-[#0B1220]">
       <Navbar />
 
-      {/* Page Hero Section - Solid Theme */}
-      <div className="pt-24 pb-12 bg-[#0d2a2f] relative overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] pointer-events-none" />
+      {/* Page Hero Section - Transparent */}
+      <div className="relative overflow-hidden pt-32 pb-12">
 
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col gap-4">

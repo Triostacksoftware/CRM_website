@@ -1,5 +1,38 @@
 "use client";
 
+const productHighlights = [
+  {
+    title: "Real-time analytics dashboard",
+    desc: "Gain instant insights into your sales performance and customer trends.",
+    icon: (
+      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M4 19h16M7 16V9M12 16V5M17 16v-3" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="m6.5 8.5 4 2.5 4-5 3 2" />
+      </svg>
+    ),
+  },
+  {
+    title: "Automated lead management",
+    desc: "Never lose a lead again with our intelligent automated tracking system.",
+    icon: (
+      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3.25" strokeWidth={1.7} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M12 3.75v3M12 17.25v3M20.25 12h-3M6.75 12h-3M18.19 5.81l-2.12 2.12M7.93 16.07l-2.12 2.12M18.19 18.19l-2.12-2.12M7.93 7.93 5.81 5.81" />
+      </svg>
+    ),
+  },
+  {
+    title: "GST-ready invoicing",
+    desc: "Generate compliant invoices and manage tax filings with ease.",
+    icon: (
+      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M8 3.5h6l4 4v13H8a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M14 3.5v4h4M9 12h6M9 16h4" />
+      </svg>
+    ),
+  },
+];
+
 export default function ProductShowcase() {
   return (
     <section className="bg-gradient-to-b from-[#0b1220] to-[#0e1a2b] py-24 relative overflow-hidden">
@@ -45,13 +78,11 @@ export default function ProductShowcase() {
 
             {/* Feature Highlights */}
             <div className="space-y-6 mb-10">
-              {[
-                { title: "Real-time analytics dashboard", desc: "Gain instant insights into your sales performance and customer trends." },
-                { title: "Automated lead management", desc: "Never lose a lead again with our intelligent automated tracking system." },
-                { title: "GST-ready invoicing", desc: "Generate compliant invoices and manage tax filings with ease." }
-              ].map((feature, index) => (
+              {productHighlights.map((feature, index) => (
                 <div key={index} className="flex items-start gap-4 group">
-                  <div className="mt-1 w-1.5 h-1.5 rounded-full bg-[#00b274] shadow-[0_0_8px_#00b274]" />
+                  <div className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[#8be9ff]/15 bg-gradient-to-br from-[#112033] via-[#0b1728] to-[#0b1220] text-[#8be9ff] shadow-[0_16px_35px_rgba(0,0,0,0.25)] transition-all duration-300 group-hover:border-[#7ef7c4]/25 group-hover:text-[#7ef7c4]">
+                    {feature.icon}
+                  </div>
                   <div>
                     <h3 className="text-white font-semibold text-base mb-1 group-hover:text-[#00b274] transition-colors">{feature.title}</h3>
                     <p className="text-slate-500 text-sm">{feature.desc}</p>

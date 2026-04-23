@@ -1,16 +1,35 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
-  const isEmeraldPage = pathname === "/features" || pathname === "/pricing";
+  const [isVisible, setIsVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Update scrolled state for background effect
+      setIsScrolled(currentScrollY > 20);
+
+      // Visibility logic (hide on scroll down, show on scroll up)
+      const scrollDelta = currentScrollY - lastScrollY.current;
+
+      if (currentScrollY <= 20) {
+        setIsVisible(true);
+      } else if (scrollDelta > 8) {
+        setIsVisible(false);
+      } else if (scrollDelta < -8) {
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -18,21 +37,27 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "Features", href: "/features" },
     { name: "Pricing", href: "/pricing" },
-    { name: "Industries", href: "#industries" },
-    { name: "Blogs", href: "#" },
+    { name: "Industries", href: "/industries" },
+    { name: "Blogs", href: "/blogs" },
   ];
 
-  const scrolledBg = isEmeraldPage ? "bg-[#0f3d2e] border-b border-white/10 shadow-lg" : "bg-[#0b1220]/90 shadow-lg";
-
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? `${scrolledBg} py-3` : (isEmeraldPage ? "bg-[#0f3d2e] border-b border-white/5" : "bg-transparent") + " py-5 transition-all"}`}>
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 will-change-transform ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+      } ${
+        isScrolled 
+          ? "bg-[#07111d]/90 backdrop-blur-xl py-4 border-b border-[#8fb7ff]/12 shadow-[0_20px_45px_rgba(3,8,20,0.5)]" 
+          : "bg-[#050b14]/72 backdrop-blur-lg py-6 border-b border-white/8 shadow-[0_16px_36px_rgba(2,6,16,0.32)]"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <a href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#00b274] to-[#00d48a] rounded-lg rotate-12 flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#14c38e] via-[#19d3a2] to-[#53e5e2] rounded-lg rotate-12 flex items-center justify-center shadow-[0_8px_24px_rgba(20,195,142,0.35)]">
               <span className="text-white font-bold -rotate-12">T</span>
             </div>
-            <span className="text-xl font-bold text-white tracking-tight">Triostack</span>
+            <span className="text-xl font-bold text-[#f3fffb] tracking-tight">Triostack</span>
           </a>
 
           <div className="hidden lg:flex items-center gap-6">
@@ -40,7 +65,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[13px] font-medium text-slate-300 hover:text-[#00b274] transition-colors"
+                className="text-[13px] font-medium text-slate-200/90 hover:text-[#7ef7c4] transition-colors"
               >
                 {link.name}
               </a>
@@ -49,12 +74,12 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="#" className="hidden md:block text-sm font-medium text-white hover:text-[#00b274] transition-colors">
+          <a href="#" className="hidden md:block text-sm font-medium text-slate-100 hover:text-[#7ef7c4] transition-colors">
             Login
           </a>
           <a
             href="#"
-            className="bg-[#00e19d] text-[#0b1220] px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#00c98c] transition-all hover:shadow-[0_0_20px_rgba(0,225,157,0.3)]"
+            className="bg-gradient-to-r from-[#7ef7c4] via-[#37dfaa] to-[#14c38e] text-[#04111c] px-6 py-2.5 rounded-full text-sm font-bold transition-all hover:brightness-105 hover:shadow-[0_0_24px_rgba(55,223,170,0.28)]"
           >
             Book a Call
           </a>

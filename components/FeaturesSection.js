@@ -7,8 +7,9 @@ const features = [
     title: "Lead Management",
     description: "Capture, track, and nurture leads from multiple sources with automated scoring and assignment.",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3.25" strokeWidth={1.7} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M12 3.75v3M12 17.25v3M20.25 12h-3M6.75 12h-3M18.19 5.81l-2.12 2.12M7.93 16.07l-2.12 2.12M18.19 18.19l-2.12-2.12M7.93 7.93 5.81 5.81" />
       </svg>
     ),
   },
@@ -16,8 +17,11 @@ const features = [
     title: "Workflow Automation",
     description: "Reduce manual effort with customizable triggers, actions, and conditional logic for repetitive tasks.",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <rect x="4" y="5" width="6" height="4" rx="1.5" strokeWidth={1.7} />
+        <rect x="14" y="9" width="6" height="4" rx="1.5" strokeWidth={1.7} />
+        <rect x="4" y="15" width="6" height="4" rx="1.5" strokeWidth={1.7} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M10 7h2a2 2 0 0 1 2 2v2M14 13h-2a2 2 0 0 0-2 2v2" />
       </svg>
     ),
   },
@@ -25,8 +29,12 @@ const features = [
     title: "Sales Pipeline Tracking",
     description: "Visualize your sales process from end-to-end and identify bottlenecks with drag-and-drop deal stages.",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M5 18V9M12 18V6M19 18v-4" />
+        <circle cx="5" cy="7" r="2" strokeWidth={1.7} />
+        <circle cx="12" cy="4" r="2" strokeWidth={1.7} />
+        <circle cx="19" cy="12" r="2" strokeWidth={1.7} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M7 7h3M14 5h3" />
       </svg>
     ),
   },
@@ -34,9 +42,9 @@ const features = [
     title: "Real-time Analytics",
     description: "Make data-driven decisions with live dashboards, custom reports, and key performance indicators.",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M4 19h16M7 16V9M12 16V5M17 16v-3" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="m6.5 8.5 4 2.5 4-5 3 2" />
       </svg>
     ),
   },
@@ -44,8 +52,10 @@ const features = [
     title: "Multi-branch Management",
     description: "Seamlessly manage inventory, sales, and staff across multiple locations from a single dashboard.",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <rect x="3.5" y="8" width="6" height="10" rx="1.5" strokeWidth={1.7} />
+        <rect x="14.5" y="5" width="6" height="13" rx="1.5" strokeWidth={1.7} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M9.5 12h5M6.5 11.5h0M6.5 14.5h0M17.5 9.5h0M17.5 12.5h0" />
       </svg>
     ),
   },
@@ -53,8 +63,9 @@ const features = [
     title: "GST-ready Invoicing",
     description: "Generate professional tax invoices with built-in GST calculations and automated tax filing exports.",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M8 3.5h6l4 4v13H8a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M14 3.5v4h4M9 12h6M9 16h4" />
       </svg>
     ),
   },
@@ -96,8 +107,8 @@ export default function FeaturesSection() {
             <Reveal key={index} delay={index * 100}>
               <div className="group relative p-8 rounded-3xl glass-dark glass-glow transition-all duration-500 hover:scale-105 hover:bg-white/[0.08]">
                 {/* Icon Container */}
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00b274]/20 to-blue-500/20 flex items-center justify-center mb-6 border border-white/5 group-hover:scale-110 transition-transform duration-500">
-                  <div className="text-[#00b274] group-hover:text-white transition-colors duration-500">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-[1.25rem] border border-[#8be9ff]/15 bg-gradient-to-br from-[#112033] via-[#0b1728] to-[#0b1220] shadow-[0_18px_45px_rgba(0,0,0,0.25)] group-hover:scale-110 group-hover:border-[#7ef7c4]/25 transition-transform duration-500">
+                  <div className="text-[#8be9ff] group-hover:text-[#7ef7c4] transition-colors duration-500">
                     {feature.icon}
                   </div>
                 </div>
