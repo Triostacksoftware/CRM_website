@@ -1,18 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { useEffect } from "react";
 
 export default function BookCallModal({ isOpen, onClose }) {
-  const [isMounted, setIsMounted] = useState(false);
+  const handleBackdropClick = (event) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
 
-  useEffect(() => {
-    setIsMounted(true);
-
-    return () => {
-      setIsMounted(false);
-    };
-  }, []);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onClose();
+  };
 
   useEffect(() => {
     if (!isOpen) {
@@ -36,14 +36,14 @@ export default function BookCallModal({ isOpen, onClose }) {
     };
   }, [isOpen, onClose]);
 
-  if (!isMounted || !isOpen) {
+  if (!isOpen) {
     return null;
   }
 
-  return createPortal(
+  return (
     <div
       className="fixed inset-0 z-[120] flex items-center justify-center px-4 py-8 sm:px-6"
-      onClick={onClose}
+      onClick={handleBackdropClick}
       role="presentation"
     >
       <div className="absolute inset-0 bg-[#020814]/80 backdrop-blur-md animate-fade-in" />
@@ -79,7 +79,7 @@ export default function BookCallModal({ isOpen, onClose }) {
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00b274]">Message Us</span>
           </div>
 
-          <form className="space-y-4" onSubmit={(event) => event.preventDefault()}>
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <input
                 type="text"
@@ -128,7 +128,6 @@ export default function BookCallModal({ isOpen, onClose }) {
           </form>
         </div>
       </div>
-    </div>,
-    document.body
+    </div>
   );
 }
