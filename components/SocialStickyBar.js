@@ -69,7 +69,7 @@ export default function SocialStickyBar() {
               className="group grid h-10 w-10 place-items-center rounded-full bg-white shadow-md ring-1 ring-black/10 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220] active:scale-95"
               title={item.name}
             >
-              <span className="text-slate-400 saturate-0 transition-all group-hover:scale-110 group-hover:text-[var(--brand)] group-hover:saturate-100">
+              <span className="text-[var(--brand)] opacity-55 saturate-75 transition-all group-hover:scale-110 group-hover:opacity-100 group-hover:saturate-150">
                 {item.icon}
               </span>
             </a>
