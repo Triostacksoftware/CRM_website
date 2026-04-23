@@ -35,7 +35,7 @@ const productHighlights = [
 
 export default function ProductShowcase() {
   return (
-    <section className="bg-gradient-to-b from-[#0b1220] to-[#0e1a2b] py-24 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-[#0b1220] to-[#0e1a2b] py-16 md:py-20 relative overflow-hidden">
       {/* Decorative Glows */}
       <div className="absolute top-1/2 -right-40 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 -left-40 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />

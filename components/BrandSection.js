@@ -13,8 +13,8 @@ const brands = [
 
 export default function BrandSection() {
   return (
-    <section className="py-20 bg-[#0B1220] border-y border-white/5 overflow-hidden">
-      <div className="container mx-auto px-6 mb-12 text-center">
+    <section className="py-12 md:py-16 bg-[#0B1220] border-y border-white/5 overflow-hidden">
+      <div className="container mx-auto px-6 mb-8 md:mb-10 text-center">
         <p className="text-slate-500 text-sm font-bold uppercase tracking-[0.4em]">
           Trusted by Industry Leaders
         </p>

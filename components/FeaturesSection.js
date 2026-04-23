@@ -73,7 +73,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="relative py-24 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
+    <section id="features" className="relative py-16 md:py-20 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
       {/* Decorative Blobs */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none" />
@@ -83,7 +83,7 @@ export default function FeaturesSection() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <Reveal>
             <span className="text-[#00b274] text-sm font-bold tracking-[0.4em] uppercase block mb-4">
               Features
@@ -129,7 +129,7 @@ export default function FeaturesSection() {
         </div>
 
         {/* Show All Button */}
-        <div className="mt-20 text-center">
+        <div className="mt-14 md:mt-16 text-center">
           <Reveal delay={600}>
             <a 
               href="/features"

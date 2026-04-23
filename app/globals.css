@@ -8,6 +8,10 @@
     --accent-glow: rgba(0, 178, 116, 0.4);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-[var(--background)] text-[var(--foreground)] antialiased selection:bg-[#00b274]/30;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;

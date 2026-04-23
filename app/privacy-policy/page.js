@@ -167,7 +167,7 @@ export default function PrivacyPolicyPage() {
               <div className="mt-16 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(245,248,255,0.92))] px-6 py-8 shadow-[0_28px_80px_rgba(0,0,0,0.26)] md:px-9">
                 <div className="flex flex-col items-center justify-between gap-5 text-center lg:flex-row lg:text-left">
                   <a
-                    href="mailto:hello@crmwebsite.com?subject=Request%20CRM%20Brochure"
+                    href="/crm-brochure"
                     className="inline-flex items-center justify-center rounded-full bg-[#09c38c] px-8 py-4 text-base font-semibold text-[#06131d] transition hover:brightness-105"
                   >
                     Download CRM Brochure
@@ -176,13 +176,6 @@ export default function PrivacyPolicyPage() {
                   <p className="text-xl font-medium tracking-[-0.03em] text-[#071321] md:text-[1.75rem]">
                     Ready to discuss your CRM rollout?
                   </p>
-
-                  <a
-                    href="/#contact"
-                    className="inline-flex items-center justify-center rounded-full bg-[#09c38c] px-8 py-4 text-base font-semibold text-[#06131d] transition hover:brightness-105"
-                  >
-                    Work With Us
-                  </a>
                 </div>
               </div>
             </div>
@@ -242,7 +235,7 @@ export default function PrivacyPolicyPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer showCta={false} />
     </main>
   );
 }

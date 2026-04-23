@@ -1,3 +1,5 @@
+import ContactLink from "./ContactLink";
+
 const productLinks = [
   { label: "Lead Capture Hub", href: "/features" },
   { label: "Customer 360 Workspace", href: "/features" },
@@ -12,7 +14,6 @@ const companyLinks = [
   { label: "Pricing", href: "/pricing" },
   { label: "Industries", href: "/industries" },
   { label: "Blogs", href: "/blogs" },
-  { label: "Request Demo", href: "/#contact" },
 ];
 
 const crmUseCases = [
@@ -96,9 +97,15 @@ function FooterColumn({ title, links }) {
       <p className="text-sm font-semibold uppercase tracking-[0.26em] text-[#8be9ff]">{title}</p>
       <div className="mt-5 grid gap-3 text-sm text-slate-300">
         {links.map((item) => (
-          <a key={item.label} href={item.href} className="transition hover:text-white">
-            {item.label}
-          </a>
+          item.href === "/#contact" ? (
+            <ContactLink key={item.label} className="transition hover:text-white">
+              {item.label}
+            </ContactLink>
+          ) : (
+            <a key={item.label} href={item.href} className="transition hover:text-white">
+              {item.label}
+            </a>
+          )
         ))}
       </div>
     </div>
@@ -119,49 +126,48 @@ function SocialMediaLink({ label, href, icon }) {
   );
 }
 
-export default function Footer() {
+export default function Footer({ showCta = true }) {
   return (
-    <footer className="relative mt-24 overflow-hidden border-t border-white/6 bg-[#050b15] text-white">
+    <footer className="relative mt-12 md:mt-16 overflow-hidden border-t border-white/6 bg-[#050b15] text-white">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:44px_44px] opacity-20" />
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0a1425] to-transparent" />
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-18 md:pb-32">
-        <div className="mb-14 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(20,195,142,0.14),rgba(56,189,248,0.08)_45%,rgba(255,255,255,0.03))] p-8 shadow-[0_24px_80px_rgba(0,0,0,0.24)] md:p-10">
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#8be9ff]">Enterprise CRM, simplified</p>
-              <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">
-                Turn scattered leads, teams, and follow-ups into one controlled revenue system.
-              </h2>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
-                CRM Suite helps ambitious businesses run sales, service, approvals, billing, and reporting from one premium operating layer built for growth and accountability.
-              </p>
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                {trustHighlights.map((item) => (
-                  <div key={item.label} className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] px-4 py-4">
-                    <p className="text-2xl font-semibold tracking-[-0.04em] text-white">{item.value}</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.22em] text-slate-400">{item.label}</p>
-                  </div>
-                ))}
+      <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-14 md:pb-24 md:pt-16">
+        {showCta ? (
+          <div className="mb-14 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(20,195,142,0.14),rgba(56,189,248,0.08)_45%,rgba(255,255,255,0.03))] p-8 shadow-[0_24px_80px_rgba(0,0,0,0.24)] md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#8be9ff]">Enterprise CRM, simplified</p>
+                <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.04em] text-white md:text-5xl">
+                  Turn scattered leads, teams, and follow-ups into one controlled revenue system.
+                </h2>
+                <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
+                  CRM Suite helps ambitious businesses run sales, service, approvals, billing, and reporting from one premium operating layer built for growth and accountability.
+                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                  {trustHighlights.map((item) => (
+                    <div key={item.label} className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] px-4 py-4">
+                      <p className="text-2xl font-semibold tracking-[-0.04em] text-white">{item.value}</p>
+                      <p className="mt-1 text-xs uppercase tracking-[0.22em] text-slate-400">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
+                <ContactLink className="rounded-full bg-gradient-to-r from-[#7ef7c4] via-[#37dfaa] to-[#14c38e] px-7 py-4 text-center text-sm font-semibold text-[#04111c] transition hover:brightness-105">
+                  Schedule CRM Demo
+                </ContactLink>
+                <a
+                  href="/pricing"
+                  className="rounded-full border border-white/12 bg-white/5 px-7 py-4 text-center text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/8"
+                >
+                  Explore Plans
+                </a>
               </div>
             </div>
-
-            <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
-              <a
-                href="/#contact"
-                className="rounded-full bg-gradient-to-r from-[#7ef7c4] via-[#37dfaa] to-[#14c38e] px-7 py-4 text-center text-sm font-semibold text-[#04111c] transition hover:brightness-105"
-              >
-                Schedule CRM Demo
-              </a>
-              <a
-                href="/pricing"
-                className="rounded-full border border-white/12 bg-white/5 px-7 py-4 text-center text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/8"
-              >
-                Explore Plans
-              </a>
-            </div>
           </div>
-        </div>
+        ) : null}
 
         <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-[1.15fr_0.8fr_0.8fr_1fr]">
           <div className="max-w-md">
@@ -235,7 +241,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-6">
             <a href="/privacy-policy" className="transition hover:text-white">Privacy Policy</a>
             <a href="/terms-and-conditions" className="transition hover:text-white">Terms & Conditions</a>
-            <a href="/#contact" className="transition hover:text-white">Contact Sales</a>
+            <ContactLink className="transition hover:text-white">Contact Sales</ContactLink>
           </div>
         </div>
       </div>

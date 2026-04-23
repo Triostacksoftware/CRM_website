@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactLink from "@/components/ContactLink";
 import Reveal from "@/components/Reveal";
 
 const plans = [
@@ -169,7 +170,7 @@ export default function PricingPage() {
             <p className="text-slate-400 mb-8 max-w-xl mx-auto">
               We offer tailored solutions for large-scale enterprises with specific security and integration requirements.
             </p>
-            <a href="/#contact" className="text-[#00b274] font-bold hover:underline">Contact our sales team &rarr;</a>
+            <ContactLink className="text-[#00b274] font-bold hover:underline">Contact our sales team &rarr;</ContactLink>
           </div>
         </div>
       </div>

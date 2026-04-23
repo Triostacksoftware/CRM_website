@@ -34,6 +34,24 @@ export default function ContactSection() {
     };
   }, []);
 
+  useEffect(() => {
+    const shouldScrollToContact =
+      window.location.hash === "#contact" ||
+      window.sessionStorage.getItem("scroll-to-contact") === "1";
+
+    if (!shouldScrollToContact) {
+      return undefined;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", "/#contact");
+      window.sessionStorage.removeItem("scroll-to-contact");
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, []);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -45,7 +63,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section ref={sectionRef} className="relative py-24 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="relative scroll-mt-28 py-16 md:py-20 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden"
+    >
       {/* Background Decorative Blobs */}
       <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />

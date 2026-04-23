@@ -29,7 +29,7 @@ export default function TrustSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 bg-gradient-to-r from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden border-y border-white/5">
+    <section ref={sectionRef} className="relative py-16 md:py-20 bg-gradient-to-r from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden border-y border-white/5">
       {/* Background Glows */}
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[100px] pointer-events-none" />

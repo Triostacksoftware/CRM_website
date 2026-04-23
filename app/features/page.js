@@ -6,6 +6,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import ContactLink from "@/components/ContactLink";
 
 function FeatureIcon({ type }) {
   const iconClassName = "h-7 w-7";
@@ -276,12 +277,9 @@ export default function FeaturesPage() {
               <p className="text-slate-400 mb-10 max-w-2xl mx-auto text-lg">
                 Join hundreds of Indian enterprises that use Triostack to automate their sales and grow 2x faster.
               </p>
-              <a
-                href="/#contact"
-                className="inline-block bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105"
-              >
+              <ContactLink className="inline-block bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105">
                 Start Your Free Trial
-              </a>
+              </ContactLink>
             </div>
           </div>
         </div>

@@ -81,14 +81,14 @@ export default function PricingSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-24 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 md:py-20 bg-gradient-to-b from-[#0B1220] via-[#0E1A2B] to-[#0B1220] overflow-hidden">
       {/* Decorative Glows */}
       <div className="absolute top-1/2 -left-20 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className={`text-center mb-12 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} transition-opacity duration-700`}>
+        <div className={`text-center mb-10 md:mb-12 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} transition-opacity duration-700`}>
           <span className="text-[#00b274] text-xs font-bold tracking-[0.3em] uppercase block mb-4">
             PRICING
           </span>
@@ -101,7 +101,7 @@ export default function PricingSection() {
         </div>
 
         {/* Billing Toggle */}
-        <div className={`flex justify-center mb-16 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} [animation-delay:200ms]`}>
+        <div className={`flex justify-center mb-10 md:mb-12 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} [animation-delay:200ms]`}>
           <div className="bg-white/5 backdrop-blur-md p-1.5 rounded-full flex items-center gap-1 border border-white/10 shadow-2xl relative">
             {["quarterly", "semiannual", "annual"].map((cycle) => (
               <button
