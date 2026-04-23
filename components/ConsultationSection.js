@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import BookCallModal from "./BookCallModal";
 
 export default function ConsultationSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,76 +52,7 @@ export default function ConsultationSection() {
         </div>
       </div>
 
-      {/* Modal Overlay */}
-      {isModalOpen && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center px-6"
-          onClick={toggleModal}
-        >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-fade-in" />
-          
-          {/* Modal Box */}
-          <div 
-            className="bg-[#0E1A2B] w-full max-w-md rounded-2xl p-8 border border-white/10 shadow-2xl relative z-10 animate-slide-up"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Icon */}
-            <button 
-              onClick={toggleModal}
-              className="absolute top-6 right-6 text-slate-500 hover:text-white transition-colors"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold text-white mb-2">Book a Consultation</h3>
-              <p className="text-slate-400 text-sm">Fill in the details below and we'll get back to you.</p>
-            </div>
-
-            <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); toggleModal(); }}>
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-widest ml-1">Full Name *</label>
-                <input 
-                  type="text" 
-                  required
-                  placeholder="John Doe"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-[#00b274] transition-all"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-widest ml-1">Company Email *</label>
-                <input 
-                  type="email" 
-                  required
-                  placeholder="john@company.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-[#00b274] transition-all"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-slate-400 uppercase tracking-widest ml-1">Phone Number *</label>
-                <input 
-                  type="tel" 
-                  required
-                  placeholder="+91 00000 00000"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-[#00b274] transition-all"
-                />
-              </div>
-
-              <button 
-                type="submit"
-                className="w-full bg-gradient-to-r from-[#00b274] to-[#008a5a] text-white font-bold py-4 rounded-full shadow-lg shadow-[#00b274]/20 hover:shadow-[#00b274]/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 mt-4"
-              >
-                Submit Request
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+      <BookCallModal isOpen={isModalOpen} onClose={toggleModal} />
     </section>
   );
 }

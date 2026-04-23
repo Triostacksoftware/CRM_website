@@ -1,11 +1,27 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import BookCallModal from "./BookCallModal";
+
+const CRM_LOGIN_URL = "https://crm.triostack.in/login";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const lastScrollY = useRef(0);
+
+  const handleLoginClick = () => {
+    window.location.assign(CRM_LOGIN_URL);
+  };
+
+  const handleBookCallOpen = () => {
+    setIsBookCallOpen(true);
+  };
+
+  const handleBookCallClose = () => {
+    setIsBookCallOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,49 +58,61 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 will-change-transform ${
-        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-      } ${
-        isScrolled 
-          ? "bg-[#07111d]/90 backdrop-blur-xl py-4 border-b border-[#8fb7ff]/12 shadow-[0_20px_45px_rgba(3,8,20,0.5)]" 
-          : "bg-[#050b14]/72 backdrop-blur-lg py-6 border-b border-white/8 shadow-[0_16px_36px_rgba(2,6,16,0.32)]"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-8">
-          <a href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#14c38e] via-[#19d3a2] to-[#53e5e2] rounded-lg rotate-12 flex items-center justify-center shadow-[0_8px_24px_rgba(20,195,142,0.35)]">
-              <span className="text-white font-bold -rotate-12">T</span>
-            </div>
-            <span className="text-xl font-bold text-[#f3fffb] tracking-tight">Triostack</span>
-          </a>
+    <>
+      <nav
+        className={`fixed top-0 left-0 w-full z-[80] transition-all duration-300 will-change-transform ${
+          isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        } ${
+          isScrolled
+            ? "bg-[#07111d]/90 backdrop-blur-xl py-4 border-b border-[#8fb7ff]/12 shadow-[0_20px_45px_rgba(3,8,20,0.5)]"
+            : "bg-[#050b14]/72 backdrop-blur-lg py-6 border-b border-white/8 shadow-[0_16px_36px_rgba(2,6,16,0.32)]"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+          <div className="flex items-center gap-8">
+            <a href="/" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-[#14c38e] via-[#19d3a2] to-[#53e5e2] rounded-lg rotate-12 flex items-center justify-center shadow-[0_8px_24px_rgba(20,195,142,0.35)]">
+                <span className="text-white font-bold -rotate-12">T</span>
+              </div>
+              <span className="text-xl font-bold text-[#f3fffb] tracking-tight">Triostack</span>
+            </a>
 
-          <div className="hidden lg:flex items-center gap-6">
-            {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-[13px] font-medium text-slate-200/90 hover:text-[#7ef7c4] transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+            <div className="hidden lg:flex items-center gap-6">
+              {links.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-[13px] font-medium text-slate-200/90 hover:text-[#7ef7c4] transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative z-10 flex items-center gap-4">
+            <a
+              href={CRM_LOGIN_URL}
+              onClick={handleLoginClick}
+              className="hidden md:block text-sm font-medium text-slate-100 hover:text-[#7ef7c4] transition-colors cursor-pointer"
+            >
+              Login
+            </a>
+            <button
+              type="button"
+              onClick={handleBookCallOpen}
+              aria-haspopup="dialog"
+              aria-expanded={isBookCallOpen}
+              aria-controls="book-call-modal"
+              className="bg-gradient-to-r from-[#7ef7c4] via-[#37dfaa] to-[#14c38e] text-[#04111c] px-6 py-2.5 rounded-full text-sm font-bold transition-all hover:brightness-105 hover:shadow-[0_0_24px_rgba(55,223,170,0.28)] cursor-pointer"
+            >
+              Book a Call
+            </button>
           </div>
         </div>
+      </nav>
 
-        <div className="flex items-center gap-4">
-          <a href="#" className="hidden md:block text-sm font-medium text-slate-100 hover:text-[#7ef7c4] transition-colors">
-            Login
-          </a>
-          <a
-            href="#"
-            className="bg-gradient-to-r from-[#7ef7c4] via-[#37dfaa] to-[#14c38e] text-[#04111c] px-6 py-2.5 rounded-full text-sm font-bold transition-all hover:brightness-105 hover:shadow-[0_0_24px_rgba(55,223,170,0.28)]"
-          >
-            Book a Call
-          </a>
-        </div>
-      </div>
-    </nav>
+      <BookCallModal isOpen={isBookCallOpen} onClose={handleBookCallClose} />
+    </>
   );
 }
