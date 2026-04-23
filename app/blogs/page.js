@@ -3,56 +3,48 @@
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import SEOComponent from "@/components/SEOComponent";
 
-const categories = ["CRM Strategy", "Automation", "Sales Ops", "Compliance", "Growth"];
-
-const posts = [
-  {
-    slug: "five-workflow-automations",
-    category: "Automation",
-    readTime: "6 min read",
-    title: "Five workflow automations that save mid-market teams hours every week",
-    excerpt: "The most effective reminders, follow-up triggers, and approval automations are usually the simplest ones to adopt.",
-  },
-  {
-    slug: "gst-ready-crm",
-    category: "Compliance",
-    readTime: "7 min read",
-    title: "What GST-ready CRM operations should actually include",
-    excerpt: "Invoicing, audit trails, role permissions, and reporting patterns that matter when finance and sales need a shared operating view.",
-  },
-  {
-    slug: "inventory-solutions-msmes",
-    category: "Growth",
-    readTime: "8 min read",
-    title: "Inventory Solutions for MSMEs: Boost Cash Flow",
-    excerpt: "Inventory optimization delivers measurable ROI by slashing stockouts, reducing excess stock, and freeing working capital for growth.",
-  },
-  {
-    slug: "pipeline-visibility-breaks",
-    category: "Sales Ops",
-    readTime: "5 min read",
-    title: "Why pipeline visibility breaks as teams scale and how to fix it",
-    excerpt: "The common reporting blind spots that appear between lead intake, qualification, proposals, and closed revenue.",
-  },
-  {
-    slug: "building-crm-stack",
-    category: "Growth",
-    readTime: "9 min read",
-    title: "Building a CRM stack that supports growth without increasing operational chaos",
-    excerpt: "How to add structure for managers while keeping day-to-day workflows lightweight for the team actually using the system.",
-  },
-  {
-    slug: "generic-vs-business-fit",
-    category: "CRM Strategy",
-    readTime: "4 min read",
-    title: "The difference between a generic CRM rollout and a business-fit rollout",
-    excerpt: "Templates are easy to launch, but the real gains usually come from tailoring roles, views, and metrics to the business model.",
-  },
-];
+const categories = ["All", "Sales", "Marketing", "Tech"];
 
 export default function BlogsPage() {
   const router = useRouter();
+  const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch("https://api.blog-manager.triostack.in/api/blogs", {
+          headers: {
+            "Authorization": "Bearer 9f3c2e7a8b1c4d6e8f9a0b1c2d3e4f56789abcdeffedcba9876543210a1b2c3d4e5f6a7b8c9d"
+          }
+        });
+        const data = await response.json();
+        setPosts(data);
+        setFilteredPosts(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  useEffect(() => {
+    if (activeCategory === "All") {
+      setFilteredPosts(posts);
+    } else {
+      setFilteredPosts(
+        posts.filter((post) => post.category?.toLowerCase() === activeCategory.toLowerCase())
+      );
+    }
+  }, [activeCategory, posts]);
 
   const handleReadNow = (slug) => {
     router.push(`/blogs/${slug}`);
@@ -60,6 +52,10 @@ export default function BlogsPage() {
 
   return (
     <main className="min-h-screen bg-[#0b1220]">
+      <SEOComponent 
+        title="Triostack Blogs | CRM & Sales Insights"
+        description="Expert advice on CRM implementation, sales automation, and business growth."
+      />
       <Navbar />
 
       <section className="relative overflow-hidden px-6 pb-8 pt-32">
@@ -91,8 +87,9 @@ export default function BlogsPage() {
           {categories.map((item) => (
             <button
               key={item}
+              onClick={() => setActiveCategory(item)}
               className={`rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider transition ${
-                item === "CRM Strategy"
+                activeCategory === item
                   ? "border-[#7ef7c4]/25 bg-[#7ef7c4]/10 text-white"
                   : "border-white/10 bg-white/5 text-slate-300 hover:text-white"
               }`}
@@ -117,52 +114,76 @@ export default function BlogsPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {posts.map((post, index) => (
-              <article
-                key={post.slug}
-                onClick={() => handleReadNow(post.slug)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    handleReadNow(post.slug);
-                  }
-                }}
-                role="link"
-                tabIndex={0}
-                className="group flex h-full cursor-pointer animate-fade-in overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04] transition duration-300 hover:border-[#8be9ff]/25 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7ef7c4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220]"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="flex h-full w-full flex-col">
-                  <div className="h-40 bg-[linear-gradient(135deg,#102235_0%,#0b1728_45%,#0b1220_100%)] p-6 relative overflow-hidden">
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#00b274]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="flex items-start justify-between gap-4 relative z-10">
-                      <span className="rounded-full border border-[#8be9ff]/20 bg-[#8be9ff]/10 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8be9ff]">
-                        {post.category}
-                      </span>
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500">{post.readTime}</span>
-                    </div>
-                  </div>
+          {isLoading ? (
+            <div className="flex justify-center py-20">
+              <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#7ef7c4] border-t-transparent"></div>
+            </div>
+          ) : (
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {filteredPosts.length > 0 ? (
+                filteredPosts.map((post, index) => (
+                  <article
+                    key={post._id}
+                    onClick={() => handleReadNow(post._id)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        handleReadNow(post._id);
+                      }
+                    }}
+                    role="link"
+                    tabIndex={0}
+                    className="group flex h-full cursor-pointer animate-fade-in overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.04] transition duration-300 hover:border-[#8be9ff]/25 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7ef7c4] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220]"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="flex h-full w-full flex-col">
+                      <div className="h-48 bg-[#0d1828] relative overflow-hidden">
+                        {post.image ? (
+                          <img 
+                            src={post.image} 
+                            alt={post.title} 
+                            className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                          />
+                        ) : (
+                          <div className="h-full w-full bg-[linear-gradient(135deg,#102235_0%,#0b1728_45%,#0b1220_100%)]" />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220] via-transparent to-transparent opacity-60" />
+                        <div className="absolute left-6 top-6 flex items-start justify-between gap-4">
+                          <span className="rounded-full border border-[#8be9ff]/20 bg-[#8be9ff]/10 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8be9ff] backdrop-blur-md">
+                            {post.category}
+                          </span>
+                        </div>
+                      </div>
 
-                  <div className="p-7 flex-grow flex flex-col">
-                    <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-[#7ef7c4] transition-colors">{post.title}</h3>
-                    <p className="mt-3 text-[13px] leading-6 text-slate-400 line-clamp-2">{post.excerpt}</p>
-                    <button
-                      type="button"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        handleReadNow(post.slug);
-                      }}
-                      className="relative z-10 mt-auto flex w-fit items-center gap-2 pt-5 text-left text-xs font-bold text-[#7ef7c4] transition group-hover:gap-3"
-                    >
-                      Read Now
-                      <span aria-hidden="true">&rarr;</span>
-                    </button>
-                  </div>
+                      <div className="p-7 flex-grow flex flex-col">
+                        <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-[#7ef7c4] transition-colors line-clamp-2">
+                          {post.title}
+                        </h3>
+                        <p className="mt-3 text-[13px] leading-6 text-slate-400 line-clamp-2">
+                          {post.heading || post.content?.substring(0, 100) + "..."}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            handleReadNow(post._id);
+                          }}
+                          className="relative z-10 mt-auto flex w-fit items-center gap-2 pt-5 text-left text-xs font-bold text-[#7ef7c4] transition group-hover:gap-3"
+                        >
+                          Read Now
+                          <span aria-hidden="true">&rarr;</span>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
+                ))
+              ) : (
+                <div className="col-span-full py-20 text-center">
+                  <p className="text-slate-500">No posts found in this category.</p>
                 </div>
-              </article>
-            ))}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       </section>
 

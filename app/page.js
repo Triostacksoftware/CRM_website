@@ -10,11 +10,22 @@ import TestimonialSection from "@/components/TestimonialSection";
 import BrandSection from "@/components/BrandSection";
 import ConsultationSection from "@/components/ConsultationSection";
 import GooglePlaySection from "@/components/GooglePlaySection";
+import SEOComponent from "@/components/SEOComponent";
 
-
+export const metadata = {
+  title: "Triostack CRM | Best CRM for Indian Enterprises & MSMEs",
+  description: "Boost your sales with Triostack CRM. Features WhatsApp automation, GST-ready invoicing, and multi-branch management tailored for Indian businesses.",
+  alternates: {
+    canonical: "https://triostack.in",
+  },
+};
 export default function HomePage() {
   return (
     <main className="min-h-screen relative bg-[#0b1220]">
+      <SEOComponent 
+        title="Best CRM for Indian Enterprises"
+        description="Boost your sales with Triostack CRM. Features WhatsApp automation, GST-ready invoicing, and multi-branch management."
+      />
       <Navbar />
       <HeroSection />
       <FeaturesSection />

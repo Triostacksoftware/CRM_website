@@ -6,8 +6,46 @@ import SocialStickyBar from "@/components/SocialStickyBar";
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
-  title: "CRM Solutions | Premium Enterprise Software",
-  description: "Custom-built CRM solutions for Indian enterprises focusing on GST compliance and ROI.",
+  title: {
+    default: "Triostack CRM | Premium Enterprise Software Solution",
+    template: "%s | Triostack CRM"
+  },
+  description: "Custom-built CRM solutions for Indian enterprises. Specialized in GST compliance, WhatsApp automation, and multi-branch sales operations.",
+  keywords: ["CRM India", "GST CRM", "WhatsApp Automation CRM", "Enterprise CRM", "Sales Automation Software", "Triostack", "CRM for MSME"],
+  authors: [{ name: "Triostack Team" }],
+  creator: "Triostack",
+  publisher: "Triostack",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://triostack.in",
+    siteName: "Triostack CRM",
+    title: "Triostack CRM | Enterprise Software Solution",
+    description: "Scale your business with India's most compliant and automated CRM solution.",
+    images: [
+      {
+        url: "/img.png",
+        width: 1200,
+        height: 630,
+        alt: "Triostack CRM Dashboard",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Triostack CRM | Enterprise Software Solution",
+    description: "Scale your business with India's most compliant and automated CRM solution.",
+    images: ["/img.png"],
+  },
+  icons: {
+    icon: "/triostack-logo.jpeg",
+    shortcut: "/triostack-logo.jpeg",
+    apple: "/triostack-logo.jpeg",
+  },
 };
 
 export default function RootLayout({ children }) {
