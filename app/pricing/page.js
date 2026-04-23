@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import ContactLink from "@/components/ContactLink";
 import Reveal from "@/components/Reveal";
 import ContactSection from "@/components/ContactSection";
+import BookCallModal from "@/components/BookCallModal";
 
 const plans = [
   {
@@ -70,6 +71,15 @@ const plans = [
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState("annual");
+  const [activePlan, setActivePlan] = useState(null);
+
+  const handlePlanAction = (plan) => {
+    setActivePlan(plan);
+  };
+
+  const handleModalClose = () => {
+    setActivePlan(null);
+  };
 
   return (
     <main className="min-h-screen bg-[#0B1220]">
@@ -152,11 +162,15 @@ export default function PricingPage() {
                     ))}
                   </div>
 
-                  <button className={`w-full py-3.5 rounded-full text-sm font-bold transition-all duration-300 ${
+                  <button
+                    type="button"
+                    onClick={() => handlePlanAction(plan)}
+                    className={`w-full py-3.5 rounded-full text-sm font-bold transition-all duration-300 ${
                     plan.highlighted
                       ? "bg-gradient-to-r from-[#00b274] to-[#008a5a] text-white shadow-lg shadow-[#00b274]/20 hover:scale-105"
                       : "bg-white/10 text-white hover:bg-white/20 border border-white/10"
-                  }`}>
+                  }`}
+                  >
                     {plan.buttonText}
                   </button>
                 </div>
@@ -176,6 +190,16 @@ export default function PricingPage() {
       </div>
 
       <ContactSection />
+      <BookCallModal
+        isOpen={Boolean(activePlan)}
+        onClose={handleModalClose}
+        title={activePlan?.buttonText ?? "Book a Call"}
+        subtitle={
+          activePlan
+            ? `Share your details and our team will help you get started with the ${activePlan.name} plan.`
+            : "Share your details and our team will contact you shortly."
+        }
+      />
     </main>
   );
 }

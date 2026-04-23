@@ -2,7 +2,6 @@
 
 import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
-import Reveal from "@/components/Reveal";
 import Image from "next/image";
 
 const blogContent = {
@@ -58,91 +57,89 @@ export default function BlogPost() {
         <div className="max-w-7xl mx-auto relative z-10">
           
           {/* Back Button */}
-          <Reveal>
-            <button 
-              onClick={() => router.back()}
-              className="group mb-8 flex items-center gap-2 text-slate-400 hover:text-[#00b274] transition-all text-xs font-bold uppercase tracking-widest"
-            >
-              <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Go Back
-            </button>
-          </Reveal>
+          <button 
+            onClick={() => {
+              if (window.history.length > 1) {
+                router.back();
+              } else {
+                router.push('/blogs');
+              }
+            }}
+            className="group mb-8 flex items-center gap-2 text-slate-400 hover:text-[#00b274] transition-all text-xs font-bold uppercase tracking-widest animate-fade-in"
+          >
+            <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Go Back
+          </button>
 
-          <Reveal delay={50}>
-            <div className="mb-8">
-              <span className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">
-                BLOG POST
-              </span>
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight max-w-4xl">
-                {post.title}
-              </h1>
-              <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-3xl mb-8">
-                {post.subtitle}
-              </p>
-              
-              <div className="flex items-center gap-6">
-                <div className="px-4 py-1.5 rounded-full border border-[#00b274]/30 bg-[#00b274]/10 text-[#00b274] text-[10px] font-bold uppercase tracking-wider">
-                  {post.category}
-                </div>
-                <div className="flex items-center gap-4 text-slate-500 text-xs font-medium">
-                  <span>{post.author}</span>
-                  <div className="w-1 h-1 rounded-full bg-slate-700" />
-                  <span>{post.date}</span>
-                </div>
+          <div className="mb-8 animate-fade-in [animation-delay:100ms]">
+            <span className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">
+              BLOG POST
+            </span>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight max-w-4xl">
+              {post.title}
+            </h1>
+            <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-3xl mb-8">
+              {post.subtitle}
+            </p>
+            
+            <div className="flex items-center gap-6">
+              <div className="px-4 py-1.5 rounded-full border border-[#00b274]/30 bg-[#00b274]/10 text-[#00b274] text-[10px] font-bold uppercase tracking-wider">
+                {post.category}
+              </div>
+              <div className="flex items-center gap-4 text-slate-500 text-xs font-medium">
+                <span>{post.author}</span>
+                <div className="w-1 h-1 rounded-full bg-slate-700" />
+                <span>{post.date}</span>
               </div>
             </div>
-          </Reveal>
+          </div>
 
           <div className="grid lg:grid-cols-[1fr_350px] gap-12 mt-12">
             {/* Main Content */}
             <div className="space-y-10">
-              <Reveal delay={100}>
-                <div className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                  <Image 
-                    src={post.image} 
-                    alt={post.title} 
-                    fill 
-                    className="object-cover"
-                  />
-                </div>
-              </Reveal>
+              <div className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-fade-in [animation-delay:200ms]">
+                <Image 
+                  src={post.image} 
+                  alt={post.title} 
+                  fill 
+                  className="object-cover"
+                />
+              </div>
 
-              <div className="prose prose-invert max-w-none prose-p:text-slate-400 prose-p:leading-8 prose-h2:text-white prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-12">
+              <div className="prose prose-invert max-w-none prose-p:text-slate-400 prose-p:leading-8 prose-h2:text-white prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-12 animate-fade-in [animation-delay:300ms]">
                 {post.content.map((item, i) => (
-                  <Reveal key={i} delay={200 + i * 50}>
+                  <div key={i}>
                     {item.type === 'p' ? (
                       <p className="mb-6 whitespace-pre-line text-sm md:text-base">{item.text}</p>
                     ) : (
                       <h2 className="mb-4 mt-8">{item.text}</h2>
                     )}
-                  </Reveal>
+                  </div>
                 ))}
               </div>
             </div>
 
             {/* Sidebar */}
             <aside className="space-y-8">
-              <Reveal delay={300}>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-7 sticky top-32">
-                  <h3 className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase mb-6">
-                    RECENT POSTS
-                  </h3>
-                  <div className="space-y-8">
-                    {post.recentPosts.map((recent, i) => (
-                      <a key={i} href={`/blogs/${recent.slug}`} className="group block">
-                        <h4 className="text-white text-sm font-bold group-hover:text-[#00b274] transition-colors leading-snug mb-2">
-                          {recent.title}
-                        </h4>
-                        <p className="text-slate-500 text-[10px] font-medium uppercase tracking-wider">
-                          {recent.date}
-                        </p>
-                      </a>
-                    ))}
-                  </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-7 sticky top-32 animate-fade-in [animation-delay:400ms]">
+                <h3 className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase mb-6">
+                  RECENT POSTS
+                </h3>
+                <div className="space-y-8">
+                  {post.recentPosts.map((recent, i) => (
+                    <a key={i} href={`/blogs/${recent.slug}`} className="group block">
+                      <h4 className="text-white text-sm font-bold group-hover:text-[#00b274] transition-colors leading-snug mb-2">
+                        {recent.title}
+                      </h4>
+                      <p className="text-slate-500 text-[10px] font-medium uppercase tracking-wider">
+                        {recent.date}
+                      </p>
+                    </a>
+                  ))}
                 </div>
-              </Reveal>
+              </div>
             </aside>
           </div>
         </div>

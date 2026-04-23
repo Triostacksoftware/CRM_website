@@ -2,7 +2,12 @@
 
 import { useEffect } from "react";
 
-export default function BookCallModal({ isOpen, onClose }) {
+export default function BookCallModal({
+  isOpen,
+  onClose,
+  title = "Book a Call",
+  subtitle = "Share your details and our team will contact you shortly.",
+}) {
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
       onClose();
@@ -70,9 +75,9 @@ export default function BookCallModal({ isOpen, onClose }) {
 
           <div className="mb-6 pr-12">
             <h2 id="book-call-title" className="mb-1 text-3xl font-bold text-slate-900">
-              Book a Call
+              {title}
             </h2>
-            <p className="text-sm text-slate-500">Share your details and our team will contact you shortly.</p>
+            <p className="text-sm text-slate-500">{subtitle}</p>
           </div>
 
           <div className="mb-6">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import ContactLink from "./ContactLink";
 
 export default function TrustSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -119,9 +120,9 @@ export default function TrustSection() {
               ))}
             </div>
 
-            <button className="bg-gradient-to-r from-[#00b274] to-[#009661] text-white font-bold px-10 py-4 rounded-full shadow-lg shadow-[#00b274]/20 hover:shadow-[#00b274]/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+            <ContactLink className="inline-flex items-center justify-center bg-gradient-to-r from-[#00b274] to-[#009661] text-white font-bold px-10 py-4 rounded-full shadow-lg shadow-[#00b274]/20 hover:shadow-[#00b274]/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
               Get a Callback
-            </button>
+            </ContactLink>
           </div>
 
         </div>

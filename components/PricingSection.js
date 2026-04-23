@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import BookCallModal from "./BookCallModal";
 
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState("annual");
   const [isVisible, setIsVisible] = useState(false);
+  const [activePlan, setActivePlan] = useState(null);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -28,6 +30,14 @@ export default function PricingSection() {
       }
     };
   }, []);
+
+  const handlePlanAction = (plan) => {
+    setActivePlan(plan);
+  };
+
+  const handleModalClose = () => {
+    setActivePlan(null);
+  };
 
   const plans = [
     {
@@ -162,13 +172,17 @@ export default function PricingSection() {
                   ))}
                 </div>
 
-                <button className={`w-full py-4 rounded-full font-bold transition-all duration-300 active:scale-[0.98] ${
+                <button
+                  type="button"
+                  onClick={() => handlePlanAction(plan)}
+                  className={`w-full py-4 rounded-full font-bold transition-all duration-300 active:scale-[0.98] ${
                   plan.highlighted
                     ? "bg-gradient-to-r from-[#00b274] to-[#009661] text-white shadow-lg shadow-[#00b274]/20 hover:shadow-[#00b274]/40"
                     : plan.outline
                       ? "border border-white/20 text-white hover:bg-white/5 hover:border-white/40"
                       : "bg-white/10 text-white hover:bg-white/20"
-                }`}>
+                }`}
+                >
                   {plan.buttonText}
                 </button>
               </div>
@@ -176,6 +190,17 @@ export default function PricingSection() {
           ))}
         </div>
       </div>
+
+      <BookCallModal
+        isOpen={Boolean(activePlan)}
+        onClose={handleModalClose}
+        title={activePlan?.buttonText ?? "Book a Call"}
+        subtitle={
+          activePlan
+            ? `Share your details and our team will help you get started with the ${activePlan.name} plan.`
+            : "Share your details and our team will contact you shortly."
+        }
+      />
     </section>
   );
 }

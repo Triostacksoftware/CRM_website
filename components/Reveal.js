@@ -21,11 +21,18 @@ export default function Reveal({ children, className = "", delay = 0 }) {
         }
       },
       {
-        threshold: 0.18,
+        threshold: 0.05,
       }
     );
 
     observer.observe(node);
+
+    // Initial check for elements already in viewport
+    const rect = node.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true);
+      observer.disconnect();
+    }
 
     return () => observer.disconnect();
   }, []);
