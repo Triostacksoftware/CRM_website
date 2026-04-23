@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import BookCallModal from "./BookCallModal";
 
@@ -70,22 +71,22 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <a href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-to-br from-[#14c38e] via-[#19d3a2] to-[#53e5e2] rounded-lg rotate-12 flex items-center justify-center shadow-[0_8px_24px_rgba(20,195,142,0.35)]">
                 <span className="text-white font-bold -rotate-12">T</span>
               </div>
               <span className="text-xl font-bold text-[#f3fffb] tracking-tight">Triostack</span>
-            </a>
+            </Link>
 
             <div className="hidden lg:flex items-center gap-6">
               {links.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className="text-[13px] font-medium text-slate-200/90 hover:text-[#7ef7c4] transition-colors"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import ContactSection from "@/components/ContactSection";
@@ -98,9 +99,9 @@ export default function IndustriesPage() {
             <nav className="flex text-[11px] font-medium text-white/70 uppercase tracking-widest">
               <ol className="flex items-center gap-2">
                 <li>
-                  <a href="/" className="transition-colors hover:text-white">
+                  <Link href="/" className="transition-colors hover:text-white">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <span>/</span>

@@ -2,6 +2,7 @@
 
 export const dynamic = "force-dynamic";
 
+import Link from "next/link";
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
@@ -232,9 +233,9 @@ export default function FeaturesPage() {
             </h1>
             <nav className="flex text-sm text-white/70 font-medium">
               <ol className="flex items-center gap-2">
-                <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
+                <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
                 <li><span>&gt;</span></li>
-                <li><a href="#" className="hover:text-white transition-colors">Service</a></li>
+                <li><span>Service</span></li>
                 <li><span>&gt;</span></li>
                 <li className="text-white">CRM Features</li>
               </ol>

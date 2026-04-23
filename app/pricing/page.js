@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import ContactLink from "@/components/ContactLink";
@@ -95,7 +96,7 @@ export default function PricingPage() {
             </h1>
             <nav className="flex text-xs text-white/70 font-medium">
               <ol className="flex items-center gap-2">
-                <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
+                <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
                 <li><span>&gt;</span></li>
                 <li className="text-white">Pricing</li>
               </ol>
