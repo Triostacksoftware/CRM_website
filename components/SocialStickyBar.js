@@ -55,8 +55,8 @@ const socials = [
 
 export default function SocialStickyBar() {
   return (
-    <div className="fixed right-1 top-1/2 z-[70] hidden -translate-y-1/2 lg:flex">
-      <div className="rounded-2xl bg-[#0b1220]/80 p-2 shadow-2xl ring-1 ring-white/10 backdrop-blur-md">
+    <div className="fixed right-0 top-1/2 z-[70] hidden -translate-y-1/2 lg:flex">
+      <div className="rounded-l-2xl rounded-r-none bg-[#0b1220]/80 px-2 py-2 shadow-2xl ring-1 ring-white/10 backdrop-blur-md">
         <div className="flex flex-col gap-2">
           {socials.map((item) => (
             <a
