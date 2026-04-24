@@ -74,6 +74,8 @@ components/
 
 ## Run With Docker
 
+Production (no hot reload):
+
 Build and start:
 
 ```bash
@@ -114,6 +116,32 @@ View logs:
 
 ```bash
 npm run docker:logs
+```
+
+## Hot Reload (Dev Mode)
+
+If you want changes to appear immediately while you edit (Fast Refresh / hot reload), run the app in development mode:
+
+```bash
+npm run dev
+```
+
+If you prefer Docker with hot reload, use:
+
+```bash
+npm run docker:dev
+```
+
+Notes (Windows / OneDrive):
+
+- `docker compose up` (production) will **not** hot reload — use `npm run docker:dev`.
+- Dev Docker uses polling (WATCHPACK/CHOKIDAR). It also forces webpack mode when Next supports `--no-turbo`, because Turbopack file watching can be flaky on bind mounts.
+- If polling still misses changes, move the repo out of OneDrive-synced folders (e.g. `C:\dev\CRM_website`) and try again.
+
+If you changed UI code but still see the old page, you are likely running the **production** container. Reset the dev container (removes volumes + rebuilds):
+
+```bash
+npm run docker:dev:reset
 ```
 
 ## Port Configuration
