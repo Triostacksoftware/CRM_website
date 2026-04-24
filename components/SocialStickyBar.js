@@ -1,7 +1,7 @@
 const socials = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/company/triostack-technologies-private-limited/",
     brand: "#0A66C2",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
@@ -14,7 +14,7 @@ const socials = [
   },
   {
     name: "Instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/triostack/",
     brand: "#E1306C",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
@@ -27,7 +27,7 @@ const socials = [
   },
   {
     name: "Facebook",
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/triostack",
     brand: "#1877F2",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
@@ -40,7 +40,7 @@ const socials = [
   },
   {
     name: "YouTube",
-    href: "https://www.youtube.com/",
+    href: "https://www.youtube.com/@triostacktechnologies",
     brand: "#FF0000",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">

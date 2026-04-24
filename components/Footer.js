@@ -32,12 +32,21 @@ const trustHighlights = [
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/triostack/",
     icon: (
       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
         <circle cx="12" cy="12" r="4.2" />
         <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@triostacktechnologies",
+    icon: (
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M23.498 6.186a3.03 3.03 0 0 0-2.132-2.144C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.366.497A3.03 3.03 0 0 0 .502 6.186 31.128 31.128 0 0 0 0 12a31.128 31.128 0 0 0 .502 5.814 3.03 3.03 0 0 0 2.132 2.144c1.861.497 9.366.497 9.366.497s7.505 0 9.366-.497a3.03 3.03 0 0 0 2.132-2.144A31.128 31.128 0 0 0 24 12a31.128 31.128 0 0 0-.502-5.814ZM9.545 15.568V8.432L15.818 12l-6.273 3.568Z" />
       </svg>
     ),
   },
@@ -57,7 +66,7 @@ const socialLinks = [
   },
   {
     label: "Facebook",
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/triostack",
     icon: (
       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.87.24-1.46 1.5-1.46H16V5.03c-.6-.08-1.36-.13-2.12-.13-2.1 0-3.53 1.28-3.53 3.64V11H8v3h2.35v7h3.15Z" />
@@ -66,7 +75,7 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/company/triostack-technologies-private-limited/",
     icon: (
       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56a1.97 1.97 0 1 0-3.94 0 1.97 1.97 0 0 0 3.94 0ZM20.44 13.04c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.38 1.86V8.5H9.36c.04.87 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.12-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.02 1.88 2.52V20H20v-7.96h.44Z" />
