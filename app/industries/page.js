@@ -33,24 +33,24 @@ export default function IndustriesPage() {
     <main className="min-h-screen bg-[#0b1220]">
       <Navbar />
 
-      <section className="relative overflow-hidden px-6 pb-8 pt-32">
+      <section className="relative overflow-hidden px-6 pb-4 pt-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,195,142,0.1),transparent_24%),radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
+          <div className="flex flex-col gap-1.5">
+            <h1 className="text-3xl md:text-5xl font-black text-white tracking-tighter">
               Industries
             </h1>
-            <nav className="flex text-[11px] font-medium text-white/70 uppercase tracking-widest">
+            <nav className="flex text-[11px] uppercase tracking-widest text-white/50 font-bold">
               <ol className="flex items-center gap-2">
                 <li>
-                  <Link href="/" className="transition-colors hover:text-white">
+                  <Link href="/" className="hover:text-[#00b274] transition-colors">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <span>/</span>
+                  <span className="opacity-30">/</span>
                 </li>
-                <li className="text-white">Industries</li>
+                <li className="text-[#00b274]">Industries</li>
               </ol>
             </nav>
           </div>

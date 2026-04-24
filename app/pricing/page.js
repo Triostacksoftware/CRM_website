@@ -87,18 +87,17 @@ export default function PricingPage() {
       <Navbar />
 
       {/* Page Hero Section - Transparent */}
-      <div className="relative overflow-hidden pt-32 pb-8">
-
+      <div className="relative overflow-hidden pt-24 pb-4">
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-col gap-3">
-            <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+          <div className="flex flex-col gap-1.5">
+            <h1 className="text-3xl md:text-5xl font-black text-white tracking-tighter">
               Flexible Pricing Plans
             </h1>
-            <nav className="flex text-xs text-white/70 font-medium">
+            <nav className="flex text-[11px] uppercase tracking-widest text-white/50 font-bold">
               <ol className="flex items-center gap-2">
-                <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-                <li><span>&gt;</span></li>
-                <li className="text-white">Pricing</li>
+                <li><Link href="/" className="hover:text-[#00b274] transition-colors">Home</Link></li>
+                <li><span className="opacity-30">/</span></li>
+                <li className="text-[#00b274]">Pricing</li>
               </ol>
             </nav>
           </div>
@@ -106,11 +105,11 @@ export default function PricingPage() {
       </div>
 
       {/* Main Content Area */}
-      <div className="py-16 px-6 relative">
+      <div className="pt-4 pb-16 px-6 relative">
         <div className="container max-w-7xl mx-auto relative z-10">
           
           {/* Billing Toggle */}
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-10">
             <div className="bg-white/5 backdrop-blur-md p-1 rounded-full flex items-center gap-1 border border-white/10 shadow-2xl">
               {["quarterly", "semiannual", "annual"].map((cycle) => (
                 <button
@@ -180,7 +179,7 @@ export default function PricingPage() {
           </div>
 
           {/* Bottom FAQ CTA */}
-          <div className="mt-24 p-10 rounded-3xl bg-gradient-to-br from-[#00b274]/5 to-blue-500/5 border border-white/10 text-center">
+          <div className="mt-16 p-10 rounded-3xl bg-gradient-to-br from-[#00b274]/5 to-blue-500/5 border border-white/10 text-center">
             <h3 className="text-xl font-bold text-white mb-3">Need a custom plan?</h3>
             <p className="text-slate-400 mb-6 max-w-xl mx-auto text-sm">
               We offer tailored solutions for large-scale enterprises with specific security and integration requirements.
