@@ -299,8 +299,8 @@ export default function FeatureDetailPage() {
                 </h1>
               </Reveal>
               <Reveal delay={300}>
-                <p className="text-base text-slate-400 leading-relaxed max-w-lg">
-                  {(feature.details?.shortDescription || feature.description).split('.')[0]}.
+                <p className="text-base text-slate-400 leading-relaxed max-w-2xl">
+                  {feature.details?.shortDescription || feature.description}
                 </p>
               </Reveal>
               <div className="flex flex-wrap gap-4">
