@@ -60,11 +60,109 @@ const FEATURE_HERO_OVERLAYS = [
   "bg-[radial-gradient(circle_at_20%_20%,rgba(20,184,166,0.16),transparent_28%),radial-gradient(circle_at_84%_22%,rgba(59,130,246,0.16),transparent_30%),linear-gradient(180deg,rgba(11,18,32,0.86),rgba(11,18,32,0.54)_43%,rgba(11,18,32,0.92))]",
 ];
 
+const NATURAL_HERO_VIDEO_PRESETS = {
+  realisticLaptop: {
+    src: "https://cdn.pixabay.com/video/2025/01/08/251543_small.mp4",
+    objectPosition: "center center",
+  },
+  deskWorker: {
+    src: "https://cdn.pixabay.com/video/2024/06/07/215751_small.mp4",
+    objectPosition: "center center",
+  },
+  officeCorridor: {
+    src: "https://cdn.pixabay.com/video/2024/02/07/199623-910995789_small.mp4",
+    objectPosition: "center center",
+  },
+  teamMeeting: {
+    src: "https://cdn.pixabay.com/video/2017/03/08/8252-207598592_small.mp4",
+    objectPosition: "center center",
+  },
+};
+
+const FEATURE_HERO_VIDEO_OVERRIDES = {
+  "follow-up-reminders": {
+    sources: [
+      NATURAL_HERO_VIDEO_PRESETS.deskWorker,
+      NATURAL_HERO_VIDEO_PRESETS.teamMeeting,
+      NATURAL_HERO_VIDEO_PRESETS.officeCorridor,
+    ],
+    seekRatio: 0.18,
+    playbackRate: 0.94,
+    overlayClass:
+      "bg-[radial-gradient(circle_at_16%_22%,rgba(0,178,116,0.13),transparent_24%),radial-gradient(circle_at_82%_26%,rgba(125,211,252,0.12),transparent_28%),linear-gradient(180deg,rgba(11,18,32,0.8),rgba(11,18,32,0.56)_44%,rgba(11,18,32,0.9))]",
+    zoomClass: "scale-[1.02]",
+  },
+  "inventory-management": {
+    sources: [
+      NATURAL_HERO_VIDEO_PRESETS.teamMeeting,
+      NATURAL_HERO_VIDEO_PRESETS.officeCorridor,
+      NATURAL_HERO_VIDEO_PRESETS.deskWorker,
+    ],
+    seekRatio: 0.24,
+    playbackRate: 0.9,
+    overlayClass:
+      "bg-[radial-gradient(circle_at_18%_18%,rgba(0,178,116,0.11),transparent_22%),radial-gradient(circle_at_80%_24%,rgba(56,189,248,0.11),transparent_28%),linear-gradient(180deg,rgba(11,18,32,0.82),rgba(11,18,32,0.58)_42%,rgba(11,18,32,0.92))]",
+    zoomClass: "scale-[1.01]",
+  },
+  "high-speed-calling-system": {
+    sources: [
+      NATURAL_HERO_VIDEO_PRESETS.officeCorridor,
+      NATURAL_HERO_VIDEO_PRESETS.deskWorker,
+      NATURAL_HERO_VIDEO_PRESETS.teamMeeting,
+    ],
+    seekRatio: 0.15,
+    playbackRate: 0.96,
+    overlayClass:
+      "bg-[radial-gradient(circle_at_20%_18%,rgba(56,189,248,0.12),transparent_24%),radial-gradient(circle_at_78%_30%,rgba(0,178,116,0.12),transparent_28%),linear-gradient(180deg,rgba(11,18,32,0.82),rgba(11,18,32,0.54)_44%,rgba(11,18,32,0.9))]",
+    zoomClass: "scale-[1.02]",
+  },
+  "automated-whatsapp-follow-ups": {
+    sources: [
+      NATURAL_HERO_VIDEO_PRESETS.realisticLaptop,
+      NATURAL_HERO_VIDEO_PRESETS.deskWorker,
+      NATURAL_HERO_VIDEO_PRESETS.officeCorridor,
+    ],
+    seekRatio: 0.2,
+    playbackRate: 0.92,
+    overlayClass:
+      "bg-[radial-gradient(circle_at_16%_18%,rgba(0,178,116,0.12),transparent_24%),radial-gradient(circle_at_80%_28%,rgba(56,189,248,0.12),transparent_28%),linear-gradient(180deg,rgba(11,18,32,0.8),rgba(11,18,32,0.56)_44%,rgba(11,18,32,0.9))]",
+    zoomClass: "scale-[1.02]",
+  },
+  "appointment-scheduling": {
+    sources: [
+      NATURAL_HERO_VIDEO_PRESETS.teamMeeting,
+      NATURAL_HERO_VIDEO_PRESETS.realisticLaptop,
+      NATURAL_HERO_VIDEO_PRESETS.officeCorridor,
+    ],
+    seekRatio: 0.14,
+    playbackRate: 0.9,
+    overlayClass:
+      "bg-[radial-gradient(circle_at_18%_18%,rgba(125,211,252,0.11),transparent_24%),radial-gradient(circle_at_78%_26%,rgba(0,178,116,0.11),transparent_28%),linear-gradient(180deg,rgba(11,18,32,0.82),rgba(11,18,32,0.56)_42%,rgba(11,18,32,0.92))]",
+    zoomClass: "scale-[1.01]",
+  },
+  "knowledge-base-faq-hub": {
+    sources: [
+      NATURAL_HERO_VIDEO_PRESETS.deskWorker,
+      NATURAL_HERO_VIDEO_PRESETS.realisticLaptop,
+      NATURAL_HERO_VIDEO_PRESETS.teamMeeting,
+    ],
+    seekRatio: 0.22,
+    playbackRate: 0.88,
+    overlayClass:
+      "bg-[radial-gradient(circle_at_14%_18%,rgba(0,178,116,0.1),transparent_22%),radial-gradient(circle_at_82%_24%,rgba(125,211,252,0.1),transparent_28%),linear-gradient(180deg,rgba(11,18,32,0.8),rgba(11,18,32,0.58)_44%,rgba(11,18,32,0.92))]",
+    zoomClass: "scale-[1.01]",
+  },
+};
+
 const FEATURE_PAGE_SLUGS = allFeatures.flatMap((group) =>
   group.items.map((item) => item.slug)
 );
 
 function getFeatureHeroVideoConfig(slug) {
+  if (FEATURE_HERO_VIDEO_OVERRIDES[slug]) {
+    return FEATURE_HERO_VIDEO_OVERRIDES[slug];
+  }
+
   const featureIndex = Math.max(FEATURE_PAGE_SLUGS.indexOf(slug), 0);
   const totalVideos = FEATURE_HERO_BG_VIDEOS.length;
   const sourceIndices = [];

@@ -10,6 +10,14 @@ import BookCallModal from "@/components/BookCallModal";
 import FeatureIcon from "@/components/FeatureIcon";
 import { allFeatures } from "@/lib/features-data";
 
+function getCategoryAnchor(category) {
+  return category
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default function FeaturesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -52,7 +60,11 @@ export default function FeaturesPage() {
         <div className="container max-w-7xl mx-auto relative z-10">
           <div className="space-y-16">
             {allFeatures.map((group) => (
-              <div key={group.category} className="space-y-10">
+              <div
+                key={group.category}
+                id={getCategoryAnchor(group.category)}
+                className="space-y-10 scroll-mt-28"
+              >
                 <div className="flex items-center gap-4">
                   <h2 className="text-2xl md:text-3xl font-bold text-white whitespace-nowrap">
                     {group.category}
