@@ -286,12 +286,7 @@ export default function FeatureDetailPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center -mt-1 md:-mt-6 lg:-mt-10">
             <div className="space-y-8">
-              <Reveal delay={100}>
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#00b274]/10 border border-[#00b274]/20 text-[#00b274] text-sm font-bold uppercase tracking-wider">
-                   <FeatureIcon type={feature.icon} className="h-4 w-4" />
-                   {feature.title}
-                </div>
-              </Reveal>
+
               <Reveal delay={200}>
                 <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                   {feature.details?.subtitle || feature.title}
