@@ -180,25 +180,6 @@ export default async function IndustryDetailPage({ params }) {
 
             <div className="space-y-6">
               <Reveal delay={100}>
-                <article className="rounded-[1.25rem] border border-white/10 bg-[#081423]/92 p-6 md:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
-                  <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
-                    <span className="h-6 w-1 bg-[#7ef7c4] rounded-full" />
-                    Key Outcomes
-                  </h3>
-                  <div className="space-y-4">
-                    {industry.outcomes.map((outcome) => (
-                      <div key={outcome} className="flex gap-4 group">
-                        <div className="mt-1 h-5 w-5 shrink-0 rounded-full border border-[#7ef7c4]/30 bg-[#7ef7c4]/10 flex items-center justify-center group-hover:bg-[#7ef7c4]/20 transition-colors">
-                          <div className="h-1 w-1 rounded-full bg-[#7ef7c4]" />
-                        </div>
-                        <p className="text-sm leading-6 text-slate-200 font-medium">{outcome}</p>
-                      </div>
-                    ))}
-                  </div>
-                </article>
-              </Reveal>
-
-              <Reveal delay={200}>
                 <article className="rounded-[1.25rem] border border-[#7ef7c4]/20 bg-[#0d2119]/40 p-6 md:p-8 shadow-2xl relative overflow-hidden group backdrop-blur-md">
                   <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#7ef7c4]/10 blur-3xl rounded-full" />
                   
@@ -233,7 +214,7 @@ export default async function IndustryDetailPage({ params }) {
                       <div className="space-y-1.5">
                         <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider ml-1">Primary Goal</label>
                         <textarea 
-                          placeholder="e.g. Automating {industry.tag.toLowerCase()}..." 
+                          placeholder={`e.g. Automating ${industry.tag.toLowerCase()}...`} 
                           rows={3}
                           className="w-full bg-[#050a14]/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-[#7ef7c4]/50 transition-all resize-none placeholder:text-slate-600"
                         />
@@ -251,6 +232,25 @@ export default async function IndustryDetailPage({ params }) {
                     <p className="mt-4 text-center text-[10px] text-slate-500">
                       No credit card required. 15-min discovery call.
                     </p>
+                  </div>
+                </article>
+              </Reveal>
+
+              <Reveal delay={200}>
+                <article className="rounded-[1.25rem] border border-white/10 bg-[#081423]/92 p-6 md:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+                  <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
+                    <span className="h-6 w-1 bg-[#7ef7c4] rounded-full" />
+                    Key Outcomes
+                  </h3>
+                  <div className="space-y-4">
+                    {industry.outcomes.map((outcome) => (
+                      <div key={outcome} className="flex gap-4 group">
+                        <div className="mt-1 h-5 w-5 shrink-0 rounded-full border border-[#7ef7c4]/30 bg-[#7ef7c4]/10 flex items-center justify-center group-hover:bg-[#7ef7c4]/20 transition-colors">
+                          <div className="h-1 w-1 rounded-full bg-[#7ef7c4]" />
+                        </div>
+                        <p className="text-sm leading-6 text-slate-200 font-medium">{outcome}</p>
+                      </div>
+                    ))}
                   </div>
                 </article>
               </Reveal>
