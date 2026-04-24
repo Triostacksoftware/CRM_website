@@ -10,6 +10,14 @@ import BookCallModal from "@/components/BookCallModal";
 import FeatureIcon from "@/components/FeatureIcon";
 import { allFeatures } from "@/lib/features-data";
 
+function getCategoryAnchor(category) {
+  return category
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default function FeaturesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -25,33 +33,38 @@ export default function FeaturesPage() {
     <main className="min-h-screen bg-[#0B1220]">
       <Navbar />
 
-      <div className="relative overflow-hidden pt-32 pb-12">
+      <div className="relative overflow-hidden pt-32 pb-6">
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <div className="flex flex-col gap-1.5">
+            <h1 className="text-3xl md:text-5xl font-black text-white tracking-tighter">
               CRM Features
             </h1>
-            <nav className="flex text-sm text-white/70 font-medium">
+            <nav className="flex text-[11px] uppercase tracking-widest text-white/50 font-bold">
               <ol className="flex items-center gap-2">
-                <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-                <li><span>&gt;</span></li>
+                <li><Link href="/" className="hover:text-[#00b274] transition-colors">Home</Link></li>
+                <li><span className="opacity-30">/</span></li>
                 <li><span>Service</span></li>
-                <li><span>&gt;</span></li>
-                <li className="text-white">CRM Features</li>
+                <li><span className="opacity-30">/</span></li>
+                <li className="text-[#00b274]">CRM Features</li>
               </ol>
             </nav>
           </div>
         </div>
       </div>
 
-      <div className="py-24 px-6 relative">
+      <div className="pt-4 pb-10 px-6 relative">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(0,178,116,0.05),transparent_40%)] pointer-events-none" />
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container max-w-7xl mx-auto relative z-10">
-          <div className="space-y-24">
+          <div className="space-y-16">
             {allFeatures.map((group) => (
-              <div key={group.category} className="space-y-12">
+              <div
+                key={group.category}
+                id={getCategoryAnchor(group.category)}
+                className="space-y-10 scroll-mt-28"
+              >
                 <div className="flex items-center gap-4">
                   <h2 className="text-2xl md:text-3xl font-bold text-white whitespace-nowrap">
                     {group.category}
@@ -88,7 +101,7 @@ export default function FeaturesPage() {
             ))}
           </div>
 
-          <div className="mt-32 p-12 rounded-3xl bg-gradient-to-br from-[#00b274]/10 to-blue-500/10 border border-white/10 text-center relative overflow-hidden">
+          <div className="mt-12 p-12 rounded-3xl bg-gradient-to-br from-[#00b274]/10 to-blue-500/10 border border-white/10 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-[#00b274]/5 blur-3xl rounded-full" />
             <div className="relative z-10">
               <h3 className="text-3xl font-bold text-white mb-6">Ready to see these features in action?</h3>

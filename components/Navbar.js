@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-
-
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import BookCallModal from "./BookCallModal";
@@ -57,6 +55,14 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   const links = [
     { name: "Home", href: "/" },
     { name: "Features", href: "/features" },
@@ -68,12 +74,12 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-auto transition-all duration-300 will-change-transform ${
+        className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-auto transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         } ${
           isScrolled
-            ? "bg-[#07111d]/90 backdrop-blur-xl py-4 border-b border-[#8fb7ff]/12 shadow-[0_20px_45px_rgba(3,8,20,0.5)]"
-            : "bg-[#050b14]/72 backdrop-blur-lg py-6 border-b border-white/8 shadow-[0_16px_36px_rgba(2,6,16,0.32)]"
+            ? "bg-[#07111d]/95 backdrop-blur-xl py-3.5 border-b border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+            : "bg-transparent py-6 border-b border-white/[0.03]"
         }`}
       >
         <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -125,9 +131,12 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <button
+              type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav-menu"
             >
               <div className="w-6 h-5 relative flex flex-col justify-between overflow-hidden">
                 <span className={`w-full h-0.5 bg-current transition-all duration-300 origin-left ${isMobileMenuOpen ? 'rotate-45 translate-x-1' : ''}`} />
@@ -137,11 +146,29 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Menu Overlay */}
-        <div 
-          className={`lg:hidden fixed inset-0 top-[73px] bg-[#050b14]/95 backdrop-blur-2xl transition-all duration-500 overflow-hidden ${
-            isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full pointer-events-none'
+      <div
+        className={`fixed inset-0 z-[190] lg:hidden transition-all duration-500 ${
+          isMobileMenuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        }`}
+        aria-hidden={!isMobileMenuOpen}
+      >
+        <button
+          type="button"
+          aria-label="Close mobile menu"
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="absolute inset-0 bg-[#020814]/72 backdrop-blur-md"
+        />
+
+        <div
+          id="mobile-nav-menu"
+          className={`absolute inset-x-0 top-[72px] max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-white/10 bg-[#050b14]/96 backdrop-blur-2xl transition-all duration-500 ${
+            isMobileMenuOpen
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-4 opacity-0"
           }`}
         >
           <div className="p-8 flex flex-col gap-6">
@@ -159,9 +186,9 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-            
+
             <div className="h-px bg-white/10 my-4" />
-            
+
             <div className="flex flex-col gap-5">
               <a
                 href={CRM_LOGIN_URL}
@@ -171,6 +198,7 @@ export default function Navbar() {
                 Login
               </a>
               <button
+                type="button"
                 onClick={handleBookCallOpen}
                 className="w-full bg-gradient-to-r from-[#7ef7c4] via-[#37dfaa] to-[#14c38e] text-[#04111c] py-4 rounded-2xl text-lg font-bold shadow-xl shadow-[#7ef7c4]/10"
               >
@@ -179,7 +207,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </nav>
+      </div>
 
       <BookCallModal isOpen={isBookCallOpen} onClose={handleBookCallClose} />
     </>
