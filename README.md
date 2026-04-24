@@ -74,6 +74,8 @@ components/
 
 ## Run With Docker
 
+Production (no hot reload):
+
 Build and start:
 
 ```bash
@@ -114,6 +116,20 @@ View logs:
 
 ```bash
 npm run docker:logs
+```
+
+## Hot Reload (Dev Mode)
+
+If you want changes to appear immediately while you edit (Fast Refresh / hot reload), run the app in development mode:
+
+```bash
+npm run dev
+```
+
+If you prefer Docker with hot reload, use:
+
+```bash
+npm run docker:dev
 ```
 
 ## Port Configuration
