@@ -300,8 +300,9 @@ export default function FeatureDetailPage() {
               <Reveal delay={400}>
                 <div className="flex flex-wrap gap-4">
                   <button
-                    onClick={handleModalOpen}
-                    className="bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105"
+                    type="button"
+                    onClick={() => setIsModalOpen(true)}
+                    className="relative z-20 bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 cursor-pointer"
                   >
                     Book a Demo
                   </button>
@@ -462,8 +463,9 @@ export default function FeatureDetailPage() {
               <h2 className="text-4xl md:text-5xl font-bold mb-8">{feature.details.ctaSection.heading}</h2>
               <p className="text-xl text-slate-400 mb-12">{feature.details.ctaSection.description}</p>
               <button
-                onClick={handleModalOpen}
-                className="bg-[#00b274] hover:bg-[#009661] text-white px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-[0_20px_50px_rgba(0,178,116,0.3)]"
+                type="button"
+                onClick={() => setIsModalOpen(true)}
+                className="relative z-20 bg-[#00b274] hover:bg-[#009661] text-white px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-[0_20px_50px_rgba(0,178,116,0.3)] cursor-pointer"
               >
                 {feature.details.ctaSection.buttonText}
               </button>
