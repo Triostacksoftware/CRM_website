@@ -256,7 +256,7 @@ export default function FeatureDetailPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-28 md:pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-32 md:pt-48 pb-32 md:pb-40 overflow-hidden">
         {/* Background Video with Overlay */}
         {activeHeroVideo ? (
           <div className="absolute inset-0 z-0 overflow-hidden">
@@ -288,7 +288,7 @@ export default function FeatureDetailPage() {
             <div className="space-y-8">
 
               <Reveal delay={200}>
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                <h1 className="text-3xl md:text-5xl font-bold leading-tight">
                   {feature.details?.subtitle || feature.title}
                 </h1>
               </Reveal>
