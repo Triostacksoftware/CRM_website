@@ -98,7 +98,7 @@ const Stars = ({ rating }) => (
 );
 
 const TextTestimonialCard = ({ name, role, company, content, rating, image, href }) => (
-  <div className="w-[280px] sm:w-[320px] rounded-2xl border border-white/10 bg-white/5 p-5 shadow-md backdrop-blur-md transition-all duration-300 hover:bg-white/10">
+  <div className="w-[280px] shrink-0 sm:w-[320px] rounded-2xl border border-white/10 bg-white/5 p-5 shadow-md backdrop-blur-md transition-all duration-300 hover:bg-white/10">
     <div className="mb-4 flex items-start justify-between gap-4">
       <div className="flex items-center gap-3">
         <img
@@ -154,7 +154,7 @@ const VideoTestimonialCard = ({ name, role, company, thumbnail, onOpen }) => (
     onKeyDown={(event) => {
       if (event.key === "Enter" || event.key === " ") onOpen();
     }}
-    className="group relative w-[280px] sm:w-[320px] cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-md backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274]/70"
+    className="group relative w-[280px] shrink-0 sm:w-[320px] cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-md backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274]/70"
     aria-label={`Play video testimonial from ${name}`}
   >
     <div className="relative aspect-[16/10] w-full">
@@ -261,7 +261,7 @@ function MarqueeRow({ items, directionClass }) {
 
   return (
     <div className="relative w-full overflow-hidden mask-gradient pause-on-hover">
-      <div className={`flex min-w-[200%] w-max items-stretch gap-5 ${directionClass} py-3`}>
+      <div className={`flex w-max transform-gpu items-stretch gap-5 ${directionClass} py-3`}>
         {duplicated.map((item, index) => (
           <div key={`${item.id}-${index}`} className="flex">
             <item.Render />
