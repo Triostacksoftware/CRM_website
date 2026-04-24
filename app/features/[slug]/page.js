@@ -407,8 +407,8 @@ export default function FeatureDetailPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {feature.details.howItHelps.map((item, idx) => (
-                <Reveal key={idx} delay={idx * 100}>
-                  <div className="p-8 rounded-3xl bg-[#0F172A] border border-white/5 hover:border-[#00b274]/30 transition-all duration-500 group h-full">
+                <Reveal key={idx} delay={idx * 100} className="group h-full">
+                  <div className="relative h-full p-8 rounded-3xl bg-[#0F172A] border border-white/5 hover:border-[#00b274]/30 transition-all duration-500 group-hover:bg-[#0F172A]/80 group-hover:-translate-y-1">
                     <div className="w-12 h-12 rounded-2xl bg-[#00b274]/10 flex items-center justify-center mb-8 text-[#00b274] group-hover:bg-[#00b274] group-hover:text-white transition-all duration-500">
                       <span className="text-xl font-bold">{idx + 1}</span>
                     </div>
