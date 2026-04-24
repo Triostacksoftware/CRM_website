@@ -133,12 +133,12 @@ export default function GooglePlaySection() {
                     <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-2.5">
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.24em] text-[#7ef7c4]">Live CRM</p>
-                        <p className="mt-1 text-sm font-semibold text-white">Trio CRM Mobile</p>
+                        <p className="mt-1 text-sm font-semibold text-white">CRM Solutions Mobile</p>
                       </div>
                       <div className="relative h-11 w-11 overflow-hidden rounded-2xl border border-white/10 bg-white">
                         <img
                           src="/trio-crm.png"
-                          alt="Trio CRM logo"
+                          alt="CRM Solutions logo"
                           className="w-full h-full object-contain p-1.5"
                         />
                       </div>

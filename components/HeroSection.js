@@ -32,7 +32,7 @@ export default function HeroSection() {
                 Software Solution
               </span>
               <h1 className="text-5xl lg:text-7xl font-black text-white mb-4 leading-[0.9] tracking-tighter uppercase">
-                CRM<br />Solutions
+                Trio<br />CRM
               </h1>
               <p className="text-base text-slate-300 leading-relaxed mb-6 max-w-lg">
                 Transform the way your business manages leads, sales, communication, support, and customer relationships with Trio CRM — an intelligent, scalable, all-in-one business growth platform.

@@ -92,7 +92,7 @@ export default function FeaturesSection() {
           </Reveal>
           <Reveal delay={100}>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Explore CRM by Category
+              Best In class Features
             </h2>
           </Reveal>
           <Reveal delay={200}>
@@ -103,8 +103,8 @@ export default function FeaturesSection() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-5">
-          {categoryCards.map((card, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categoryCards.slice(0, 6).map((card, index) => (
             <Reveal key={card.category} delay={index * 70}>
               <Link href={card.href} className="group block h-full">
                 <div className="relative h-full rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 xl:p-5 transition-all duration-500 hover:-translate-y-1 hover:border-[#00b274]/30 hover:bg-white/[0.07] hover:shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
