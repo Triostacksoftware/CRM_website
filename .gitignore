@@ -17,6 +17,7 @@
 
 # environment
 .env
+.env.local
 .env.*
 
 # local tooling
