@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import BookCallModal from "./BookCallModal";
-import { ThemeToggle } from "./ThemeToggle";
 
 const CRM_LOGIN_URL = "https://crm.triostack.in/login";
 
@@ -129,7 +128,6 @@ export default function Navbar() {
             >
               Book a Call
             </button>
-            <ThemeToggle />
 
             {/* Mobile Toggle */}
             <button
