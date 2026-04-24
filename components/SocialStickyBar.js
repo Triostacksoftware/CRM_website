@@ -55,7 +55,7 @@ const socials = [
 
 export default function SocialStickyBar() {
   return (
-    <div className="fixed right-0 top-1/2 z-[70] hidden -translate-y-1/2 lg:flex">
+    <div className="pointer-events-none fixed right-0 top-1/2 z-[70] hidden -translate-y-1/2 lg:flex">
       <div className="rounded-l-2xl rounded-r-none bg-[#0b1220]/80 px-1.5 py-1.5 shadow-2xl ring-1 ring-white/10 backdrop-blur-md">
         <div className="flex flex-col gap-1.5">
           {socials.map((item) => (
@@ -66,7 +66,7 @@ export default function SocialStickyBar() {
               rel="noreferrer"
               aria-label={item.name}
               style={{ ["--brand"]: item.brand }}
-              className="group grid h-10 w-10 place-items-center rounded-full bg-white shadow-md ring-1 ring-black/10 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220] active:scale-95"
+              className="group pointer-events-auto grid h-10 w-10 place-items-center rounded-full bg-white shadow-md ring-1 ring-black/10 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1220] active:scale-95"
               title={item.name}
             >
               <span className="text-[var(--brand)] opacity-55 saturate-75 transition-all group-hover:scale-110 group-hover:opacity-100 group-hover:saturate-150">
