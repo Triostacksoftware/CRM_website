@@ -97,7 +97,7 @@ export default function Navbar() {
             <Link href="/" className="relative z-10 inline-flex items-center gap-3 cursor-pointer" aria-label="Go to home page">
               <div className={`relative w-10 h-10 overflow-hidden rounded-xl shadow-lg shadow-[#14c38e]/10 ${isLightHeaderPage ? "border border-slate-200" : "border border-white/10"}`}>
                 <img
-                  src="/triostack-logo.jpeg"
+                  src="/trio-logo.png"
                   alt="CRM Solutions Logo"
                   className="w-full h-full object-cover"
                 />

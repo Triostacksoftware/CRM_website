@@ -48,7 +48,7 @@ export default function TrustSection() {
                 {/* Cube Style Logo Placeholder */}
                 <div className="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-[#00b274]/20 flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform duration-500 overflow-hidden">
                   <img 
-                    src="/triostack-logo.jpeg" 
+                    src="/trio-logo.png" 
                     alt="Triostack Logo" 
                     className="w-full h-full object-cover -rotate-12 group-hover:rotate-0 transition-transform duration-500" 
                   />

@@ -44,9 +44,9 @@ export const metadata = {
     images: ["/img.png"],
   },
   icons: {
-    icon: "/triostack-logo.jpeg",
-    shortcut: "/triostack-logo.jpeg",
-    apple: "/triostack-logo.jpeg",
+    icon: "/trio-logo.png",
+    shortcut: "/trio-logo.png",
+    apple: "/trio-logo.png",
   },
 };
 
