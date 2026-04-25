@@ -31,7 +31,7 @@ export default function SEOComponent({
             "name": siteName,
             "logo": {
               "@type": "ImageObject",
-              "url": "https://triostack.in/triostack-logo.jpeg"
+              "url": "https://triostack.in/trio-logo.png"
             }
           }
         })
