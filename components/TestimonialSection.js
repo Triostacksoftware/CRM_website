@@ -252,7 +252,7 @@ function VideoModal({ video, onClose }) {
 
 function MarqueeRow({ items, directionClass }) {
   return (
-    <div className="relative w-full overflow-hidden mask-gradient pause-on-hover">
+    <div className="relative w-full overflow-hidden mask-gradient">
       <div className={`flex w-max transform-gpu items-stretch ${directionClass} py-3`}>
         <div className="flex shrink-0 items-stretch gap-5 pr-5">
           {items.map((item) => (
