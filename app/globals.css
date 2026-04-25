@@ -160,19 +160,6 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .animate-marquee-right,
-    .animate-marquee-left {
-      animation: none;
-      transform: translateX(0);
-    }
-  }
-
-  .pause-on-hover:hover .animate-marquee-right,
-  .pause-on-hover:hover .animate-marquee-left {
-    animation-play-state: paused;
-  }
-
   @keyframes marqueeRight {
     from {
       transform: translateX(-50%);
