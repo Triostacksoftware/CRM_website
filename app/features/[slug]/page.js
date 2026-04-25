@@ -222,6 +222,45 @@ export default function FeatureDetailPage() {
     notFound();
   }
 
+  const ctaWidgets =
+    feature.slug === "lead-source-tracking"
+      ? [
+          {
+            title: "Source Heatmap",
+            image: "/lead_source_bg_tracking_1777021653613.png",
+            alt: "Lead source performance heatmap",
+            icon: (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            ),
+          },
+          {
+            title: "Attribution Intelligence",
+            image: "/lead_source_visual_tracking_1777021671436.png",
+            alt: "Lead source attribution analytics",
+            icon: (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            ),
+          },
+        ]
+      : [
+          {
+            title: "Global Presence",
+            image: "/premium_dark_map.png",
+            alt: "Global Network Map",
+            icon: (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            ),
+          },
+          {
+            title: "Data Intelligence",
+            image: "/crm_3d_model.png",
+            alt: "CRM Data Model",
+            icon: (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            ),
+          },
+        ];
+
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
   const heroVideoConfig = getFeatureHeroVideoConfig(slug);
@@ -465,41 +504,24 @@ export default function FeatureDetailPage() {
                 
                 {/* Model & Map Section - Integrated here as well */}
                 <div className="grid grid-cols-1 gap-6 mb-12 sm:grid-cols-2">
-                  {/* Small Map Widget */}
-                  <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:bg-slate-100 hover:border-[#00b274]/30 hover:shadow-lg">
-                    <div className="mb-3 flex items-center gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#00b274]/10 text-[#00b274]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                  {ctaWidgets.map((widget) => (
+                    <div key={widget.title} className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:bg-slate-100 hover:border-[#00b274]/30 hover:shadow-lg">
+                      <div className="mb-3 flex items-center gap-3">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#00b274]/10 text-[#00b274]">
+                          {widget.icon}
+                        </div>
+                        <span className="text-sm font-semibold text-slate-900">{widget.title}</span>
                       </div>
-                      <span className="text-sm font-semibold text-slate-900">Global Presence</span>
-                    </div>
-                    <div className="relative h-24 w-full overflow-hidden rounded-lg bg-[#0B1220]">
-                      <img 
-                        src="/premium_dark_map.png" 
-                        alt="Global Network Map" 
-                        className="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220]/60 via-transparent to-transparent" />
-                    </div>
-                  </div>
-
-                  {/* Data Model Widget */}
-                  <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:bg-slate-100 hover:border-[#00b274]/30 hover:shadow-lg">
-                    <div className="mb-3 flex items-center gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#00b274]/10 text-[#00b274]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                      <div className="relative h-24 w-full overflow-hidden rounded-lg bg-[#0B1220]">
+                        <img
+                          src={widget.image}
+                          alt={widget.alt}
+                          className="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220]/60 via-transparent to-transparent" />
                       </div>
-                      <span className="text-sm font-semibold text-slate-900">Data Intelligence</span>
                     </div>
-                    <div className="relative h-24 w-full overflow-hidden rounded-lg bg-[#0B1220]">
-                      <img 
-                        src="/crm_3d_model.png" 
-                        alt="CRM Data Model" 
-                        className="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220]/60 via-transparent to-transparent" />
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
                 <button
@@ -507,7 +529,7 @@ export default function FeatureDetailPage() {
                   onClick={handleModalOpen}
                   className="relative z-[300] bg-[#00b274] hover:bg-[#009661] text-white px-8 py-3.5 rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-[0_15px_40px_rgba(0,178,116,0.25)] cursor-pointer"
                 >
-                  Contact Support
+                  {feature.details.ctaSection.buttonText || "Contact Support"}
                 </button>
               </div>
 
