@@ -7,94 +7,102 @@ export default function ConsultationSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = (event) => {
-    event.preventDefault();
+    if (event) event.preventDefault();
     setIsModalOpen(true);
   };
 
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-16 md:py-24">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00b274]/5 blur-[120px]" />
+    <section id="consultation" className="relative overflow-hidden bg-[#0b1220] px-6 py-20 md:py-32">
+      {/* Decorative Glows */}
+      <div className="pointer-events-none absolute left-0 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00b274]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute right-0 bottom-0 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px]" />
 
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
-          <div className="group relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.28)] lg:h-[520px] lg:aspect-auto">
-            <img
-              src="/consultation-team-humanized.png"
-              alt="CRM consultation with a business team"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,18,32,0.08),rgba(11,18,32,0.12)_50%,rgba(11,18,32,0.4))]" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0b1220]/45 to-transparent" />
-          </div>
-
-          <div className="space-y-8 rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_24px_70px_rgba(15,23,42,0.12)] lg:space-y-10 lg:p-10">
-            <div className="space-y-5">
-              <span className="block text-xs font-bold uppercase tracking-[0.4em] text-[#00b274]">
-                READY TO GROW?
-              </span>
-              <h2 className="text-4xl font-bold leading-tight text-slate-950 lg:text-5xl">
-                Ready to Transform <br className="hidden md:block" /> Your Sales Pipeline?
-              </h2>
-              <p className="max-w-2xl text-[1.1rem] leading-8 text-slate-600 md:text-[1.22rem]">
-                Get personalized consultation to understand how our CRM can fit your business needs, improve day-to-day operations, and give your team a clearer sales workflow.
-              </p>
-              <p className="max-w-2xl text-base leading-7 text-slate-500 md:text-lg">
-                We walk you through real use cases, practical automations, and rollout steps so you can choose the right setup with confidence.
-              </p>
-              <p className="max-w-xl text-lg leading-relaxed text-slate-600">
-                Join hundreds of growing businesses across India that use CRM Solutions to automate their sales, delight their customers, and scale their revenue.
-              </p>
-
-              {/* Model & Map Section */}
-              <div className="grid grid-cols-1 gap-6 pt-4 sm:grid-cols-2">
-                {/* Small Map Widget */}
-                <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:bg-slate-100 hover:border-[#00b274]/30 hover:shadow-lg">
-                  <div className="mb-3 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#00b274]/10 text-[#00b274]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-                    </div>
-                    <span className="text-sm font-semibold text-slate-900">Global Presence</span>
+        <div className="grid items-stretch gap-12 lg:grid-cols-[1fr_1.1fr]">
+          
+          {/* Left: Premium Image with Floating Element */}
+          <div className="relative group">
+            <div className="relative h-full min-h-[400px] lg:min-h-[600px] overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl">
+              <img
+                src="/consultation-team-premium.png"
+                alt="Premium CRM consultation"
+                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220] via-transparent to-transparent opacity-60" />
+              
+              {/* Floating Success Badge */}
+              <div className="absolute bottom-8 left-8 right-8 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-6 transform transition-transform duration-500 group-hover:-translate-y-2">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#00b274] shadow-[0_0_20px_rgba(0,178,116,0.4)]">
+                    <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
-                  <div className="relative h-24 w-full overflow-hidden rounded-lg bg-[#0B1220]">
-                    <img 
-                      src="/premium_dark_map.png" 
-                      alt="Global Network Map" 
-                      className="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220]/60 via-transparent to-transparent" />
-                  </div>
-                </div>
-
-                {/* Data Model Widget */}
-                <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:bg-slate-100 hover:border-[#00b274]/30 hover:shadow-lg">
-                  <div className="mb-3 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#00b274]/10 text-[#00b274]">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
-                    </div>
-                    <span className="text-sm font-semibold text-slate-900">Data Intelligence</span>
-                  </div>
-                  <div className="relative h-24 w-full overflow-hidden rounded-lg bg-[#0B1220]">
-                    <img 
-                      src="/crm_3d_model.png" 
-                      alt="CRM Data Model" 
-                      className="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220]/60 via-transparent to-transparent" />
+                  <div>
+                    <p className="text-sm font-medium text-slate-400">Implementation Success Rate</p>
+                    <p className="text-2xl font-bold text-white">99.4% Across Enterprises</p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <button
-              type="button"
-              onClick={openModal}
-              className="group relative cursor-pointer overflow-hidden rounded-full bg-gradient-to-r from-[#00b274] to-[#008a5a] px-10 py-5 font-bold text-white shadow-[0_10px_30px_rgba(0,178,116,0.3)] transition-all hover:scale-105 hover:shadow-[0_15px_40px_rgba(0,178,116,0.5)] active:scale-95"
-            >
-              <span className="relative z-10">Book Demo</span>
-              <div className="absolute inset-0 translate-y-full bg-white/20 transition-transform duration-300 group-hover:translate-y-0" />
-            </button>
+          {/* Right: Content Card */}
+          <div className="flex flex-col justify-center rounded-[2.5rem] border border-white/5 bg-white/[0.02] backdrop-blur-sm p-8 md:p-12 lg:p-16 shadow-2xl">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00b274]/10 border border-[#00b274]/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00b274] animate-pulse" />
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00b274]">
+                    Scale Your Operations
+                  </span>
+                </div>
+                <h2 className="text-4xl font-bold leading-tight text-white lg:text-6xl tracking-tight">
+                  Ready to Transform <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00b274] to-[#7ef7c4]">Your Sales Pipeline?</span>
+                </h2>
+                <p className="max-w-2xl text-lg leading-relaxed text-slate-400">
+                  Stop guessing and start growing. Our consultants help you map your existing workflow to a high-performance automated system tailored for the Indian market.
+                </p>
+              </div>
+
+              {/* Feature Grid */}
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="group rounded-2xl border border-white/5 bg-white/[0.03] p-5 transition-all hover:bg-white/[0.06] hover:border-[#00b274]/30">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#00b274]/10 text-[#00b274] transition-transform group-hover:scale-110">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 font-bold text-white">Smart Intelligence</h3>
+                  <p className="text-sm leading-relaxed text-slate-500">Advanced lead scoring and predictive analytics to focus on high-value deals.</p>
+                </div>
+
+                <div className="group rounded-2xl border border-white/5 bg-white/[0.03] p-5 transition-all hover:bg-white/[0.06] hover:border-[#00b274]/30">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#00b274]/10 text-[#00b274] transition-transform group-hover:scale-110">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 font-bold text-white">Automated Workflows</h3>
+                  <p className="text-sm leading-relaxed text-slate-500">Eliminate manual tasks with GST-ready invoicing and WhatsApp auto-responders.</p>
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <button
+                  type="button"
+                  onClick={openModal}
+                  className="inline-flex items-center gap-3 rounded-full bg-[#00b274] px-10 py-5 font-bold text-white shadow-[0_10px_30px_rgba(0,178,116,0.3)] transition-all hover:scale-105 hover:bg-[#009661] hover:shadow-[0_15px_40px_rgba(0,178,116,0.5)] active:scale-95 cursor-pointer"
+                >
+                  <span>Schedule Your Walkthrough</span>
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
