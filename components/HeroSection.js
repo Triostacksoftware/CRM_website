@@ -44,7 +44,7 @@ export default function HeroSection() {
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 items-center">
 
             {/* Left Content */}
-            <div className="relative z-10">
+            <div className="relative z-[120] pointer-events-auto">
               <div className="mb-4">
                 <span className="text-[#00b274] text-[10px] font-bold tracking-[0.4em] uppercase block mb-3">
                   Sales & Growth Automation
@@ -78,11 +78,12 @@ export default function HeroSection() {
               </ul>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4 relative z-[50]">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 relative z-[130] pointer-events-auto">
                 <button
                   type="button"
                   onClick={handleBookDemoClick}
-                  className="relative z-30 bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center cursor-pointer pointer-events-auto"
+                  onMouseDown={handleBookDemoClick}
+                  className="relative z-[140] bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center cursor-pointer pointer-events-auto"
                 >
                   Book Free Demo
                 </button>
@@ -100,7 +101,7 @@ export default function HeroSection() {
             </div> {/* End Left Content */}
 
             {/* Right Form */}
-            <div id="hero-form-container" className="flex justify-center lg:justify-end">
+            <div id="hero-form-container" className="relative z-20 flex justify-center lg:justify-end">
               <HeroForm />
             </div>
 
