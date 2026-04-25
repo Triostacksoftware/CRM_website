@@ -40,7 +40,7 @@ export default function Reveal({ children, className = "", delay = 0 }) {
   return (
     <div
       ref={ref}
-      className={`reveal ${visible ? "reveal-visible" : ""} ${className}`}
+      className={`${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} transition-all duration-700 ease-out ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
