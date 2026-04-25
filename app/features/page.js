@@ -114,9 +114,9 @@ export default function FeaturesPage() {
               <button
                 type="button"
                 onClick={handleModalOpen}
-                className="inline-block bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 cursor-pointer"
+                className="relative z-[50] inline-block bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105 cursor-pointer pointer-events-auto shadow-[0_10px_30px_rgba(0,178,116,0.2)]"
               >
-                Start Your Free Trial
+                Book Demo
               </button>
             </div>
           </div>
