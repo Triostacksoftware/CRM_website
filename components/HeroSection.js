@@ -101,7 +101,7 @@ export default function HeroSection() {
             </div> {/* End Left Content */}
 
             {/* Right Form */}
-            <div id="hero-form-container" className="relative z-20 flex w-full justify-center lg:justify-end">
+            <div id="hero-form-container" className="relative z-20 hidden w-full justify-center lg:flex lg:justify-end">
               <HeroForm />
             </div>
 
