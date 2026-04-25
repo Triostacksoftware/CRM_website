@@ -255,15 +255,15 @@ function MarqueeRow({ items, directionClass }) {
     <div className="relative w-full overflow-hidden mask-gradient">
       <div className={`flex w-max transform-gpu items-stretch ${directionClass} py-3`}>
         <div className="flex shrink-0 items-stretch gap-5 pr-5">
-          {items.map((item) => (
-            <div key={`${item.id}-primary`} className="flex">
+          {items.map((item, index) => (
+            <div key={`${item.id}-${index}-primary`} className="flex">
               <item.Render />
             </div>
           ))}
         </div>
         <div className="flex shrink-0 items-stretch gap-5 pr-5" aria-hidden="true">
-          {items.map((item) => (
-            <div key={`${item.id}-duplicate`} className="flex">
+          {items.map((item, index) => (
+            <div key={`${item.id}-${index}-duplicate`} className="flex">
               <item.Render />
             </div>
           ))}
@@ -277,6 +277,16 @@ const TestimonialSection = () => {
   const [activeVideo, setActiveVideo] = useState(null);
 
   const rowItems = useMemo(() => {
+    const expandForSeamlessLoop = (sourceItems, minimumCount = 6) => {
+      if (sourceItems.length === 0) return sourceItems;
+
+      const expanded = [];
+      while (expanded.length < minimumCount) {
+        expanded.push(...sourceItems);
+      }
+      return expanded.slice(0, minimumCount);
+    };
+
     const renderables = items.map((item) => {
       if (item.type === "video") {
         return {
@@ -316,7 +326,10 @@ const TestimonialSection = () => {
       (index % 2 === 0 ? top : bottom).push(renderables[index]);
     }
 
-    return { top, bottom };
+    return {
+      top: expandForSeamlessLoop(top, 6),
+      bottom: expandForSeamlessLoop(bottom, 6),
+    };
   }, []);
 
   return (
