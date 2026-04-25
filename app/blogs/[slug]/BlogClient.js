@@ -12,9 +12,9 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
 
   if (!post) {
     return (
-      <main className="min-h-screen bg-[#0b1220]">
+      <main className="min-h-screen bg-white">
         <Navbar />
-        <div className="flex flex-col h-screen items-center justify-center text-white">
+        <div className="flex flex-col h-screen items-center justify-center text-slate-950">
           <h2 className="text-2xl font-bold mb-4">Post not found</h2>
           <Link href="/blogs" className="text-[#00b274] hover:underline font-bold">Back to Blogs</Link>
         </div>
@@ -23,7 +23,7 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
   }
 
   return (
-    <main className="min-h-screen bg-[#0b1220]">
+    <main className="min-h-screen bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_45%,#eef6f4_100%)]">
       <SEOComponent 
         title={post.title}
         description={post.heading || post.content?.substring(0, 160)}
@@ -34,7 +34,8 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
       <Navbar />
 
       <section className="pt-32 pb-16 px-6 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.05),transparent_40%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_40%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(180deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:56px_56px] opacity-40" />
         
         <div className="max-w-7xl mx-auto relative z-[250] mb-8 flex pointer-events-auto">
           <GoBackButton fallbackHref="/blogs" className="animate-fade-in" />
@@ -45,10 +46,10 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
             <span className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">
               BLOG POST
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight max-w-4xl">
+            <h1 className="text-3xl md:text-5xl font-bold text-slate-950 mb-6 leading-tight max-w-4xl">
               {post.title}
             </h1>
-            <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-3xl mb-8">
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-3xl mb-8">
               {post.heading}
             </p>
             
@@ -58,7 +59,7 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
               </div>
               <div className="flex items-center gap-4 text-slate-500 text-xs font-medium">
                 <span>Triostack Team</span>
-                <div className="w-1 h-1 rounded-full bg-slate-700" />
+                <div className="w-1 h-1 rounded-full bg-slate-300" />
                 <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
               </div>
             </div>
@@ -68,7 +69,7 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
             {/* Main Content */}
             <div className="space-y-10">
               {post.image && (
-                <div className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-fade-in [animation-delay:200ms]">
+                <div className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-slate-200 shadow-[0_28px_80px_rgba(15,23,42,0.12)] animate-fade-in [animation-delay:200ms]">
                   <img 
                     src={post.image} 
                     alt={post.title} 
@@ -77,7 +78,7 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
                 </div>
               )}
 
-              <div className="prose prose-invert max-w-none prose-p:text-slate-400 prose-p:leading-8 prose-h2:text-white prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-12 animate-fade-in [animation-delay:300ms]">
+              <div className="prose max-w-none prose-p:text-slate-700 prose-p:leading-8 prose-h2:text-slate-950 prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-12 animate-fade-in [animation-delay:300ms]">
                 {post.content?.split('\n\n').map((paragraph, i) => (
                   <p key={i} className="mb-6 whitespace-pre-line text-sm md:text-base leading-relaxed">
                     {paragraph}
@@ -88,14 +89,14 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
 
             {/* Sidebar */}
             <aside className="space-y-8">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-7 sticky top-32 animate-fade-in [animation-delay:400ms]">
+              <div className="bg-white/95 border border-slate-200 rounded-2xl p-7 sticky top-32 animate-fade-in [animation-delay:400ms] shadow-[0_20px_60px_rgba(15,23,42,0.1)]">
                 <h3 className="text-[#00b274] text-[10px] font-bold tracking-[0.3em] uppercase mb-6">
                   RECENT POSTS
                 </h3>
                 <div className="space-y-8">
                   {recentPosts.length > 0 ? recentPosts.map((recent, i) => (
                     <Link key={i} href={`/blogs/${slugify(recent.title)}`} className="group block">
-                      <h4 className="text-white text-sm font-bold group-hover:text-[#00b274] transition-colors leading-snug mb-2">
+                      <h4 className="text-slate-950 text-sm font-bold group-hover:text-[#00b274] transition-colors leading-snug mb-2">
                         {recent.title}
                       </h4>
                       <p className="text-slate-500 text-[10px] font-medium uppercase tracking-wider">
@@ -103,7 +104,7 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
                       </p>
                     </Link>
                   )) : (
-                    <p className="text-slate-500 text-xs">No other posts available.</p>
+                    <p className="text-slate-600 text-xs">No other posts available.</p>
                   )}
                 </div>
               </div>
