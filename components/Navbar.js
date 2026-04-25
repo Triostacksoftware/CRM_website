@@ -75,7 +75,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-auto transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${
+        className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-none transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         } ${
           isScrolled
@@ -83,7 +83,7 @@ export default function Navbar() {
             : "bg-transparent py-6"
         }`}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="pointer-events-auto relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <Link href="/" className="relative z-10 inline-flex items-center gap-3 cursor-pointer" aria-label="Go to home page">
               <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-white/10 shadow-lg shadow-[#14c38e]/10">
