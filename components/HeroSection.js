@@ -81,14 +81,6 @@ export default function HeroSection() {
               <div className="relative z-10 flex flex-col flex-wrap gap-4 sm:flex-row pointer-events-auto">
                 <button
                   type="button"
-                  onClick={handleBookDemoClick}
-                  className="relative z-20 bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center cursor-pointer"
-                >
-                  Book Free Demo
-                </button>
-
-                <button
-                  type="button"
                   onClick={() => router.push('/pricing')}
                   className="relative z-20 border border-white/20 hover:bg-white/5 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:border-white/40 cursor-pointer"
                 >
