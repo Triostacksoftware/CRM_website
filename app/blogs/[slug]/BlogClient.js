@@ -78,9 +78,9 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
                 </div>
               )}
 
-              <div className="prose max-w-none prose-p:text-slate-700 prose-p:leading-8 prose-h2:text-slate-950 prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-12 animate-fade-in [animation-delay:300ms]">
+              <div className="max-w-none text-slate-700 animate-fade-in [animation-delay:300ms]">
                 {post.content?.split('\n\n').map((paragraph, i) => (
-                  <p key={i} className="mb-6 whitespace-pre-line text-sm md:text-base leading-relaxed">
+                  <p key={i} className="mb-6 whitespace-pre-line text-sm md:text-base leading-relaxed text-slate-700">
                     {paragraph}
                   </p>
                 ))}
