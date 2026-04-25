@@ -9,7 +9,22 @@ export default function HeroSection() {
   const router = useRouter();
   const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
   
-  const openBookDemoModal = () => {
+  const handleBookDemoClick = () => {
+    if (typeof window !== "undefined") {
+      const formContainer = document.getElementById("hero-form-container");
+      const firstInput = formContainer?.querySelector("input, select, textarea");
+
+      if (formContainer) {
+        formContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+        window.setTimeout(() => {
+          if (firstInput && "focus" in firstInput) {
+            firstInput.focus();
+          }
+        }, 350);
+        return;
+      }
+    }
+
     setIsBookDemoOpen(true);
   };
 
@@ -81,7 +96,7 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 relative z-[50]">
                 <button
                   type="button"
-                  onClick={openBookDemoModal}
+                  onClick={handleBookDemoClick}
                   className="relative z-30 bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center cursor-pointer pointer-events-auto"
                 >
                   Book Free Demo
