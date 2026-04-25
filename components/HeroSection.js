@@ -1,31 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import HeroForm from "./HeroForm";
-import BookCallModal from "./BookCallModal";
 
 export default function HeroSection() {
   const router = useRouter();
-  const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
-  
-  const handleBookDemoClick = () => {
-    setIsBookDemoOpen(true);
-  };
-
-  const closeBookDemoModal = () => {
-    setIsBookDemoOpen(false);
-  };
 
   return (
     <>
-      <BookCallModal
-        isOpen={isBookDemoOpen}
-        onClose={closeBookDemoModal}
-        title="Book Your Free Demo"
-        subtitle="Fill your details and our team will schedule your personalized walkthrough."
-      />
-      
       <section data-hero="true" className="relative min-h-[85vh] flex items-center pt-32 overflow-hidden">
         {/* Background Image with Overlays */}
         <div className="absolute inset-0 z-0 pointer-events-none">
