@@ -69,7 +69,7 @@ export default function SocialStickyBar() {
               className="group pointer-events-auto grid h-10 w-10 place-items-center rounded-full bg-[#0b1b2b]/70 shadow-md ring-1 ring-white/12 backdrop-blur-sm transition-all hover:scale-105 hover:bg-[#07121f]/90 hover:shadow-[0_10px_22px_rgba(0,0,0,0.55),0_0_16px_var(--brand)] hover:ring-[color:var(--brand)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34d399] focus-visible:ring-offset-2 focus-visible:ring-offset-[#081b28] active:scale-95"
               title={item.name}
             >
-              <span className="text-slate-200/70 transition-all duration-200 group-hover:scale-110 group-hover:text-[color:var(--brand)] group-hover:drop-shadow-[0_0_8px_var(--brand)]">
+              <span className="text-white transition-all duration-200 group-hover:scale-110 group-hover:text-white">
                 {item.icon}
               </span>
             </a>
