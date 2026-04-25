@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import HeroForm from "./HeroForm";
 import BookCallModal from "./BookCallModal";
 
 export default function HeroSection() {
+  const router = useRouter();
   const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
-  const openBookDemoModal = (event) => {
-    event.preventDefault();
+  
+  const openBookDemoModal = () => {
     setIsBookDemoOpen(true);
   };
 
@@ -79,7 +81,7 @@ export default function HeroSection() {
 
               <button
                 type="button"
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => router.push('/pricing')}
                 className="border border-white/20 hover:bg-white/5 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:border-white/40"
               >
                 Get Pricing
