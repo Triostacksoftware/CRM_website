@@ -41,10 +41,10 @@ export default function HeroSection() {
         </div>
 
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-wrap-reverse items-center gap-6 lg:grid lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="flex flex-col-reverse gap-6 lg:grid lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
 
             {/* Left Content */}
-            <div className="relative z-[120] w-full pointer-events-auto">
+            <div className="relative z-10">
               <div className="mb-4">
                 <span className="text-[#00b274] text-[10px] font-bold tracking-[0.4em] uppercase block mb-3">
                   Sales & Growth Automation
@@ -78,12 +78,11 @@ export default function HeroSection() {
               </ul>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4 relative z-[130] pointer-events-auto">
+              <div className="relative z-10 flex flex-col flex-wrap gap-4 sm:flex-row">
                 <button
                   type="button"
                   onClick={handleBookDemoClick}
-                  onMouseDown={handleBookDemoClick}
-                  className="relative z-[140] bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center cursor-pointer pointer-events-auto"
+                  className="relative z-20 bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center cursor-pointer"
                 >
                   Book Free Demo
                 </button>
@@ -91,7 +90,7 @@ export default function HeroSection() {
                 <button
                   type="button"
                   onClick={() => router.push('/pricing')}
-                  className="relative z-30 border border-white/20 hover:bg-white/5 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:border-white/40 cursor-pointer pointer-events-auto"
+                  className="relative z-20 border border-white/20 hover:bg-white/5 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:border-white/40 cursor-pointer"
                 >
                   Get Pricing
                 </button>
@@ -101,7 +100,7 @@ export default function HeroSection() {
             </div> {/* End Left Content */}
 
             {/* Right Form */}
-            <div id="hero-form-container" className="relative z-20 hidden w-full justify-center lg:flex lg:justify-end">
+            <div id="hero-form-container" className="relative z-20 hidden justify-center lg:flex lg:justify-end">
               <HeroForm />
             </div>
 
