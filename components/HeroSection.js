@@ -62,7 +62,7 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <button
-                onClick={() => document.getElementById('hero-form-container')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => setIsQuoteOpen(true)}
                 className="bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center"
               >
                 Book Free Demo
@@ -90,6 +90,13 @@ export default function HeroSection() {
       {/* Floating Elements / Decorative Blur */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+      <GetQuoteModal
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+        title="Book Your Free Demo"
+        subtitle="Fill your details and our team will schedule your personalized walkthrough."
+      />
     </section>
   );
 }
