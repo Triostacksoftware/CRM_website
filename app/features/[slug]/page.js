@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import FeatureIcon from "@/components/FeatureIcon";
@@ -314,12 +313,12 @@ export default function FeatureDetailPage() {
                 <div className="absolute -inset-4 bg-[#00b274]/20 rounded-[2rem] blur-3xl" />
                 <div className="relative rounded-3xl border border-white/10 overflow-hidden bg-[#0F172A]/50 backdrop-blur-sm">
                   {feature.heroImage ? (
-                    <Image 
-                      src={feature.heroImage} 
-                      alt={feature.title} 
-                      width={800} 
-                      height={500} 
+                    <img
+                      src={encodeURI(feature.heroImage)}
+                      alt={feature.title}
                       className="w-full h-auto"
+                      loading="eager"
+                      decoding="async"
                     />
                   ) : (
                     <div className="aspect-video flex items-center justify-center p-12 text-center">

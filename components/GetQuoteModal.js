@@ -16,7 +16,7 @@ export default function GetQuoteModal({
   isOpen,
   onClose,
   title = "Get a Quote",
-  subtitle = "Share a few details and we’ll follow up with a tailored proposal.",
+  subtitle = "Share a few details and we'll follow up with a tailored proposal.",
   interests = defaultInterests,
 }) {
   const [status, setStatus] = useState("idle");
@@ -99,7 +99,7 @@ export default function GetQuoteModal({
       onClick={handleBackdropClick}
       role="presentation"
     >
-      <div className="absolute inset-0 bg-[#020814]/80 backdrop-blur-md animate-fade-in" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(20,195,142,0.2),transparent_35%),rgba(2,8,20,0.82)] backdrop-blur-md animate-fade-in" />
 
       <div
         className="relative z-10 w-full max-w-5xl animate-slide-up"
@@ -108,9 +108,9 @@ export default function GetQuoteModal({
         aria-modal="true"
         aria-labelledby="get-quote-title"
       >
-        <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-gradient-to-br from-[#071223]/85 via-[#060d18]/85 to-[#040813]/85 shadow-[0_30px_90px_rgba(0,0,0,0.55)] backdrop-blur-xl">
-          <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#00b274]/15 blur-[70px]" />
-          <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-blue-500/10 blur-[90px]" />
+        <div className="relative overflow-hidden rounded-[30px] border border-white/15 bg-gradient-to-br from-[#09162a]/96 via-[#071324]/96 to-[#050e1d]/96 shadow-[0_34px_110px_rgba(0,0,0,0.58)] backdrop-blur-xl">
+          <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#00b274]/12 blur-[70px]" />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-[#38bdf8]/10 blur-[90px]" />
 
           <button
             type="button"
@@ -126,16 +126,16 @@ export default function GetQuoteModal({
           <div className="grid gap-0 md:grid-cols-2">
             <div className="relative p-7 sm:p-9">
               <div className="mb-6">
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#00b274]">
+                <span className="inline-flex rounded-full border border-[#00b274]/20 bg-[#00b274]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-[#7ef7c4]">
                   Request a Proposal
                 </span>
                 <h2 id="get-quote-title" className="mt-3 text-3xl font-bold text-white sm:text-4xl">
                   {title}
                 </h2>
-                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/60">{subtitle}</p>
+                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/65">{subtitle}</p>
               </div>
 
-              <div className="mt-6 space-y-3 text-sm text-white/70">
+              <div className="mt-6 space-y-3 text-sm text-white/80">
                 {[
                   "A quick needs assessment with our CRM specialist",
                   "Recommended modules and rollout plan",
@@ -150,15 +150,14 @@ export default function GetQuoteModal({
               </div>
 
               <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-xs font-semibold text-white/80">Privacy</p>
-                <p className="mt-1 text-xs leading-relaxed text-white/55">
-                  We’ll only use your details to contact you about your CRM requirements. No spam.
+                <p className="text-xs font-semibold text-white/85">Privacy</p>
+                <p className="mt-1 text-xs leading-relaxed text-white/60">
+                  We'll only use your details to contact you about your CRM requirements. No spam.
                 </p>
               </div>
             </div>
 
-            {/* Right: Form */}
-            <div className="border-t border-white/10 bg-white/5 p-7 sm:p-9 md:border-l md:border-t-0">
+            <div className="border-t border-white/10 bg-white/[0.04] p-7 sm:p-9 md:border-l md:border-t-0">
               {status === "success" ? (
                 <div className="flex h-full flex-col justify-center">
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#00b274]/15 text-[#7ef7c4] ring-1 ring-[#00b274]/25">
@@ -167,7 +166,7 @@ export default function GetQuoteModal({
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-white">Request received</h3>
-                  <p className="mt-2 text-sm text-white/60">
+                  <p className="mt-2 text-sm text-white/65">
                     Thanks! Our team will reach out shortly with the next steps.
                   </p>
                   <div className="mt-6">
@@ -184,53 +183,53 @@ export default function GetQuoteModal({
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="mb-1 block text-xs font-semibold text-white/70">Full Name *</label>
+                      <label className="mb-1 block text-xs font-semibold text-white/75">Full Name *</label>
                       <input
                         name="name"
                         type="text"
                         placeholder="Your name"
-                        className="w-full rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white placeholder:text-white/30 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                        className="w-full rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white placeholder:text-white/35 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                         required
                       />
                     </div>
                     <div>
-                      <label className="mb-1 block text-xs font-semibold text-white/70">Phone *</label>
+                      <label className="mb-1 block text-xs font-semibold text-white/75">Phone *</label>
                       <input
                         name="phone"
                         type="tel"
                         placeholder="Phone number"
-                        className="w-full rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white placeholder:text-white/30 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                        className="w-full rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white placeholder:text-white/35 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                         required
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="mb-1 block text-xs font-semibold text-white/70">Work Email *</label>
+                    <label className="mb-1 block text-xs font-semibold text-white/75">Work Email *</label>
                     <input
                       name="email"
                       type="email"
                       placeholder="name@company.com"
-                      className="w-full rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white placeholder:text-white/30 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                      className="w-full rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white placeholder:text-white/35 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                       required
                     />
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="mb-1 block text-xs font-semibold text-white/70">Company</label>
+                      <label className="mb-1 block text-xs font-semibold text-white/75">Company</label>
                       <input
                         name="company"
                         type="text"
                         placeholder="Company name"
-                        className="w-full rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white placeholder:text-white/30 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                        className="w-full rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white placeholder:text-white/35 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                       />
                     </div>
                     <div>
-                      <label className="mb-1 block text-xs font-semibold text-white/70">Interested In</label>
+                      <label className="mb-1 block text-xs font-semibold text-white/75">Interested In</label>
                       <select
                         name="interest"
-                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white/80 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white/85 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                         defaultValue={interestOptions[0]?.value ?? ""}
                       >
                         {interestOptions.map((option) => (
@@ -244,23 +243,23 @@ export default function GetQuoteModal({
 
                   <div className="grid gap-4 sm:grid-cols-3">
                     <div>
-                      <label className="mb-1 block text-xs font-semibold text-white/70">Team Size</label>
+                      <label className="mb-1 block text-xs font-semibold text-white/75">Team Size</label>
                       <select
                         name="team_size"
-                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white/80 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white/85 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                         defaultValue=""
                       >
                         <option value="" className="bg-[#0b1220] text-white/80">
                           Select
                         </option>
                         <option value="1-5" className="bg-[#0b1220] text-white">
-                          1–5
+                          1-5
                         </option>
                         <option value="6-20" className="bg-[#0b1220] text-white">
-                          6–20
+                          6-20
                         </option>
                         <option value="21-50" className="bg-[#0b1220] text-white">
-                          21–50
+                          21-50
                         </option>
                         <option value="50+" className="bg-[#0b1220] text-white">
                           50+
@@ -268,10 +267,10 @@ export default function GetQuoteModal({
                       </select>
                     </div>
                     <div>
-                      <label className="mb-1 block text-xs font-semibold text-white/70">Timeline</label>
+                      <label className="mb-1 block text-xs font-semibold text-white/75">Timeline</label>
                       <select
                         name="timeline"
-                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white/80 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white/85 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                         defaultValue=""
                       >
                         <option value="" className="bg-[#0b1220] text-white/80">
@@ -281,10 +280,10 @@ export default function GetQuoteModal({
                           Immediate
                         </option>
                         <option value="2-4_weeks" className="bg-[#0b1220] text-white">
-                          2–4 weeks
+                          2-4 weeks
                         </option>
                         <option value="1-3_months" className="bg-[#0b1220] text-white">
-                          1–3 months
+                          1-3 months
                         </option>
                         <option value="exploring" className="bg-[#0b1220] text-white">
                           Just exploring
@@ -292,49 +291,49 @@ export default function GetQuoteModal({
                       </select>
                     </div>
                     <div>
-                      <label className="mb-1 block text-xs font-semibold text-white/70">Budget</label>
+                      <label className="mb-1 block text-xs font-semibold text-white/75">Budget</label>
                       <select
                         name="budget"
-                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white/80 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white/85 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                         defaultValue=""
                       >
                         <option value="" className="bg-[#0b1220] text-white/80">
                           Select
                         </option>
                         <option value="under_25k" className="bg-[#0b1220] text-white">
-                          Under ₹25k
+                          Under Rs25k
                         </option>
                         <option value="25k_50k" className="bg-[#0b1220] text-white">
-                          ₹25k–₹50k
+                          Rs25k-Rs50k
                         </option>
                         <option value="50k_1l" className="bg-[#0b1220] text-white">
-                          ₹50k–₹1L
+                          Rs50k-Rs1L
                         </option>
                         <option value="1l_plus" className="bg-[#0b1220] text-white">
-                          ₹1L+
+                          Rs1L+
                         </option>
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label className="mb-1 block text-xs font-semibold text-white/70">
+                    <label className="mb-1 block text-xs font-semibold text-white/75">
                       Requirements (optional)
                     </label>
                     <textarea
                       name="requirements"
                       rows={4}
-                      placeholder="Tell us about your workflow, integrations, or any must-have features…"
-                      className="w-full resize-none rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white placeholder:text-white/30 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                      placeholder="Tell us about your workflow, integrations, or any must-have features..."
+                      className="w-full resize-none rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white placeholder:text-white/35 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                     />
                   </div>
 
                   <div className="flex items-center justify-between gap-4">
                     <div className="hidden sm:block">
-                      <label className="mb-1 block text-xs font-semibold text-white/70">Preferred Contact</label>
+                      <label className="mb-1 block text-xs font-semibold text-white/75">Preferred Contact</label>
                       <select
                         name="preferred_contact"
-                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/60 px-4 py-3 text-sm text-white/80 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
+                        className="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-[#0b1220]/70 px-4 py-3 text-sm text-white/85 transition focus:border-[#00b274]/60 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20"
                         defaultValue="phone"
                       >
                         <option value="phone" className="bg-[#0b1220] text-white">

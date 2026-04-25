@@ -85,7 +85,7 @@ export default function Navbar() {
                   className="h-full w-full object-contain"
                 />
               </div>
-              <span className={`text-xl font-bold tracking-tight ${isLightHeaderPage ? "text-slate-950" : "text-[#f3fffb]"}`}>CRM Solutions</span>
+              <span className={`text-xl font-bold tracking-tight ${isLightHeaderPage ? "text-slate-950" : "text-[#f3fffb]"}`}>Trio-CRM 360</span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-2">
