@@ -9,7 +9,6 @@ const CRM_LOGIN_URL = "https://crm.triostack.in/login";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -33,23 +32,9 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    if (pathname !== "/") {
-      setIsVisible(true);
-      return undefined;
-    }
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 20);
-
-      const heroSection = document.querySelector('section[data-hero="true"]');
-      if (!heroSection) {
-        setIsVisible(currentScrollY <= 20);
-        return;
-      }
-
-      const heroBottom = heroSection.getBoundingClientRect().bottom;
-      const shouldShowNavbar = heroBottom > 120;
+      const shouldShowNavbar = currentScrollY <= 20;
 
       setIsVisible(shouldShowNavbar);
       if (!shouldShowNavbar) {
@@ -88,12 +73,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-none transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-          } ${isLightHeaderPage
-            ? "bg-white/95 backdrop-blur-xl py-3.5 shadow-[0_18px_45px_rgba(15,23,42,0.08)]"
-            : isScrolled
-              ? "bg-background/95 backdrop-blur-xl py-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-              : "bg-transparent py-6"
-          }`}
+          } bg-transparent py-6`}
       >
         <div className="pointer-events-auto relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-8">
@@ -116,7 +96,7 @@ export default function Navbar() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${isLightHeaderPage || !isScrolled ? "text-slate-800 hover:text-[#00b274]" : "text-slate-300 hover:text-[#7ef7c4]"}`}
+                    className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${isLightHeaderPage ? "text-slate-800 hover:text-[#00b274]" : "text-slate-200 hover:text-[#7ef7c4]"}`}
                   >
                     {link.name}
                   </a>
@@ -127,7 +107,7 @@ export default function Navbar() {
                     aria-current={pathname === link.href ? "page" : undefined}
                     className={`relative z-10 inline-flex items-center rounded-full px-4 py-2 text-[13px] font-medium transition-colors cursor-pointer ${pathname === link.href
                       ? "text-[#00b274]"
-                      : isLightHeaderPage || !isScrolled ? "text-slate-800 hover:text-[#00b274]" : "text-slate-300 hover:text-[#7ef7c4]"
+                      : isLightHeaderPage ? "text-slate-800 hover:text-[#00b274]" : "text-slate-200 hover:text-[#7ef7c4]"
                       }`}
                   >
                     {link.name}
@@ -141,7 +121,7 @@ export default function Navbar() {
             <a
               href={CRM_LOGIN_URL}
               onClick={handleLoginClick}
-              className={`hidden lg:block text-sm font-medium transition-colors cursor-pointer ${isLightHeaderPage || !isScrolled ? "text-slate-800 hover:text-[#00b274]" : "text-slate-100 hover:text-[#7ef7c4]"}`}
+              className={`hidden lg:block text-sm font-medium transition-colors cursor-pointer ${isLightHeaderPage ? "text-slate-800 hover:text-[#00b274]" : "text-slate-100 hover:text-[#7ef7c4]"}`}
             >
               Login
             </a>
