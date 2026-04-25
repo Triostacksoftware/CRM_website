@@ -101,7 +101,7 @@ export default function BookCallModal({
             type="button"
             onClick={onClose}
             aria-label="Close book call modal"
-            className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-slate-300 hover:text-slate-900"
+            className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:border-slate-300 hover:text-slate-900 cursor-pointer"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -170,7 +170,7 @@ export default function BookCallModal({
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="mt-2 w-full rounded-xl bg-[#00b274] py-4 font-bold text-white shadow-lg shadow-[#00b274]/30 transition-all duration-300 hover:bg-[#009661] active:scale-[0.98]"
+              className="mt-2 w-full rounded-xl bg-[#00b274] py-4 font-bold text-white shadow-lg shadow-[#00b274]/30 transition-all duration-300 hover:bg-[#009661] active:scale-[0.98] cursor-pointer"
             >
               {status === "submitting" ? "Submitting..." : "Submit Request"}
             </button>
