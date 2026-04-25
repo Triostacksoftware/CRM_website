@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import HeroForm from "./HeroForm";
-import GetQuoteModal from "./GetQuoteModal";
+import BookCallModal from "./BookCallModal";
 
 export default function HeroSection() {
-  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
 
   return (
     <section data-hero="true" className="relative min-h-[85vh] flex items-center pt-32 overflow-hidden">
@@ -62,13 +62,15 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               <button
-                onClick={() => setIsQuoteOpen(true)}
+                type="button"
+                onClick={() => setIsBookDemoOpen(true)}
                 className="bg-[#00b274] hover:bg-[#009661] text-white px-10 py-4 rounded-full font-bold transition-all duration-300 shadow-lg shadow-[#00b274]/20 hover:-translate-y-1 text-center"
               >
                 Book Free Demo
               </button>
 
               <button
+                type="button"
                 onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
                 className="border border-white/20 hover:bg-white/5 text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:border-white/40"
               >
@@ -91,9 +93,9 @@ export default function HeroSection() {
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-      <GetQuoteModal
-        isOpen={isQuoteOpen}
-        onClose={() => setIsQuoteOpen(false)}
+      <BookCallModal
+        isOpen={isBookDemoOpen}
+        onClose={() => setIsBookDemoOpen(false)}
         title="Book Your Free Demo"
         subtitle="Fill your details and our team will schedule your personalized walkthrough."
       />
