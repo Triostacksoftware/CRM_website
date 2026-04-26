@@ -61,9 +61,7 @@ export default function BookCallModal({
           plan_name: planDetails?.name || "",
           plan_billing_cycle: billingCycle,
           plan_users: planDetails?.users || "",
-          plan_total: planDetails?.total?.[billingCycle] || "",
           user_requirement: formData.get("user_requirement"),
-          selected_price: pricePerUserPerMonth,
         },
       });
 
@@ -105,10 +103,6 @@ export default function BookCallModal({
   if (!isOpen || !isMounted) {
     return null;
   }
-
-  const pricePerUserPerMonth = planDetails
-    ? `${"\u20B9"}${planDetails.price?.[billingCycle]?.toLocaleString()} /user / month`
-    : "";
 
   const modal = (
     <div
@@ -161,16 +155,16 @@ export default function BookCallModal({
 
                 <div className="mt-4 grid gap-3 sm:grid-cols-3">
                   <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Price</p>
-                    <p className="mt-2 text-base font-semibold text-slate-950">{pricePerUserPerMonth}</p>
-                  </div>
-                  <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
                     <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Users</p>
                     <p className="mt-2 text-base font-semibold text-slate-950">{planDetails.users}</p>
                   </div>
                   <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
                     <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Billing</p>
                     <p className="mt-2 text-base font-semibold text-slate-950">{billingLabels[billingCycle]}</p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">Plan</p>
+                    <p className="mt-2 text-base font-semibold text-slate-950">{planDetails.name}</p>
                   </div>
                 </div>
               </div>
