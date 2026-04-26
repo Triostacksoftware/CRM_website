@@ -139,11 +139,13 @@ export default function GooglePlaySection() {
                     <div className="relative flex min-h-[470px] flex-col px-4 pb-4 pt-5">
                       <div className="flex items-center justify-between border-b border-white/8 pb-3">
                         <div className="flex items-center gap-2.5">
-                          <img
-                            src="/trio-crm.png"
-                            alt="Trio CRM 360 logo"
-                            className="h-7 w-7 object-contain"
-                          />
+                          <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-white p-1 shadow-sm">
+                            <img
+                              src="/trio-logo.png"
+                              alt="Trio CRM 360 logo"
+                              className="h-full w-full object-contain"
+                            />
+                          </div>
                           <span className="text-[11px] font-semibold text-white">Trio-CRM 360</span>
                         </div>
                         <div className="space-y-1">
@@ -160,14 +162,14 @@ export default function GooglePlaySection() {
                         <h3 className="mt-3 text-[2rem] font-semibold leading-none tracking-[-0.04em] text-white">
                           TRIO-CRM
                         </h3>
-                        <p className="mt-4 text-[8px] leading-[1.8] text-slate-200">
+                        <p className="mt-4 text-[8px] leading-[1.9] text-slate-200">
                           Stop losing deals to manual follow-ups. CRM Solutions helps you automate your sales
                           pipeline, track every interaction, and grow your revenue with India&apos;s smartest CRM
                           platform.
                         </p>
                       </div>
 
-                      <div className="mt-6 space-y-3">
+                      <div className="mt-6 space-y-3.5">
                         {[
                           "Close deals 30% faster with automated follow-ups",
                           "Never lose a lead with 24/7 automated capture",
@@ -180,7 +182,7 @@ export default function GooglePlaySection() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                               </svg>
                             </span>
-                            <span className="text-[8px] font-semibold leading-[1.6] text-slate-100">{item}</span>
+                            <span className="text-[8px] font-semibold leading-[1.7] text-slate-100">{item}</span>
                           </div>
                         ))}
                       </div>
