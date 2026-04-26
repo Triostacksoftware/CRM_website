@@ -97,7 +97,7 @@ export default function PricingPage() {
                       <span className="text-5xl font-bold text-slate-950">
                         {plan.price[billingCycle].toLocaleString()}
                       </span>
-                      <span className="text-slate-500 text-sm">/month</span>
+                      <span className="text-slate-500 text-sm">per user / month</span>
                     </div>
                     <p className="text-slate-600 text-sm leading-relaxed">{plan.description}</p>
                   </div>

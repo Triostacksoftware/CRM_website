@@ -92,6 +92,10 @@ export default function BookCallModal({
     return null;
   }
 
+  const pricePerUserPerMonth = planDetails
+    ? `${"\u20B9"}${planDetails.price?.[billingCycle]?.toLocaleString()} per user / month`
+    : "";
+
   const modal = (
     <div
       className="fixed inset-0 z-[10000] flex items-center justify-center px-4 py-8 sm:px-6"
@@ -141,6 +145,10 @@ export default function BookCallModal({
                 <span className="capitalize">{billingCycle}</span>
                 <span className="text-slate-300">|</span>
                 <span>{planDetails.total?.[billingCycle]} total</span>
+              </div>
+
+              <div className="mt-3 text-sm font-semibold text-slate-900">
+                {pricePerUserPerMonth}
               </div>
 
               <div className="mt-4 grid gap-4 md:grid-cols-2">
