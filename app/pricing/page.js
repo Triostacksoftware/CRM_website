@@ -1,74 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from 'react';
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
-import ContactLink from "@/components/ContactLink";
 import Reveal from "@/components/Reveal";
 import ContactSection from "@/components/ContactSection";
 import BookCallModal from "@/components/BookCallModal";
+import { pricingPlans } from "@/lib/pricing-data";
 
-const plans = [
-  {
-    name: "Starter",
-    price: {
-      quarterly: 899,
-      semiannual: 849,
-      annual: 799
-    },
-    description: "Perfect for small teams getting started",
-    features: [
-      "Lead Management",
-      "Contact Tracking",
-      "Basic Reporting",
-      "Mobile App Access",
-      "Email Support",
-      "5GB Storage"
-    ],
-    buttonText: "Start Free Trial",
-    highlighted: false,
-    outline: true
-  },
-  {
-    name: "Professional",
-    price: {
-      quarterly: 1699,
-      semiannual: 1599,
-      annual: 1499
-    },
-    description: "Advanced tools for growing businesses",
-    features: [
-      "Everything in Starter",
-      "Workflow Automation",
-      "Sales Pipeline Tracking",
-      "Analytics Dashboard",
-      "WhatsApp Integration",
-      "25GB Storage"
-    ],
-    buttonText: "Start Free Trial",
-    highlighted: true,
-    badge: "Most Popular"
-  },
-  {
-    name: "Enterprise",
-    price: {
-      quarterly: 2799,
-      semiannual: 2649,
-      annual: 2499
-    },
-    description: "Full customization and enterprise support",
-    features: [
-      "Everything in Professional",
-      "Custom Integrations",
-      "Dedicated Support",
-      "Advanced Security",
-      "Multi-branch Centralization",
-      "Unlimited Storage"
-    ],
-    buttonText: "Contact Sales",
-    highlighted: false
-  }
-];
+const plans = pricingPlans;
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState("annual");
@@ -86,7 +26,6 @@ export default function PricingPage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Page Hero Section - Transparent */}
       <section className="relative pt-32 pb-4 overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)]">
         <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-[#00b274]/10 blur-[110px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[130px] pointer-events-none" />
@@ -97,8 +36,14 @@ export default function PricingPage() {
             </h1>
             <nav className="flex text-[11px] uppercase tracking-widest text-slate-500 font-bold">
               <ol className="flex items-center gap-2">
-                <li><Link href="/" className="hover:text-[#00b274] transition-colors">Home</Link></li>
-                <li><span className="opacity-30">/</span></li>
+                <li>
+                  <Link href="/" className="hover:text-[#00b274] transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <span className="opacity-30">/</span>
+                </li>
                 <li className="text-[#00b274]">Pricing</li>
               </ol>
             </nav>
@@ -106,13 +51,10 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Main Content Area */}
       <div className="pt-4 pb-10 px-6 relative bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#f8fbff_0%,#ffffff_42%,#eef6f4_100%)] overflow-hidden">
         <div className="absolute top-1/2 -left-20 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="container max-w-7xl mx-auto relative z-10">
-          
-          {/* Billing Toggle */}
           <div className="flex justify-center mb-10">
             <div className="bg-white/85 backdrop-blur-md p-1.5 rounded-full flex items-center gap-1 border border-slate-200/80 shadow-[0_18px_50px_rgba(15,23,42,0.10)]">
               {["quarterly", "semiannual", "annual"].map((cycle) => (
@@ -132,13 +74,16 @@ export default function PricingPage() {
             </div>
           </div>
 
-          {/* Pricing Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, idx) => (
               <Reveal key={plan.name} delay={idx * 100}>
-                <div className={`h-full relative flex flex-col p-8 rounded-2xl bg-white/90 backdrop-blur-md border transition-all duration-500 hover:scale-[1.03] ${
-                  plan.highlighted ? "border-[#00b274] shadow-[0_24px_70px_rgba(0,178,116,0.18)] scale-[1.02]" : "border-slate-200/80 shadow-[0_22px_60px_rgba(15,23,42,0.09)]"
-                }`}>
+                <div
+                  className={`h-full relative flex flex-col p-8 rounded-2xl bg-white/90 backdrop-blur-md border transition-all duration-500 hover:scale-[1.03] ${
+                    plan.highlighted
+                      ? "border-[#00b274] shadow-[0_24px_70px_rgba(0,178,116,0.18)] scale-[1.02]"
+                      : "border-slate-200/80 shadow-[0_22px_60px_rgba(15,23,42,0.09)]"
+                  }`}
+                >
                   {plan.badge && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#00b274] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
                       {plan.badge}
@@ -148,8 +93,10 @@ export default function PricingPage() {
                   <div className="mb-8">
                     <h3 className="text-xl font-bold text-slate-950 mb-2">{plan.name}</h3>
                     <div className="flex items-baseline gap-1 mb-4">
-                      <span className="text-2xl text-slate-500">₹</span>
-                      <span className="text-5xl font-bold text-slate-950">{plan.price[billingCycle].toLocaleString()}</span>
+                      <span className="text-2xl text-slate-500">{"\u20B9"}</span>
+                      <span className="text-5xl font-bold text-slate-950">
+                        {plan.price[billingCycle].toLocaleString()}
+                      </span>
                       <span className="text-slate-500 text-sm">/month</span>
                     </div>
                     <p className="text-slate-600 text-sm leading-relaxed">{plan.description}</p>
@@ -170,12 +117,12 @@ export default function PricingPage() {
                     type="button"
                     onClick={() => handlePlanAction(plan)}
                     className={`w-full py-4 rounded-full font-bold transition-all duration-300 active:scale-[0.98] ${
-                    plan.highlighted
-                      ? "bg-gradient-to-r from-[#00b274] to-[#009661] text-white shadow-lg shadow-[#00b274]/20 hover:shadow-[#00b274]/40"
-                      : plan.outline
-                        ? "border border-slate-300 text-slate-950 hover:bg-slate-950 hover:text-white hover:border-slate-950"
-                        : "bg-slate-950 text-white hover:bg-[#00b274]"
-                  }`}
+                      plan.highlighted
+                        ? "bg-gradient-to-r from-[#00b274] to-[#009661] text-white shadow-lg shadow-[#00b274]/20 hover:shadow-[#00b274]/40"
+                        : plan.outline
+                          ? "border border-slate-300 text-slate-950 hover:bg-slate-950 hover:text-white hover:border-slate-950"
+                          : "bg-slate-950 text-white hover:bg-[#00b274]"
+                    }`}
                   >
                     {plan.buttonText}
                   </button>
@@ -184,13 +131,12 @@ export default function PricingPage() {
             ))}
           </div>
 
-          {/* Bottom FAQ CTA */}
           <div className="mt-10 p-10 rounded-3xl bg-white/95 border border-slate-200 text-center shadow-[0_28px_80px_rgba(15,23,42,0.1)]">
             <h3 className="text-xl font-bold text-slate-950 mb-3">Need a custom plan?</h3>
             <p className="text-slate-600 mb-6 max-w-xl mx-auto text-sm">
               We offer tailored solutions for large-scale enterprises with specific security and integration requirements.
             </p>
-            <button 
+            <button
               onClick={() => handlePlanAction({ name: "Custom Enterprise", buttonText: "Contact Sales" })}
               className="text-[#00b274] text-sm font-bold hover:underline cursor-pointer"
             >
@@ -210,6 +156,8 @@ export default function PricingPage() {
             ? `Share your details and our team will help you get started with the ${activePlan.name} plan.`
             : "Share your details and our team will contact you shortly."
         }
+        planDetails={activePlan}
+        billingCycle={billingCycle}
       />
     </main>
   );

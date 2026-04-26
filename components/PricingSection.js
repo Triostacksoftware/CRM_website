@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import BookCallModal from "./BookCallModal";
+import { pricingPlans } from "@/lib/pricing-data";
 
 export default function PricingSection() {
   const [billingCycle, setBillingCycle] = useState("annual");
@@ -39,66 +40,20 @@ export default function PricingSection() {
     setActivePlan(null);
   };
 
-  const plans = [
-    {
-      name: "Starter",
-      price: {
-        quarterly: 899,
-        semiannual: 849,
-        annual: 799
-      },
-      description: "Automate your first sales pipeline and stop losing leads",
-      features: ["Lead capture & tracking", "Basic sales automation", "Core activity reports"],
-      buttonText: "Book Demo",
-      highlighted: false,
-      outline: true
-    },
-    {
-      name: "Professional",
-      price: {
-        quarterly: 1699,
-        semiannual: 1599,
-        annual: 1499
-      },
-      description: "Scale your revenue with advanced workflow automation",
-      features: [
-        "Everything in Starter",
-        "Multi-channel automation",
-        "Advanced sales analytics",
-        "WhatsApp integration"
-      ],
-      buttonText: "Book Demo",
-      highlighted: true,
-      badge: "Best ROI"
-    },
-    {
-      name: "Enterprise",
-      price: {
-        quarterly: 2799,
-        semiannual: 2649,
-        annual: 2499
-      },
-      description: "Maximum visibility and control for large-scale operations",
-      features: [
-        "Everything in Professional",
-        "Custom CRM modules",
-        "White-label options",
-        "Dedicated account manager"
-      ],
-      buttonText: "Book Demo",
-      highlighted: false
-    }
-  ];
+  const plans = pricingPlans;
 
   return (
-    <section ref={sectionRef} className="relative py-8 md:py-10 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_48%,#eef6f4_100%)] overflow-hidden">
-      {/* Premium white decorative glows */}
+    <section
+      ref={sectionRef}
+      className="relative py-8 md:py-10 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_48%,#eef6f4_100%)] overflow-hidden"
+    >
       <div className="absolute top-1/2 -left-20 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className={`text-center mb-10 md:mb-12 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} transition-opacity duration-700`}>
+        <div
+          className={`text-center mb-10 md:mb-12 ${isVisible ? "animate-fade-in opacity-100" : "opacity-0"} transition-opacity duration-700`}
+        >
           <span className="text-[#00b274] text-xs font-bold tracking-[0.3em] uppercase block mb-4">
             Invest in Growth
           </span>
@@ -110,17 +65,16 @@ export default function PricingSection() {
           </p>
         </div>
 
-        {/* Billing Toggle */}
-        <div className={`flex justify-center mb-10 md:mb-12 ${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} [animation-delay:200ms]`}>
+        <div
+          className={`flex justify-center mb-10 md:mb-12 ${isVisible ? "animate-fade-in opacity-100" : "opacity-0"} [animation-delay:200ms]`}
+        >
           <div className="bg-white/85 backdrop-blur-md p-1.5 rounded-full flex items-center gap-1 border border-slate-200/80 shadow-[0_18px_50px_rgba(15,23,42,0.10)] relative">
             {["quarterly", "semiannual", "annual"].map((cycle) => (
               <button
                 key={cycle}
                 onClick={() => setBillingCycle(cycle)}
                 className={`relative z-10 px-8 py-2.5 rounded-full text-sm font-bold capitalize transition-all duration-500 ease-out ${
-                  billingCycle === cycle
-                    ? "text-white"
-                    : "text-slate-500 hover:text-slate-900"
+                  billingCycle === cycle ? "text-white" : "text-slate-500 hover:text-slate-900"
                 }`}
               >
                 {billingCycle === cycle && (
@@ -132,19 +86,20 @@ export default function PricingSection() {
           </div>
         </div>
 
-        {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {plans.map((plan, index) => (
-            <div 
+            <div
               key={plan.name}
-              className={`${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0'} transition-all duration-700`}
+              className={`${isVisible ? "animate-slide-up opacity-100" : "opacity-0"} transition-all duration-700`}
               style={{ animationDelay: `${(index + 2) * 100}ms` }}
             >
-              <div className={`h-full relative group bg-white/90 backdrop-blur-md border rounded-2xl p-8 transition-all duration-500 hover:scale-[1.05] flex flex-col ${
-                plan.highlighted 
-                  ? "border-[#00b274] shadow-[0_24px_70px_rgba(0,178,116,0.18)] scale-[1.02]"
-                  : "border-slate-200/80 shadow-[0_22px_60px_rgba(15,23,42,0.09)]"
-              }`}>
+              <div
+                className={`h-full relative group bg-white/90 backdrop-blur-md border rounded-2xl p-8 transition-all duration-500 hover:scale-[1.05] flex flex-col ${
+                  plan.highlighted
+                    ? "border-[#00b274] shadow-[0_24px_70px_rgba(0,178,116,0.18)] scale-[1.02]"
+                    : "border-slate-200/80 shadow-[0_22px_60px_rgba(15,23,42,0.09)]"
+                }`}
+              >
                 {plan.badge && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#00b274] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
                     {plan.badge}
@@ -154,8 +109,10 @@ export default function PricingSection() {
                 <div className="mb-8">
                   <h3 className="text-xl font-bold text-slate-950 mb-2">{plan.name}</h3>
                   <div className="flex items-baseline gap-1 mb-4">
-                    <span className="text-2xl text-slate-500">₹</span>
-                    <span className="text-5xl font-bold text-slate-950">{plan.price[billingCycle].toLocaleString()}</span>
+                    <span className="text-2xl text-slate-500">{"\u20B9"}</span>
+                    <span className="text-5xl font-bold text-slate-950">
+                      {plan.price[billingCycle].toLocaleString()}
+                    </span>
                     <span className="text-slate-500 text-sm">/month</span>
                   </div>
                   <p className="text-slate-600 text-sm leading-relaxed">{plan.description}</p>
@@ -176,12 +133,12 @@ export default function PricingSection() {
                   type="button"
                   onClick={() => handlePlanAction(plan)}
                   className={`w-full py-4 rounded-full font-bold transition-all duration-300 active:scale-[0.98] ${
-                  plan.highlighted
-                    ? "bg-gradient-to-r from-[#00b274] to-[#009661] text-white shadow-lg shadow-[#00b274]/20 hover:shadow-[#00b274]/40"
-                    : plan.outline
-                      ? "border border-slate-300 text-slate-950 hover:bg-slate-950 hover:text-white hover:border-slate-950"
-                      : "bg-slate-950 text-white hover:bg-[#00b274]"
-                }`}
+                    plan.highlighted
+                      ? "bg-gradient-to-r from-[#00b274] to-[#009661] text-white shadow-lg shadow-[#00b274]/20 hover:shadow-[#00b274]/40"
+                      : plan.outline
+                        ? "border border-slate-300 text-slate-950 hover:bg-slate-950 hover:text-white hover:border-slate-950"
+                        : "bg-slate-950 text-white hover:bg-[#00b274]"
+                  }`}
                 >
                   {plan.buttonText}
                 </button>
@@ -200,6 +157,8 @@ export default function PricingSection() {
             ? `Share your details and our team will help you get started with the ${activePlan.name} plan.`
             : "Share your details and our team will contact you shortly."
         }
+        planDetails={activePlan}
+        billingCycle={billingCycle}
       />
     </section>
   );

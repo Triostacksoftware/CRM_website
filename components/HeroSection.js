@@ -82,6 +82,7 @@ export default function HeroSection() {
       {/* Floating Elements / Decorative Blur */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
-    </section>
+      </section>
+    </>
   );
 }

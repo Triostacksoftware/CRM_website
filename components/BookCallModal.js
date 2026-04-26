@@ -9,6 +9,8 @@ export default function BookCallModal({
   onClose,
   title = "Book a Call",
   subtitle = "Share your details and our team will contact you shortly.",
+  planDetails = null,
+  billingCycle = "annual",
 }) {
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -40,10 +42,14 @@ export default function BookCallModal({
         phone: formData.get("phone"),
         company: formData.get("company"),
         formId: "book-call-modal",
-        notes: `Modal title: ${title}`,
+        notes: `Modal title: ${title}${planDetails ? ` | Plan: ${planDetails.name} | Billing: ${billingCycle}` : ""}`,
         extra: {
           crm_solution: formData.get("crm_solution"),
           modal_subtitle: subtitle,
+          plan_name: planDetails?.name || "",
+          plan_billing_cycle: billingCycle,
+          plan_users: planDetails?.users || "",
+          plan_total: planDetails?.total?.[billingCycle] || "",
         },
       });
 
@@ -125,6 +131,49 @@ export default function BookCallModal({
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">{subtitle}</p>
           </div>
+
+          {planDetails ? (
+            <div className="mb-6 rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
+              <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
+                <span className="rounded-full bg-white px-3 py-1 text-slate-800">{planDetails.name}</span>
+                <span>{planDetails.users}</span>
+                <span className="text-slate-300">|</span>
+                <span className="capitalize">{billingCycle}</span>
+                <span className="text-slate-300">|</span>
+                <span>{planDetails.total?.[billingCycle]} total</span>
+              </div>
+
+              <div className="mt-4 grid gap-4 md:grid-cols-2">
+                <div>
+                  <h3 className="text-sm font-bold text-slate-950">Features Included</h3>
+                  <div className="mt-3 space-y-2">
+                    {(planDetails.fullFeatures || []).map((item, index) => (
+                      <div key={`feature-${index}`} className="flex items-start gap-2">
+                        <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#00b274]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-xs leading-relaxed text-slate-700">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-bold text-slate-950">Support & SLA</h3>
+                  <div className="mt-3 space-y-2">
+                    {(planDetails.support || []).map((item, index) => (
+                      <div key={`support-${index}`} className="flex items-start gap-2">
+                        <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#00b274]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-xs leading-relaxed text-slate-700">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : null}
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid gap-4 sm:grid-cols-2">
