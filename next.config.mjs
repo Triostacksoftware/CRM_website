@@ -14,7 +14,9 @@ const nextConfig = {
         ...config.watchOptions,
         poll: 800,
         aggregateTimeout: 200,
-        ignored: /node_modules/,
+        // Keep Next's build output and VCS metadata out of the watcher.
+        // Otherwise changes inside `.next` can trigger an infinite reload loop.
+        ignored: "**/{node_modules,.next,.git}/**",
       };
     }
 

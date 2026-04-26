@@ -88,21 +88,21 @@ export default function BookCallModal({
 
   const modal = (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center px-4 py-8 sm:px-6"
+      className="fixed inset-0 z-[10000] flex items-center justify-center px-4 py-8 sm:px-6"
       onClick={handleBackdropClick}
       role="presentation"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(20,195,142,0.18),transparent_38%),rgba(2,8,20,0.78)] backdrop-blur-md animate-fade-in" />
+      <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-md" />
 
       <div
-        className="relative z-10 w-full max-w-xl animate-slide-up"
+        className="relative z-[10001] w-full max-w-xl"
         onClick={(event) => event.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-labelledby="book-call-title"
         id="book-call-modal"
       >
-        <div className="relative overflow-hidden rounded-[30px] border border-white/70 bg-[linear-gradient(180deg,#ffffff_0%,#f7fbff_100%)] p-6 shadow-[0_36px_110px_rgba(2,8,23,0.35)] sm:p-8">
+        <div className="relative overflow-hidden rounded-[30px] border border-white/70 bg-white p-6 shadow-2xl sm:p-8">
           <div className="pointer-events-none absolute -left-20 -top-20 h-40 w-40 rounded-full bg-[#00b274]/15 blur-3xl" />
 
           <button
