@@ -108,8 +108,6 @@ export default function PricingPage() {
                       <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-800">{plan.users}</span>
                       <span className="text-slate-300">|</span>
                       <span>{billingLabels[billingCycle]}</span>
-                      <span className="text-slate-300">|</span>
-                      <span>{plan.total[billingCycle]} total</span>
                     </div>
                     <p className="text-slate-600 text-sm leading-relaxed">{plan.description}</p>
                   </div>
