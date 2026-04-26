@@ -117,7 +117,7 @@ export default function BookCallModal({
         aria-labelledby="book-call-title"
         id="book-call-modal"
       >
-        <div className="relative max-h-[88vh] overflow-y-auto rounded-[30px] border border-white/70 bg-white p-6 shadow-2xl sm:p-8">
+        <div className="modal-scrollbar relative max-h-[88vh] overflow-y-auto rounded-[30px] border border-white/70 bg-white p-6 shadow-2xl sm:p-8">
           <div className="pointer-events-none absolute -left-20 -top-20 h-40 w-40 rounded-full bg-[#00b274]/15 blur-3xl" />
 
           <button
