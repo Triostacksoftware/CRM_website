@@ -8,7 +8,6 @@ import Reveal from "@/components/Reveal";
 import FeatureIcon from "@/components/FeatureIcon";
 import BookCallModal from "@/components/BookCallModal";
 import { allFeatures } from "@/lib/features-data";
-import ConsultationSection from "@/components/ConsultationSection";
 
 const FEATURE_HERO_BG_VIDEOS = [
   {
@@ -203,6 +202,7 @@ export default function FeatureDetailPage() {
   const slug = params.slug;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   useEffect(() => {
     setHeroVideoIndex(0);
@@ -222,49 +222,57 @@ export default function FeatureDetailPage() {
     notFound();
   }
 
-  const ctaWidgets =
-    feature.slug === "lead-source-tracking"
-      ? [
-          {
-            title: "Source Heatmap",
-            image: "/lead_source_bg_tracking_1777021653613.png",
-            alt: "Lead source performance heatmap",
-            icon: (
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-            ),
-          },
-          {
-            title: "Attribution Intelligence",
-            image: "/lead_source_visual_tracking_1777021671436.png",
-            alt: "Lead source attribution analytics",
-            icon: (
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
-            ),
-          },
-        ]
-      : [
-          {
-            title: "Global Presence",
-            image: "/premium_dark_map.png",
-            alt: "Global Network Map",
-            icon: (
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-            ),
-          },
-          {
-            title: "Data Intelligence",
-            image: "/crm_3d_model.png",
-            alt: "CRM Data Model",
-            icon: (
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
-            ),
-          },
-        ];
-
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
   const heroVideoConfig = getFeatureHeroVideoConfig(slug);
   const activeHeroVideo = heroVideoConfig.sources[heroVideoIndex];
+  const testimonials = [
+    {
+      quote:
+        "CRM Solutions transformed the way we manage leads. Our follow-ups are faster and our conversions have skyrocketed.",
+      name: "Rohit Sharma",
+      role: "Sales Head, ABC Pvt. Ltd.",
+    },
+    {
+      quote:
+        "The WhatsApp integration is a game changer. We connect with leads instantly and build stronger relationships.",
+      name: "Priya Mehta",
+      role: "Growth Manager, TechNova",
+    },
+    {
+      quote:
+        "Super easy onboarding, excellent support, and powerful features. Everything a growing business needs in one CRM.",
+      name: "Ankit Verma",
+      role: "Co-founder, BrightPath",
+    },
+  ];
+  const faqItems = [
+    {
+      question: "What is CRM Solutions and who is it for?",
+      answer:
+        "CRM Solutions is built for sales-driven businesses that want to capture leads faster, automate follow-ups, and manage the full customer journey in one place.",
+    },
+    {
+      question: "How easy is it to get started?",
+      answer:
+        "Getting started is simple. Our team helps with setup, onboarding, and workflow mapping so your team can start using the system quickly.",
+    },
+    {
+      question: "How does lead management work?",
+      answer:
+        "Leads from websites, ads, Justdial, calls, and APIs can flow into one dashboard, where your team can assign, track, and follow up without delay.",
+    },
+    {
+      question: "What kind of support do you provide?",
+      answer:
+        "We provide onboarding help, implementation guidance, post-launch support, and hands-on assistance whenever your team needs it.",
+    },
+    {
+      question: "How does WhatsApp integration help my business?",
+      answer:
+        "It helps your team respond instantly, automate routine messages, and keep every conversation linked to the right lead or customer record.",
+    },
+  ];
 
   const handleHeroVideoError = () => {
     setHeroVideoIndex((currentIndex) => {
@@ -325,7 +333,6 @@ export default function FeatureDetailPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center -mt-1 md:-mt-6 lg:-mt-10">
             <div className="space-y-8">
-
               <Reveal delay={200}>
                 <h1 className="text-3xl md:text-5xl font-bold leading-tight">
                   {feature.details?.subtitle || feature.title}
@@ -336,7 +343,12 @@ export default function FeatureDetailPage() {
                   {feature.details?.shortDescription || feature.description}
                 </p>
               </Reveal>
-              <div className="flex flex-wrap gap-4 relative z-50">
+              <div className="flex flex-wrap items-center gap-4 relative z-50">
+                <Reveal delay={360}>
+                  <div className="inline-flex items-center rounded-full border border-[#7ef7c4]/30 bg-white/8 px-5 py-3 text-[11px] font-bold uppercase tracking-[0.24em] text-[#b9ffe6] backdrop-blur-md shadow-[0_10px_30px_rgba(0,178,116,0.12)]">
+                    Best CRM in India
+                  </div>
+                </Reveal>
                 <button
                   type="button"
                   onClick={handleModalOpen}
@@ -495,51 +507,135 @@ export default function FeatureDetailPage() {
 
       {/* Final CTA Section */}
       {feature.details?.ctaSection && (
-        <section className="py-24 relative bg-white border-t border-slate-100">
+        <section className="py-20 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_40%,#ffffff_100%)] border-t border-slate-100">
           <div className="container max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="text-left">
-                <h2 className="text-4xl md:text-5xl font-bold mb-8 text-slate-950">{feature.details.ctaSection.heading}</h2>
-                <p className="text-xl text-slate-600 mb-12">{feature.details.ctaSection.description}</p>
-                
-                {/* Model & Map Section - Integrated here as well */}
-                <div className="grid grid-cols-1 gap-6 mb-12 sm:grid-cols-2">
-                  {ctaWidgets.map((widget) => (
-                    <div key={widget.title} className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all hover:bg-slate-100 hover:border-[#00b274]/30 hover:shadow-lg">
-                      <div className="mb-3 flex items-center gap-3">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#00b274]/10 text-[#00b274]">
-                          {widget.icon}
-                        </div>
-                        <span className="text-sm font-semibold text-slate-900">{widget.title}</span>
-                      </div>
-                      <div className="relative h-24 w-full overflow-hidden rounded-lg bg-[#0B1220]">
-                        <img
-                          src={widget.image}
-                          alt={widget.alt}
-                          className="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220]/60 via-transparent to-transparent" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={handleModalOpen}
-                  className="relative z-[300] bg-[#00b274] hover:bg-[#009661] text-white px-8 py-3.5 rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-[0_15px_40px_rgba(0,178,116,0.25)] cursor-pointer"
-                >
-                  {feature.details.ctaSection.buttonText || "Contact Support"}
-                </button>
+            <div className="space-y-14">
+              <div className="text-center">
+                <span className="text-[11px] font-bold uppercase tracking-[0.32em] text-[#00b274]">
+                  Testimonials
+                </span>
+                <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-950">
+                  Trusted by Businesses, Loved by Teams
+                </h2>
+                <p className="mt-3 text-slate-600 max-w-2xl mx-auto">
+                  See how CRM Solutions helps teams close more deals and build lasting customer relationships.
+                </p>
               </div>
 
-              <div className="hidden lg:block relative">
-                <div className="absolute -inset-10 bg-[#00b274]/10 rounded-full blur-3xl" />
-                <img 
-                  src="/consultation-team-humanized.png" 
-                  alt="CRM consultation" 
-                  className="relative rounded-3xl border border-slate-200 shadow-2xl"
-                />
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                {testimonials.map((item, idx) => (
+                  <Reveal key={item.name} delay={idx * 80}>
+                    <div className="h-full rounded-[1.7rem] border border-slate-200 bg-white p-6 shadow-[0_18px_55px_rgba(15,23,42,0.08)]">
+                      <div className="mb-5 flex items-center justify-between">
+                        <div className="flex gap-1 text-[#00b274]">
+                          {Array.from({ length: 5 }).map((_, starIndex) => (
+                            <svg key={starIndex} className="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                          ))}
+                        </div>
+                        <span className="text-2xl font-bold text-[#00b274]/70">”</span>
+                      </div>
+                      <p className="text-sm leading-7 text-slate-600">
+                        {item.quote}
+                      </p>
+                      <div className="mt-6 border-t border-slate-100 pt-4">
+                        <p className="font-semibold text-slate-950">{item.name}</p>
+                        <p className="text-sm text-slate-500">{item.role}</p>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+
+              <div className="text-center">
+                <span className="text-[11px] font-bold uppercase tracking-[0.32em] text-[#00b274]">
+                  FAQ
+                </span>
+                <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-950">
+                  Frequently Asked Questions
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {faqItems.map((item, idx) => {
+                  const isOpen = openFaqIndex === idx;
+
+                  return (
+                    <div
+                      key={item.question}
+                      className={`rounded-2xl border transition-all duration-300 ${
+                        isOpen
+                          ? "border-[#00b274]/25 bg-[#f8fffc]"
+                          : "border-slate-200 bg-white"
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setOpenFaqIndex(isOpen ? -1 : idx)
+                        }
+                        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                      >
+                        <span className="text-sm md:text-base font-medium text-slate-800">
+                          {item.question}
+                        </span>
+                        <span
+                          className={`flex h-7 w-7 items-center justify-center rounded-full border text-sm transition-all ${
+                            isOpen
+                              ? "border-[#00b274] bg-[#00b274] text-white rotate-45"
+                              : "border-slate-200 text-[#00b274]"
+                          }`}
+                        >
+                          +
+                        </span>
+                      </button>
+                      {isOpen ? (
+                        <div className="px-5 pb-5 text-sm leading-6 text-slate-600">
+                          {item.answer}
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="relative overflow-hidden rounded-[1.8rem] border border-[#00b274]/10 bg-[linear-gradient(180deg,#f8fffc_0%,#ffffff_100%)] px-6 py-7 shadow-[0_18px_55px_rgba(15,23,42,0.08)] md:px-10">
+                <div className="absolute right-0 top-0 h-full w-40 bg-[radial-gradient(circle_at_center,rgba(0,178,116,0.12),transparent_65%)] pointer-events-none" />
+                <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="max-w-2xl">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-[#00b274]/8 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#00b274]">
+                      Get Started Today
+                    </div>
+                    <h3 className="mt-4 text-3xl font-bold text-slate-950">
+                      Ready to Grow Your <span className="text-[#00b274]">Sales Pipeline?</span>
+                    </h3>
+                    <p className="mt-3 text-slate-600">
+                      Join 500+ businesses using CRM Solutions to capture more leads, engage faster, and close more deals.
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <button
+                      type="button"
+                      onClick={handleModalOpen}
+                      className="rounded-full bg-[#00b274] px-7 py-3.5 font-bold text-white shadow-[0_12px_35px_rgba(0,178,116,0.24)] transition-all hover:scale-[1.02] hover:bg-[#009661]"
+                    >
+                      Book Free Demo
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleModalOpen}
+                      className="rounded-full border border-[#00b274]/20 bg-white px-7 py-3.5 font-semibold text-[#00b274] transition-all hover:border-[#00b274]/40 hover:bg-[#f8fffc]"
+                    >
+                      {feature.details.ctaSection.buttonText || "Start Managing Leads"}
+                    </button>
+                  </div>
+                </div>
+                <div className="relative mt-5 flex flex-wrap gap-4 text-xs font-medium text-slate-500">
+                  <span>No Setup Fee</span>
+                  <span>Free Consultation</span>
+                  <span>Cancel Anytime</span>
+                </div>
               </div>
             </div>
           </div>
