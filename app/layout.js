@@ -1,4 +1,5 @@
 import "./globals.css";
+import BookCallModalProvider from "@/components/BookCallModalProvider";
 import Chatbot from "@/components/Chatbot";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SocialStickyBar from "@/components/SocialStickyBar";
@@ -74,6 +75,7 @@ export default function RootLayout({ children }) {
         ) : null}
       </head>
       <body className="antialiased">
+        <BookCallModalProvider />
         <SocialStickyBar />
         {children}
         <div className="hidden md:block">
