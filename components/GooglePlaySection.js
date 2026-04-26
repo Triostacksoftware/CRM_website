@@ -129,55 +129,79 @@ export default function GooglePlaySection() {
                 <div className="relative mx-auto w-[220px] rounded-[2.6rem] border-[7px] border-[#273247] bg-[#1a2333] p-2.5 shadow-[0_20px_70px_rgba(0,178,116,0.12)] md:w-[250px]">
                   <div className="absolute left-1/2 top-0 h-6 w-28 -translate-x-1/2 rounded-b-[18px] bg-[#2b3548]" />
 
-                  <div className="overflow-hidden rounded-[2rem] bg-[linear-gradient(180deg,#0c1626_0%,#0a1220_100%)] px-4 pb-5 pt-10">
-                    <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-2.5">
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.24em] text-[#7ef7c4]">Live CRM</p>
-                        <p className="mt-1 text-sm font-semibold text-white">CRM Solutions Mobile</p>
+                  <div className="relative overflow-hidden rounded-[2rem] bg-[#091321]">
+                    <img
+                      src="/img.png"
+                      alt="Mobile CRM screen background"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#07111f]/82 via-[#081322]/72 to-[#091321]/96" />
+                    <div className="relative flex min-h-[470px] flex-col px-4 pb-4 pt-5">
+                      <div className="flex items-center justify-between border-b border-white/8 pb-3">
+                        <div className="flex items-center gap-2.5">
+                          <img
+                            src="/trio-crm.png"
+                            alt="Trio CRM 360 logo"
+                            className="h-7 w-7 object-contain"
+                          />
+                          <span className="text-[11px] font-semibold text-white">Trio-CRM 360</span>
+                        </div>
+                        <div className="space-y-1">
+                          <span className="block h-[2px] w-5 rounded-full bg-white/80" />
+                          <span className="block h-[2px] w-5 rounded-full bg-white/80" />
+                          <span className="block h-[2px] w-5 rounded-full bg-white/80" />
+                        </div>
                       </div>
-                      <div className="relative h-11 w-11 overflow-hidden rounded-2xl border border-white/10 bg-white">
-                        <img
-                          src="/trio-crm.png"
-                          alt="CRM Solutions logo"
-                          className="w-full h-full object-contain p-1.5"
-                        />
-                      </div>
-                    </div>
 
-                    <div className="space-y-3">
-                      <div className="rounded-2xl border border-[#00b274]/15 bg-[linear-gradient(135deg,rgba(20,195,142,0.14),rgba(56,189,248,0.04))] p-3.5">
-                        <p className="text-[11px] uppercase tracking-[0.22em] text-[#8ef9d0]">Today</p>
-                        <div className="mt-3 flex items-end justify-between gap-3">
-                          <div>
-                            <p className="text-2xl font-semibold text-white">24</p>
-                            <p className="text-xs text-slate-400">lead actions</p>
+                      <div className="mt-14">
+                        <p className="text-[8px] font-bold uppercase tracking-[0.42em] text-[#17d29f]">
+                          Sales & Growth Automation
+                        </p>
+                        <h3 className="mt-3 text-[2rem] font-semibold leading-none tracking-[-0.04em] text-white">
+                          TRIO-CRM
+                        </h3>
+                        <p className="mt-4 text-[8px] leading-[1.8] text-slate-200">
+                          Stop losing deals to manual follow-ups. CRM Solutions helps you automate your sales
+                          pipeline, track every interaction, and grow your revenue with India&apos;s smartest CRM
+                          platform.
+                        </p>
+                      </div>
+
+                      <div className="mt-6 space-y-3">
+                        {[
+                          "Close deals 30% faster with automated follow-ups",
+                          "Never lose a lead with 24/7 automated capture",
+                          "Gain real-time visibility into your entire sales team",
+                          "Automate lead assignment to the right sales rep instantly",
+                        ].map((item) => (
+                          <div key={item} className="flex items-start gap-2">
+                            <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#00b274]/20 text-[#11cf9d]">
+                              <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                              </svg>
+                            </span>
+                            <span className="text-[8px] font-semibold leading-[1.6] text-slate-100">{item}</span>
                           </div>
-                          <span className="rounded-full bg-[#00b274]/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#7ef7c4]">
-                            +18%
-                          </span>
-                        </div>
+                        ))}
                       </div>
 
-                      <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-3.5">
-                        <div className="flex items-center justify-between">
-                          <p className="text-sm font-medium text-white">Recent tasks</p>
-                          <span className="h-2.5 w-2.5 rounded-full bg-[#00b274]" />
-                        </div>
-                        <div className="mt-3 space-y-2.5">
-                          {['Call back hot lead', 'Share pricing sheet', 'Update site visit note'].map((item) => (
-                            <div
-                              key={item}
-                              className="flex items-center gap-2.5 rounded-xl border border-white/6 bg-[#0e1828] px-3 py-2.5"
-                            >
-                              <span className="h-2 w-2 rounded-full bg-[#8be9ff]" />
-                              <span className="text-xs text-slate-300">{item}</span>
-                            </div>
-                          ))}
+                      <div className="mt-auto border-t border-white/8 pt-5 text-center">
+                        <p className="text-sm font-semibold leading-snug text-white">
+                          Trusted by growing businesses
+                          <span className="block">across India</span>
+                        </p>
+                        <div className="mt-4 flex items-center justify-between text-[7px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                          <div className="flex items-center gap-1.5">
+                            <span>Call:</span>
+                            <span className="text-[8px] text-white">+91 9211941924</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <span>WhatsApp:</span>
+                            <span className="text-[8px] text-white">88265 23845</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-
-                    <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-white/15" />
                   </div>
                 </div>
 
