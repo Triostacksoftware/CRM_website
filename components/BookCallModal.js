@@ -15,6 +15,11 @@ export default function BookCallModal({
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [isMounted, setIsMounted] = useState(false);
+  const billingLabels = {
+    quarterly: "Quarterly",
+    semiannual: "Semi-Annual",
+    annual: "Annual",
+  };
 
   useEffect(() => {
     setIsMounted(true);
@@ -105,14 +110,14 @@ export default function BookCallModal({
       <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-md" />
 
       <div
-        className="relative z-[10001] w-full max-w-xl"
+        className="relative z-[10001] w-full max-w-4xl"
         onClick={(event) => event.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-labelledby="book-call-title"
         id="book-call-modal"
       >
-        <div className="relative overflow-hidden rounded-[30px] border border-white/70 bg-white p-6 shadow-2xl sm:p-8">
+        <div className="relative max-h-[88vh] overflow-y-auto rounded-[30px] border border-white/70 bg-white p-6 shadow-2xl sm:p-8">
           <div className="pointer-events-none absolute -left-20 -top-20 h-40 w-40 rounded-full bg-[#00b274]/15 blur-3xl" />
 
           <button
@@ -142,7 +147,7 @@ export default function BookCallModal({
                 <span className="rounded-full bg-white px-3 py-1 text-slate-800">{planDetails.name}</span>
                 <span>{planDetails.users}</span>
                 <span className="text-slate-300">|</span>
-                <span className="capitalize">{billingCycle}</span>
+                <span>{billingLabels[billingCycle]}</span>
                 <span className="text-slate-300">|</span>
                 <span>{planDetails.total?.[billingCycle]} total</span>
               </div>
@@ -151,9 +156,31 @@ export default function BookCallModal({
                 {pricePerUserPerMonth}
               </div>
 
-              <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                <div className="grid grid-cols-3 gap-0 border-b border-slate-200 bg-slate-100/80 text-xs font-bold uppercase tracking-wide text-slate-600">
+                  <div className="px-4 py-3">Billing</div>
+                  <div className="px-4 py-3">Price (Per User / Month)</div>
+                  <div className="px-4 py-3">Total</div>
+                </div>
+                {["quarterly", "semiannual", "annual"].map((cycle, index) => (
+                  <div
+                    key={cycle}
+                    className={`grid grid-cols-3 gap-0 text-sm ${index !== 2 ? "border-b border-slate-200" : ""}`}
+                  >
+                    <div className="px-4 py-3 font-medium text-slate-700">{billingLabels[cycle]}</div>
+                    <div className="px-4 py-3 text-slate-900">
+                      {`${"\u20B9"}${planDetails.price?.[cycle]?.toLocaleString()}`}
+                    </div>
+                    <div className="px-4 py-3 text-slate-900">{planDetails.total?.[cycle]}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 grid gap-4 lg:grid-cols-2">
                 <div>
-                  <h3 className="text-sm font-bold text-slate-950">Features Included</h3>
+                  <h3 className="text-sm font-bold text-slate-950">
+                    {planDetails.featureSectionTitle || "Features Included"}
+                  </h3>
                   <div className="mt-3 space-y-2">
                     {(planDetails.fullFeatures || []).map((item, index) => (
                       <div key={`feature-${index}`} className="flex items-start gap-2">
