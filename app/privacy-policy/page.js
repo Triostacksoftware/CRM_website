@@ -95,8 +95,8 @@ export default function PrivacyPolicyPage() {
           <div className="relative overflow-hidden rounded-[2.4rem] border border-white/10 shadow-[0_32px_100px_rgba(0,0,0,0.35)]">
             <div className="pointer-events-none absolute inset-0">
               <Image
-                src="/img.png"
-                alt="CRM Suite office workspace"
+                src="/crm%20screen%20shot/Screenshot%20(540).png"
+                alt="TrioCRM secure dashboard preview"
                 fill
                 priority
                 className="object-cover"

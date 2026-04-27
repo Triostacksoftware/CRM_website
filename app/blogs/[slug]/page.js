@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
       type: "article",
       images: [
         {
-          url: post.image || "/img.png",
+          url: post.image || "/crm%20screen%20shot/Screenshot%20(505).png",
           alt: post.title,
         },
       ],
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: post.title,
       description: post.heading || post.content?.substring(0, 160),
-      images: [post.image || "/img.png"],
+      images: [post.image || "/crm%20screen%20shot/Screenshot%20(505).png"],
     },
   };
 }

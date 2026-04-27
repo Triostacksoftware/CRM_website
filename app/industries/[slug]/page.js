@@ -12,7 +12,7 @@ import {
   industries,
 } from "@/lib/industries";
 
-const HERO_IMAGE = "/img.png";
+const HERO_IMAGE = "/crm%20screen%20shot/Screenshot%20(518).png";
 
 export function generateStaticParams() {
   return industries.map((industry) => ({

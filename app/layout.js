@@ -32,7 +32,7 @@ export const metadata = {
     description: "Scale your business with India's most compliant and automated CRM solution.",
     images: [
       {
-        url: "/img.png",
+        url: "/crm%20screen%20shot/Screenshot%20(505).png",
         width: 1200,
         height: 630,
         alt: "CRM Solutions Dashboard",
@@ -43,7 +43,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "CRM Solutions | Enterprise Software Solution",
     description: "Scale your business with India's most compliant and automated CRM solution.",
-    images: ["/img.png"],
+    images: ["/crm%20screen%20shot/Screenshot%20(505).png"],
   },
   icons: {
     icon: "/trio-logo.png",

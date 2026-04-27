@@ -4,7 +4,7 @@ export default function SEOComponent({
   title, 
   description, 
   keywords, 
-  image = "/img.png", 
+  image = "/crm%20screen%20shot/Screenshot%20(505).png",
   url = "https://triostack.in",
   type = "website" 
 }) {
