@@ -455,7 +455,7 @@ export default function FeatureDetailPage() {
 
       {/* Use Case Section */}
       {feature.details?.useCase && (
-        <section className="py-24 relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)]">
+        <section className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] pt-8 pb-24 md:pt-10 md:pb-24">
           <div className="container max-w-7xl mx-auto px-6">
             <Reveal>
               <div className="max-w-4xl mx-auto p-12 rounded-[2.5rem] bg-white/95 border border-slate-200 shadow-[0_28px_80px_rgba(15,23,42,0.1)]">

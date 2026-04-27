@@ -41,6 +41,25 @@ const useCases = [
   },
 ];
 
+const CARD_ACCENTS = [
+  {
+    glow: "from-[#7af0a8]/18 via-transparent to-transparent",
+    blob: "bg-[radial-gradient(circle_at_bottom_right,rgba(122,240,168,0.24),transparent_62%)]",
+  },
+  {
+    glow: "from-[#8de7d7]/16 via-transparent to-transparent",
+    blob: "bg-[radial-gradient(circle_at_bottom_right,rgba(141,231,215,0.24),transparent_60%)]",
+  },
+  {
+    glow: "from-[#ffd9b5]/16 via-transparent to-transparent",
+    blob: "bg-[radial-gradient(circle_at_bottom_right,rgba(255,217,181,0.24),transparent_60%)]",
+  },
+  {
+    glow: "from-[#e4c8ff]/16 via-transparent to-transparent",
+    blob: "bg-[radial-gradient(circle_at_bottom_right,rgba(228,200,255,0.24),transparent_60%)]",
+  },
+];
+
 export default function UseCasesSection() {
   return (
     <section className="py-20 bg-white relative overflow-hidden">
@@ -63,17 +82,31 @@ export default function UseCasesSection() {
           </Reveal>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {useCases.map((useCase, index) => (
             <Reveal key={index} delay={index * 100}>
-              <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-[0_22px_60px_rgba(15,23,42,0.09)] hover:border-[#00b274]/30 hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)] transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-[#00b274]/10 flex items-center justify-center text-[#00b274] mb-6 group-hover:scale-110 transition-transform">
-                  {useCase.icon}
+              <div className="group relative flex h-full min-h-[21rem] flex-col overflow-hidden rounded-[2rem] border border-[#e8f1ec] bg-white px-7 py-7 shadow-[0_16px_44px_rgba(15,23,42,0.08),0_2px_12px_rgba(11,143,102,0.04)] transition-all duration-500 hover:-translate-y-1 hover:border-[#bfead8] hover:shadow-[0_22px_60px_rgba(15,23,42,0.1),0_10px_30px_rgba(11,143,102,0.08)]">
+                <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${CARD_ACCENTS[index % CARD_ACCENTS.length].glow} opacity-80`} />
+                <div className={`pointer-events-none absolute bottom-0 right-0 h-32 w-32 rounded-tl-[4.5rem] ${CARD_ACCENTS[index % CARD_ACCENTS.length].blob}`} />
+
+                <div className="relative z-10 mb-6 flex h-[4.4rem] w-[4.4rem] items-center justify-center rounded-[1.45rem] border border-[#d6eee4] bg-[linear-gradient(180deg,#ffffff_0%,#f5fffb_100%)] text-[#0fb37a] shadow-[0_14px_32px_rgba(15,23,42,0.08)] transition-all duration-500 group-hover:scale-[1.04] group-hover:border-[#b7e8d4] group-hover:shadow-[0_20px_40px_rgba(17,175,120,0.16)]">
+                  <div className="relative flex h-[3.2rem] w-[3.2rem] items-center justify-center rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,1),rgba(225,250,240,0.98)_55%,rgba(197,242,223,0.82)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+                    <div className="pointer-events-none absolute inset-[5px] rounded-full border border-white/70" />
+                    <div className="relative z-10">
+                      {useCase.icon}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-950 mb-4">{useCase.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+
+                <h3 className="relative z-10 mb-4 text-[1.95rem] font-bold leading-[1.12] text-slate-950 transition-colors duration-300 group-hover:text-[#0f9e6d] xl:text-[1.82rem]">
+                  {useCase.title}
+                </h3>
+                <p className="relative z-10 text-[15px] leading-8 text-slate-500 transition-colors duration-300 group-hover:text-slate-600">
                   {useCase.description}
                 </p>
+
+                <div className="pointer-events-none absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-[#d8ece4] to-transparent" />
+                <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/60" />
               </div>
             </Reveal>
           ))}
