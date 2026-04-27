@@ -13,6 +13,7 @@ export default function BookCallModal({
   planDetails = null,
   billingCycle = "annual",
 }) {
+  const router = useRouter();
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [isMounted, setIsMounted] = useState(false);
