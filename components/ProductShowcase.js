@@ -49,20 +49,20 @@ export default function ProductShowcase() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Side: Product Visual */}
-          <div className="relative group animate-fade-in opacity-0">
+          <div className="relative group animate-fade-in opacity-100">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#00b274]/20 to-blue-500/20 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
             <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-[0_28px_80px_rgba(15,23,42,0.12)] border border-white bg-white">
               <img
-                src="/crm_3d_model.png"
-                alt="CRM dashboard visualization"
+                src="/crm screen shot/crmloginpage.png"
+                alt="CRM Login Page"
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-white/10 pointer-events-none" />
+              <div className="absolute inset-0 bg-white/5 pointer-events-none" />
             </div>
           </div>
 
           {/* Right Side: Content */}
-          <div className="animate-slide-up opacity-0 [animation-delay:200ms]">
+          <div className="animate-slide-up opacity-100">
             <div className="mb-8 text-center lg:text-left">
               <span className="text-[#00b274] text-xs font-bold tracking-[0.3em] uppercase block mb-4">
                 Our Product
