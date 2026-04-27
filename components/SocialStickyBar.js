@@ -57,9 +57,11 @@ const socials = [
   },
 ];
 
+const hiddenRoutes = new Set(["/", "/go", "/thank-you-crm-demo"]);
+
 export default function SocialStickyBar() {
   const pathname = usePathname();
-  if (pathname === "/thank-you-crm-demo") {
+  if (hiddenRoutes.has(pathname)) {
     return null;
   }
 
