@@ -32,7 +32,7 @@ export const metadata = {
     description: "Scale your business with India's most compliant and automated CRM solution.",
     images: [
       {
-        url: "/img.png",
+        url: "/crm%20screen%20shot/Screenshot%20(505).png",
         width: 1200,
         height: 630,
         alt: "CRM Solutions Dashboard",
@@ -43,7 +43,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "CRM Solutions | Enterprise Software Solution",
     description: "Scale your business with India's most compliant and automated CRM solution.",
-    images: ["/img.png"],
+    images: ["/crm%20screen%20shot/Screenshot%20(505).png"],
   },
   icons: {
     icon: "/trio-logo.png",
@@ -54,22 +54,25 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const googleAdsTagId = "AW-18122809504";
+  const gtagLoadId = gaId || googleAdsTagId;
 
   return (
     <html lang="en">
       <head>
-        {gaId ? (
+        {gtagLoadId ? (
           <>
             <Script
               strategy="lazyOnload"
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${gtagLoadId}`}
             />
             <Script id="google-analytics" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${gaId}');
+                ${gaId ? `gtag('config', '${gaId}');` : ""}
+                gtag('config', '${googleAdsTagId}');
               `}
             </Script>
           </>

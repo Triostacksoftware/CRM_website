@@ -131,8 +131,8 @@ export default function GooglePlaySection() {
 
                   <div className="relative overflow-hidden rounded-[2rem] bg-[#091321]">
                     <img
-                      src="/img.png"
-                      alt="Mobile CRM screen background"
+                      src="/crm%20screen%20shot/Screenshot%20(530).png"
+                      alt="TrioCRM mobile workflow preview"
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-[#07111f]/82 via-[#081322]/72 to-[#091321]/96" />

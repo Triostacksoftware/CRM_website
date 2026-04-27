@@ -21,8 +21,8 @@ export default function HeroSection() {
         {/* Background Image with Overlays */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <img
-            src="/img.png"
-            alt="Modern Office"
+            src="/crm%20screen%20shot/Screenshot%20(505).png"
+            alt="TrioCRM sales dashboard preview"
             className="w-full h-full object-cover filter brightness-[1.1] contrast-[1.05]"
           />
           {/* Main Gradient Overlay - Darker on the left for text readability */}
