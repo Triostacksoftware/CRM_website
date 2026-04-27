@@ -1,3 +1,7 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 const socials = [
   {
     name: "X",
@@ -54,6 +58,11 @@ const socials = [
 ];
 
 export default function SocialStickyBar() {
+  const pathname = usePathname();
+  if (pathname === "/thank-you-crm-demo") {
+    return null;
+  }
+
   return (
     <div className="pointer-events-none fixed right-0 top-1/2 z-[70] hidden -translate-y-1/2 lg:flex">
       <div className="rounded-l-2xl rounded-r-none bg-[linear-gradient(180deg,rgba(6,22,33,0.96)_0%,rgba(9,40,38,0.96)_55%,rgba(6,22,33,0.96)_100%)] px-1.5 py-1.5 shadow-[0_18px_40px_rgba(2,8,23,0.42)] ring-1 ring-[#34d399]/45 backdrop-blur-md">

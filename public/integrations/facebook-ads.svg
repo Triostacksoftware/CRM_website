@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 144" role="img" aria-labelledby="title desc">
+  <title id="title">Meta Ads logo</title>
+  <desc id="desc">Solid blue Meta infinity mark for the Meta Ads integration.</desc>
+  <path
+    d="M34 92c8-37 27-61 50-61 21 0 36 19 53 48l8 14c14 25 25 38 42 38 22 0 36-22 36-51 0-30-15-49-37-49-24 0-40 24-60 58l-10 17c-15 26-29 32-47 26-21-7-37-25-35-40"
+    fill="none"
+    stroke="#0081FB"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="22"
+  />
+</svg>

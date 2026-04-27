@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
 
 export default function WhatsAppButton() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [contactData, setContactData] = useState({
     name: "",
@@ -47,6 +50,7 @@ export default function WhatsAppButton() {
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(finalMsg)}`;
       window.open(whatsappUrl, "_blank");
       setSubmitState("success");
+      router.push("/thank-you-crm-demo");
     } catch (error) {
       setSubmitState("error");
       setSubmitError(
@@ -54,6 +58,10 @@ export default function WhatsAppButton() {
       );
     }
   };
+
+  if (pathname === "/thank-you-crm-demo") {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-6 left-6 z-[100] flex flex-col items-start gap-4 md:bottom-28 md:left-8">

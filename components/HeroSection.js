@@ -40,11 +40,11 @@ export default function HeroSection() {
                 <span className="text-[#00b274] text-[10px] font-bold tracking-[0.4em] uppercase block mb-3">
                   Sales & Growth Automation
                 </span>
-                <h1 className="text-[2.4rem] sm:text-[3.4rem] lg:text-[4.4rem] font-semibold text-white mb-4 leading-[1.03] tracking-[-0.02em] uppercase">
-                  Trio-CRM
+                <h1 className="text-[2rem] sm:text-[2.8rem] lg:text-[3.5rem] font-semibold text-white mb-4 leading-[1.08] tracking-[-0.02em]">
+                  Close More Deals. Automate Your Sales. Grow Faster.
                 </h1>
                 <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl">
-                  Stop losing deals to manual follow-ups. CRM Solutions helps you automate your sales pipeline, track every interaction, and grow your revenue with India's smartest CRM platform.
+                  TrioCRM helps your team capture, track, and convert leads — all in one powerful platform.
                 </p>
               </div>
 

@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
 
 export default function Chatbot() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -60,13 +63,8 @@ export default function Chatbot() {
         },
       });
 
-      setIsLeadsCaptured(true);
       setLeadStatus("success");
-      setMessages((prev) => [
-        ...prev,
-        { role: "bot", content: `Great to meet you, ${formData.name}! Let me ask you a few quick questions to better understand your needs.` },
-        { role: "bot", content: questions[0] }
-      ]);
+      router.push("/thank-you-crm-demo");
     } catch (error) {
       setLeadStatus("error");
       setLeadError(
@@ -97,6 +95,10 @@ export default function Chatbot() {
       }
     }, 800);
   };
+
+  if (pathname === "/thank-you-crm-demo") {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-6 right-6 z-[100] md:bottom-28 md:right-8">

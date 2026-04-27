@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
 
 export default function ContactSection({ 
@@ -11,6 +12,7 @@ export default function ContactSection({
   buttonText = "Book a Free Demo",
   bottomNote = "No obligation • Quick response • 100% secure"
 }) {
+  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
   const [formData, setFormData] = useState({
@@ -70,6 +72,13 @@ export default function ContactSection({
         message: ""
       });
       setSubmitState("success");
+      
+      // Attempt to redirect if the page exists, otherwise stay on page with success message
+      try {
+        router.push("/thank-you-crm-demo");
+      } catch (e) {
+        console.log("Redirect failed, staying on page.");
+      }
     } catch (error) {
       setSubmitState("error");
       setSubmitError(

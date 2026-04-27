@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 import { submitLead } from "@/lib/submitLead";
 
@@ -22,6 +23,7 @@ export default function GetQuoteModal({
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [isMounted, setIsMounted] = useState(false);
+  const router = useRouter();
 
   const interestOptions = useMemo(() => interests ?? defaultInterests, [interests]);
 
@@ -85,6 +87,7 @@ export default function GetQuoteModal({
 
       setStatus("success");
       form.reset();
+      router.push("/thank-you-crm-demo");
     } catch (error) {
       setStatus("error");
       setErrorMessage(

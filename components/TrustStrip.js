@@ -18,7 +18,7 @@ export default function TrustStrip() {
           {/* Left: Trust Line */}
           <div className="max-w-md text-center lg:text-left">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-2">
-              Trusted by growing businesses across India
+              Trusted by 1000+ growing business across India
             </h2>
             <div className="flex items-center justify-center lg:justify-start gap-2 text-[#00b274] font-bold">
               <span className="text-2xl">40%+</span>

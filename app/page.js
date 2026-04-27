@@ -1,13 +1,18 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustStrip from "@/components/TrustStrip";
+import ProblemSolutionSection from "@/components/ProblemSolutionSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import ResultsMetricsSection from "@/components/ResultsMetricsSection";
 import ProductShowcase from "@/components/ProductShowcase";
 import FeaturesSection from "@/components/FeaturesSection";
+import IntegrationsSection from "@/components/IntegrationsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import TestimonialSection from "@/components/TestimonialSection";
+import TrustSecuritySection from "@/components/TrustSecuritySection";
 import ConsultationSection from "@/components/ConsultationSection";
 import GooglePlaySection from "@/components/GooglePlaySection";
 import SEOComponent from "@/components/SEOComponent";
@@ -29,11 +34,16 @@ export default function HomePage() {
       <Navbar />
       <HeroSection />
       <TrustStrip />
+      <ProblemSolutionSection />
+      <HowItWorksSection />
       <FeaturesSection />
+      <IntegrationsSection />
+      <ResultsMetricsSection />
       <ProductShowcase />
       <UseCasesSection />
       <PricingSection />
       <TestimonialSection />
+      <TrustSecuritySection />
       <ConsultationSection />
       <GooglePlaySection />
       <FAQSection />

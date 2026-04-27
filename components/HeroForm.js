@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
 
 export default function HeroForm() {
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,6 +30,7 @@ export default function HeroForm() {
 
       form.reset();
       setStatus("success");
+      router.push("/thank-you-crm-demo");
     } catch (error) {
       setStatus("error");
       setErrorMessage(

@@ -41,6 +41,18 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# local temp and patch artifacts
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+*.rej
+
+# browser/test reports
+/playwright-report/
+/test-results/
+
 # cache
 .eslintcache
 
@@ -53,6 +65,8 @@ next-env.d.ts
 
 # misc
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.pem
 /scratch/
 .idea/

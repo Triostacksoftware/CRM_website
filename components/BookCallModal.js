@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 import { submitLead } from "@/lib/submitLead";
 
@@ -68,6 +69,7 @@ export default function BookCallModal({
       form.reset();
       setStatus("success");
       onClose();
+      router.push("/thank-you-crm-demo");
     } catch (error) {
       setStatus("error");
       setErrorMessage(
