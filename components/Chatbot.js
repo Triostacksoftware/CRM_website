@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
 
 export default function Chatbot() {
   const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isLeadsCaptured, setIsLeadsCaptured] = useState(false);
   const [step, setStep] = useState("questions"); // questions, complete
@@ -88,6 +89,10 @@ export default function Chatbot() {
       }
     }, 800);
   };
+
+  if (pathname === "/thank-you-crm-demo") {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-6 right-6 z-[100] md:bottom-28 md:right-8">
