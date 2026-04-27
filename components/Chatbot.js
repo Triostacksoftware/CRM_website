@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
 
 export default function Chatbot() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isLeadsCaptured, setIsLeadsCaptured] = useState(false);
   const [step, setStep] = useState("questions"); // questions, complete
@@ -54,13 +56,8 @@ export default function Chatbot() {
         },
       });
 
-      setIsLeadsCaptured(true);
       setLeadStatus("success");
-      setMessages((prev) => [
-        ...prev,
-        { role: "bot", content: `Great to meet you, ${formData.name}! Let me ask you a few quick questions to better understand your needs.` },
-        { role: "bot", content: questions[0] }
-      ]);
+      router.push("/thank-you-crm-demo");
     } catch (error) {
       setLeadStatus("error");
       setLeadError(

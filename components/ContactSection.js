@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
 
 export default function ContactSection() {
+  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
   const [formData, setFormData] = useState({
@@ -81,6 +83,7 @@ export default function ContactSection() {
         message: ""
       });
       setSubmitState("success");
+      router.push("/thank-you-crm-demo");
     } catch (error) {
       setSubmitState("error");
       setSubmitError(

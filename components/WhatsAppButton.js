@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
 
 export default function WhatsAppButton() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [contactData, setContactData] = useState({
     name: "",
@@ -47,6 +49,7 @@ export default function WhatsAppButton() {
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(finalMsg)}`;
       window.open(whatsappUrl, "_blank");
       setSubmitState("success");
+      router.push("/thank-you-crm-demo");
     } catch (error) {
       setSubmitState("error");
       setSubmitError(
