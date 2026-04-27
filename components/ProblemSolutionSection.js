@@ -1,13 +1,13 @@
 "use client";
 
-const problemPoints = [
+const defaultProblemPoints = [
   "Leads get lost or forgotten",
   "No structured follow-ups",
   "Lack of visibility into sales pipeline",
   "Manual work slows down your team",
 ];
 
-const solutionPoints = [
+const defaultSolutionPoints = [
   "Capture and manage every lead in one place",
   "Automated reminders and follow-ups",
   "Real-time sales pipeline visibility",
@@ -88,7 +88,15 @@ function ComparisonCard({ title, type, points }) {
   );
 }
 
-export default function ProblemSolutionSection() {
+export default function ProblemSolutionSection({
+  badge = "Problem to solution",
+  title = "Why Businesses Switch to TrioCRM",
+  description = "Replace scattered lead tracking and manual follow-ups with a clear sales system built for faster conversions.",
+  problemTitle = "Without a CRM",
+  solutionTitle = "With TrioCRM",
+  problemPoints = defaultProblemPoints,
+  solutionPoints = defaultSolutionPoints,
+}) {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#fffdfa_0%,#ffffff_35%,#fffefc_100%)] py-16 md:py-20">
       <div className="pointer-events-none absolute inset-0">
@@ -99,19 +107,19 @@ export default function ProblemSolutionSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
           <span className="mb-5 inline-flex rounded-full border border-[#cfeee3] bg-[#effaf4] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#1baf78] shadow-[0_10px_24px_rgba(11,143,102,0.08)]">
-            Problem to solution
+            {badge}
           </span>
           <h2 className="mb-4 text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
-            Why Businesses Switch to TrioCRM
+            {title}
           </h2>
           <p className="text-base leading-relaxed text-slate-500 md:text-lg">
-            Replace scattered lead tracking and manual follow-ups with a clear sales system built for faster conversions.
+            {description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
-          <ComparisonCard title="Without a CRM" type="problem" points={problemPoints} />
-          <ComparisonCard title="With TrioCRM" type="solution" points={solutionPoints} />
+          <ComparisonCard title={problemTitle} type="problem" points={problemPoints} />
+          <ComparisonCard title={solutionTitle} type="solution" points={solutionPoints} />
         </div>
       </div>
     </section>

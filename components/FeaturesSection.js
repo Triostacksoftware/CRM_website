@@ -5,7 +5,7 @@ import Link from "next/link";
 import ContactLink from "./ContactLink";
 import Reveal from "./Reveal";
 
-const featureModules = [
+const defaultFeatureModules = [
   {
     label: "CATEGORY 01",
     title: "Lead & Pre-Sales",
@@ -121,7 +121,13 @@ function ModuleImage({ module, index }) {
   );
 }
 
-export default function FeaturesSection() {
+export default function FeaturesSection({
+  badge = "Features",
+  title = "Best In Class Features",
+  description = "Jump straight into the CRM modules that matter most to your sales, operations, support, finance, and platform teams.",
+  modules = defaultFeatureModules,
+  showBottomCta = true,
+}) {
   return (
     <section
       id="features"
@@ -133,26 +139,25 @@ export default function FeaturesSection() {
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <span className="mb-5 block text-xs font-bold uppercase tracking-[0.24em] text-[#079767]">
-              Features
+              {badge}
             </span>
           </Reveal>
 
           <Reveal delay={100}>
             <h2 className="text-4xl font-bold leading-tight text-slate-950 md:text-6xl">
-              Best In Class Features
+              {title}
             </h2>
           </Reveal>
 
           <Reveal delay={180}>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-600 md:text-lg">
-              Jump straight into the CRM modules that matter most to your sales,
-              operations, support, finance, and platform teams.
+              {description}
             </p>
           </Reveal>
         </div>
 
         <div className="mt-20 space-y-20 md:mt-28 md:space-y-28">
-          {featureModules.map((module, index) => {
+          {modules.map((module, index) => {
             const imageFirst = module.imageSide === "left";
 
             return (
@@ -166,7 +171,7 @@ export default function FeaturesSection() {
                   <ModuleImage module={module} index={index} />
                 </div>
 
-                {index < featureModules.length - 1 ? (
+                {index < modules.length - 1 ? (
                   <div className="mt-20 h-px w-full bg-gradient-to-r from-transparent via-[#bfe8dc] to-transparent md:mt-28" />
                 ) : null}
               </div>
@@ -174,26 +179,28 @@ export default function FeaturesSection() {
           })}
         </div>
 
-        <Reveal delay={260}>
-          <div className="mx-auto mt-20 max-w-3xl text-center md:mt-28">
-            <div className="mx-auto mb-10 h-px max-w-xl bg-gradient-to-r from-transparent via-[#bfe8dc] to-transparent" />
-            <h3 className="text-3xl font-bold leading-tight text-slate-950 md:text-5xl">
-              Everything you need to run your business smarter
-            </h3>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <ContactLink className="inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-[#10b981] to-[#079767] px-8 py-3.5 text-sm font-bold text-white shadow-[0_14px_30px_rgba(16,185,129,0.22)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(16,185,129,0.28)]">
-                Start Free Trial
-              </ContactLink>
-              <button
-                type="button"
-                onClick={openBookDemoModal}
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#eafff7] px-8 py-3.5 text-sm font-bold text-[#047857] transition-all hover:-translate-y-0.5 hover:bg-[#dffbef]"
-              >
-                Book Demo
-              </button>
+        {showBottomCta ? (
+          <Reveal delay={260}>
+            <div className="mx-auto mt-20 max-w-3xl text-center md:mt-28">
+              <div className="mx-auto mb-10 h-px max-w-xl bg-gradient-to-r from-transparent via-[#bfe8dc] to-transparent" />
+              <h3 className="text-3xl font-bold leading-tight text-slate-950 md:text-5xl">
+                Everything you need to run your business smarter
+              </h3>
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <ContactLink className="inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-[#10b981] to-[#079767] px-8 py-3.5 text-sm font-bold text-white shadow-[0_14px_30px_rgba(16,185,129,0.22)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(16,185,129,0.28)]">
+                  Start Free Trial
+                </ContactLink>
+                <button
+                  type="button"
+                  onClick={openBookDemoModal}
+                  className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#eafff7] px-8 py-3.5 text-sm font-bold text-[#047857] transition-all hover:-translate-y-0.5 hover:bg-[#dffbef]"
+                >
+                  Book Demo
+                </button>
+              </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        ) : null}
       </div>
     </section>
   );

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 
-const faqData = [
+const defaultFaqData = [
   {
     question: "What is CRM and how does it help my business?",
     answer: "A CRM (Customer Relationship Management) system helps you track interactions with customers and leads. It streamlines sales, improves customer service, and increases profitability by organizing data in one central hub."
@@ -68,7 +68,12 @@ const FAQItem = ({ item, isOpen, onClick }) => {
   );
 };
 
-const FAQSection = () => {
+const FAQSection = ({
+  badge = "FAQS",
+  title = "Answers to Common Questions",
+  description = "Explore quick answers about implementation, integrations, timelines, and support.",
+  faqData = defaultFaqData,
+}) => {
   const [openIndex, setOpenIndex] = useState(-1);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -97,25 +102,22 @@ const FAQSection = () => {
 
   return (
     <section ref={sectionRef} className="relative pt-8 pb-3 md:pt-10 md:pb-4 px-6 overflow-hidden bg-white">
-      {/* Decorative Glows */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-white blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Header - Left Side */}
           <div className={`max-w-lg space-y-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <span className="text-[#00b274] text-[10px] font-bold uppercase tracking-[0.5em] block">
-              FAQS
+              {badge}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-950 tracking-tight leading-[1.2]">
-              Answers to Common Questions
+              {title}
             </h2>
             <p className="text-base md:text-lg text-slate-600 font-light leading-relaxed">
-              Explore quick answers about implementation, integrations, timelines, and support.
+              {description}
             </p>
           </div>
 
-          {/* FAQ Items - Right Side */}
           <div className={`w-full max-w-2xl ml-auto transition-all duration-1000 delay-300 ${isVisible ? 'animate-slide-up opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
             <div className="flex flex-col">
               {faqData.map((item, index) => (

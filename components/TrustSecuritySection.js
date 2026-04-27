@@ -1,6 +1,6 @@
 import Reveal from "./Reveal";
 
-const securityItems = [
+const defaultSecurityItems = [
   {
     title: "Role-Based Access Control",
     description:
@@ -54,7 +54,12 @@ function SecurityIcon({ type }) {
   return <svg {...commonProps}>{icons[type]}</svg>;
 }
 
-export default function TrustSecuritySection() {
+export default function TrustSecuritySection({
+  badge = "Trust & Security",
+  title = "Security You Can Trust",
+  description = "TrioCRM is built with enterprise-grade security to protect your data, ensure privacy, and give you complete control over access.",
+  items = defaultSecurityItems,
+}) {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f8fffc_52%,#f8fbff_100%)] py-16 md:py-20">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8ece4] to-transparent" />
@@ -64,24 +69,23 @@ export default function TrustSecuritySection() {
         <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
           <Reveal>
             <span className="mb-5 block text-xs font-bold uppercase tracking-[0.18em] text-[#1baf78]">
-              Trust & Security
+              {badge}
             </span>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="mb-4 text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
-              Security You Can Trust
+              {title}
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-base leading-relaxed text-slate-500 md:text-lg">
-              TrioCRM is built with enterprise-grade security to protect your
-              data, ensure privacy, and give you complete control over access.
+              {description}
             </p>
           </Reveal>
         </div>
 
         <div className="grid grid-cols-1 gap-0 md:grid-cols-2 lg:grid-cols-3">
-          {securityItems.map((item, index) => (
+          {items.map((item, index) => (
             <Reveal key={item.title} delay={index * 90}>
               <div
                 className={`group h-full border-[#d8ece4] transition-all duration-300 hover:-translate-y-1 ${

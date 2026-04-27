@@ -1,6 +1,6 @@
 "use client";
 
-const steps = [
+const defaultSteps = [
   {
     number: "01",
     title: "Capture Leads",
@@ -98,7 +98,13 @@ function FlowStep({ step, index, isLast }) {
   );
 }
 
-export default function HowItWorksSection() {
+export default function HowItWorksSection({
+  badge = "How it works",
+  title = "How TrioCRM Works",
+  description = "A simple 4-step process to capture, manage, and convert your leads efficiently.",
+  steps = defaultSteps,
+  showCta = true,
+}) {
   const openBookDemoModal = () => {
     window.dispatchEvent(
       new CustomEvent("book-call-modal:open", {
@@ -118,13 +124,13 @@ export default function HowItWorksSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-14 max-w-3xl text-center md:mb-20">
           <span className="mb-5 inline-flex rounded-full border border-[#cfeee3] bg-[#effaf4] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#1baf78] shadow-[0_10px_24px_rgba(11,143,102,0.08)]">
-            How it works
+            {badge}
           </span>
           <h2 className="mb-4 text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
-            How TriocRM Works
+            {title}
           </h2>
           <p className="text-base leading-relaxed text-slate-500 md:text-lg">
-            A simple 4-step process to capture, manage, and convert your leads efficiently.
+            {description}
           </p>
         </div>
 
@@ -139,26 +145,28 @@ export default function HowItWorksSection() {
           </ol>
         </div>
 
-        <div className="mx-auto mt-10 max-w-3xl border-t border-[#d8ece4] pt-10 text-center md:mt-16 md:pt-12">
-          <h3 className="mb-5 text-3xl font-bold leading-tight text-slate-950 md:text-4xl">
-            Start managing your leads smarter today
-          </h3>
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#11b178] to-[#099a66] px-9 py-4 text-sm font-bold text-white shadow-[0_14px_32px_rgba(17,177,120,0.28)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(17,177,120,0.34)]"
-            >
-              Start Free Trial
-            </a>
-            <button
-              type="button"
-              onClick={openBookDemoModal}
-              className="inline-flex items-center justify-center rounded-full border border-[#00b274]/20 bg-white px-9 py-4 text-sm font-bold text-[#00b274] shadow-[0_10px_24px_rgba(11,143,102,0.08)] transition-all hover:-translate-y-0.5 hover:border-[#00b274]/40 hover:bg-[#f8fffc]"
-            >
-              Book Demo
-            </button>
+        {showCta ? (
+          <div className="mx-auto mt-10 max-w-3xl border-t border-[#d8ece4] pt-10 text-center md:mt-16 md:pt-12">
+            <h3 className="mb-5 text-3xl font-bold leading-tight text-slate-950 md:text-4xl">
+              Start managing your leads smarter today
+            </h3>
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#11b178] to-[#099a66] px-9 py-4 text-sm font-bold text-white shadow-[0_14px_32px_rgba(17,177,120,0.28)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(17,177,120,0.34)]"
+              >
+                Start Free Trial
+              </a>
+              <button
+                type="button"
+                onClick={openBookDemoModal}
+                className="inline-flex items-center justify-center rounded-full border border-[#00b274]/20 bg-white px-9 py-4 text-sm font-bold text-[#00b274] shadow-[0_10px_24px_rgba(11,143,102,0.08)] transition-all hover:-translate-y-0.5 hover:border-[#00b274]/40 hover:bg-[#f8fffc]"
+              >
+                Book Demo
+              </button>
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </section>
   );

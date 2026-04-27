@@ -4,7 +4,11 @@ import { useState, useEffect, useRef } from "react";
 import BookCallModal from "./BookCallModal";
 import { pricingPlans } from "@/lib/pricing-data";
 
-export default function PricingSection() {
+export default function PricingSection({
+  badge = "Invest in Growth",
+  title = "ROI-Focused Pricing",
+  description = "CRM Solutions pays for itself by helping you close more deals and eliminating manual tasks.",
+}) {
   const [billingCycle, setBillingCycle] = useState("annual");
   const [isVisible, setIsVisible] = useState(false);
   const [activePlan, setActivePlan] = useState(null);
@@ -60,13 +64,13 @@ export default function PricingSection() {
           className={`text-center mb-10 md:mb-12 ${isVisible ? "animate-fade-in opacity-100" : "opacity-0"} transition-opacity duration-700`}
         >
           <span className="text-[#00b274] text-xs font-bold tracking-[0.3em] uppercase block mb-4">
-            Invest in Growth
+            {badge}
           </span>
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-950 mb-6">
-            ROI-Focused Pricing
+            {title}
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            CRM Solutions pays for itself by helping you close more deals and eliminating manual tasks.
+            {description}
           </p>
         </div>
 

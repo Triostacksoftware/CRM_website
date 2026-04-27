@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 
-const integrations = [
+const defaultIntegrations = [
   {
     name: "WhatsApp",
     description: "Connect and engage with leads instantly",
@@ -24,7 +24,13 @@ const integrations = [
   },
 ];
 
-export default function IntegrationsSection() {
+export default function IntegrationsSection({
+  badge = "Integrations",
+  title = "Works Seamlessly With Your Favorite Tools",
+  description = "TrioCRM integrates with the tools your team already uses, helping you automate workflows and manage everything from one place.",
+  integrations = defaultIntegrations,
+  footerNote = "And many more integrations available to fit your workflow",
+}) {
   return (
     <section
       id="integrations"
@@ -34,18 +40,17 @@ export default function IntegrationsSection() {
         <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
           <Reveal>
             <span className="mb-5 block text-xs font-bold uppercase tracking-[0.18em] text-[#1baf78]">
-              Integrations
+              {badge}
             </span>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="mb-4 text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
-              Works Seamlessly With Your Favorite Tools
+              {title}
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-base leading-relaxed text-slate-500 md:text-lg">
-              TrioCRM integrates with the tools your team already uses, helping
-              you automate workflows and manage everything from one place.
+              {description}
             </p>
           </Reveal>
         </div>
@@ -76,7 +81,7 @@ export default function IntegrationsSection() {
 
         <Reveal delay={420}>
           <p className="mx-auto mt-12 max-w-2xl text-center text-sm font-semibold leading-6 text-slate-500 md:mt-14">
-            And many more integrations available to fit your workflow
+            {footerNote}
           </p>
         </Reveal>
       </div>
