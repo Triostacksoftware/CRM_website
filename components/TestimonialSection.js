@@ -66,6 +66,92 @@ const items = [
     image: "https://i.pravatar.cc/150?u=sneha",
     href: "https://www.linkedin.com/",
   },
+  {
+    id: 7,
+    type: "text",
+    name: "Neha Menon",
+    role: "Customer Success Lead",
+    company: "EduPlus India",
+    content: "Follow-up reminders helped our counselors stay on track with every enquiry. We now know exactly which leads need attention each day.",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?u=neha",
+    href: "https://www.linkedin.com/",
+  },
+  {
+    id: 8,
+    type: "video",
+    name: "Karan Malhotra",
+    role: "Director",
+    company: "NorthStar Realty",
+    thumbnail: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=60",
+    videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    href: "https://www.linkedin.com/",
+  },
+  {
+    id: 9,
+    type: "text",
+    name: "Meera Iyer",
+    role: "Branch Manager",
+    company: "UrbanNest Realty",
+    content: "The multi-branch dashboard gave our managers one clean view of lead status, site visits, and pending callbacks without asking teams for manual updates.",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?u=meera",
+    href: "https://www.linkedin.com/",
+  },
+  {
+    id: 10,
+    type: "text",
+    name: "Arjun Nair",
+    role: "Head of Sales",
+    company: "FinEdge Advisory",
+    content: "Our sales reviews became much sharper after moving to CRM Solutions. The reports clearly show where deals are stuck and who needs support.",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?u=arjun",
+    href: "https://www.linkedin.com/",
+  },
+  {
+    id: 11,
+    type: "video",
+    name: "Ritika Shah",
+    role: "Co-Founder",
+    company: "CareFirst Clinics",
+    thumbnail: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=60",
+    videoSrc: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    href: "https://www.linkedin.com/",
+  },
+  {
+    id: 12,
+    type: "text",
+    name: "Dev Mehta",
+    role: "Operations Manager",
+    company: "SwiftMove Logistics",
+    content: "Task assignment and activity history removed confusion between our sales and operations teams. Everyone works from the same customer timeline now.",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?u=dev",
+    href: "https://www.linkedin.com/",
+  },
+  {
+    id: 13,
+    type: "text",
+    name: "Farah Khan",
+    role: "Marketing Head",
+    company: "BrightWave Media",
+    content: "Lead source tracking finally made our ad spend measurable. We can see which campaigns bring quality enquiries and follow up instantly.",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?u=farah",
+    href: "https://www.linkedin.com/",
+  },
+  {
+    id: 14,
+    type: "text",
+    name: "Suresh Verma",
+    role: "General Manager",
+    company: "PrimeBuild Group",
+    content: "CRM Solutions helped us standardize our enquiry process across projects. The team is faster, cleaner, and more accountable with every lead.",
+    rating: 5,
+    image: "https://i.pravatar.cc/150?u=suresh",
+    href: "https://www.linkedin.com/",
+  },
 ];
 
 const LinkedinIcon = ({ className = "h-4 w-4" }) => (
@@ -279,6 +365,7 @@ const TestimonialSection = () => {
   const rowItems = useMemo(() => {
     const expandForSeamlessLoop = (sourceItems, minimumCount = 6) => {
       if (sourceItems.length === 0) return sourceItems;
+      if (sourceItems.length >= minimumCount) return sourceItems;
 
       const expanded = [];
       while (expanded.length < minimumCount) {

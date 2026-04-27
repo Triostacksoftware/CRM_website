@@ -96,7 +96,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative scroll-mt-28 py-16 md:py-24 bg-white overflow-hidden"
+      className="relative scroll-mt-28 pt-8 pb-24 md:pt-10 md:pb-28 bg-white overflow-hidden"
     >
       {/* Background Decorative Blobs */}
       <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#00b274]/6 rounded-full blur-[120px] pointer-events-none" />
@@ -111,11 +111,12 @@ export default function ContactSection() {
               CONTACT US
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-950 mb-5 leading-tight">
-              Let’s Build Something <br />
-              <span className="text-slate-900">Amazing Together</span>
+              Talk to Our <br />
+              <span className="text-slate-900">CRM Experts</span>
             </h2>
             <p className="text-slate-600 text-sm leading-relaxed mb-10 max-w-lg">
-              Have questions about our CRM solutions? Our team is here to help you streamline operations and grow your business.
+              Learn how TrioCRM can help you capture leads, automate workflows, and close deals faster. Get a personalized consultation tailored to your business needs.
+              <span className="block text-slate-600 text-sm leading-relaxed font-medium mt-3">Trusted by 1000+ growing business across India</span>
             </p>
 
             {/* Contact Info Cards */}
@@ -128,7 +129,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-slate-500 text-[9px] uppercase tracking-widest font-bold mb-0.5">Phone</p>
-                  <p className="text-slate-950 text-sm font-medium">+91 9211941924</p>
+                  <p className="text-slate-950 text-sm font-bold">+91 9211941924</p>
+                  <p className="text-slate-600 text-sm leading-relaxed">Speak directly with our CRM consultant</p>
                 </div>
               </div>
 
@@ -140,7 +142,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-slate-500 text-[9px] uppercase tracking-widest font-bold mb-0.5">Email</p>
-                  <p className="text-slate-950 text-sm font-medium">Info@triostack.in</p>
+                  <p className="text-slate-950 text-sm font-bold">Info@triostack.in</p>
+                  <p className="text-slate-600 text-sm leading-relaxed">Get detailed product information &amp; support</p>
                 </div>
               </div>
 
@@ -153,7 +156,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="text-slate-500 text-[9px] uppercase tracking-widest font-bold mb-0.5">Location</p>
-                  <p className="text-slate-950 text-sm font-medium">India</p>
+                  <p className="text-slate-950 text-sm font-medium">Serving businesses across India</p>
                 </div>
               </div>
             </div>
@@ -224,12 +227,13 @@ export default function ContactSection() {
                   className="w-full bg-gradient-to-r from-[#00b274] to-[#009661] text-white text-sm font-bold py-3.5 rounded-full shadow-lg shadow-[#00b274]/20 hover:shadow-[#00b274]/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 mt-2 group"
                 >
                   <span className="flex items-center justify-center gap-2">
-                    {submitState === "submitting" ? "Sending..." : "Send Message"}
+                    {submitState === "submitting" ? "Sending..." : "Book a Free Demo"}
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </span>
                 </button>
+                <p className="text-center text-slate-600 text-sm leading-relaxed">No obligation • Quick response • 100% secure</p>
 
                 {submitError ? (
                   <p className="text-sm text-red-500">{submitError}</p>
