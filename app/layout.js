@@ -54,22 +54,25 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const googleAdsTagId = "AW-18122809504";
+  const gtagLoadId = gaId || googleAdsTagId;
 
   return (
     <html lang="en">
       <head>
-        {gaId ? (
+        {gtagLoadId ? (
           <>
             <Script
               strategy="lazyOnload"
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${gtagLoadId}`}
             />
             <Script id="google-analytics" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${gaId}');
+                ${gaId ? `gtag('config', '${gaId}');` : ""}
+                gtag('config', '${googleAdsTagId}');
               `}
             </Script>
           </>
