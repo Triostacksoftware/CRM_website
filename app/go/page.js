@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import TrustStrip from "@/components/TrustStrip";
 import ProblemSolutionSection from "@/components/ProblemSolutionSection";
@@ -27,7 +27,22 @@ export default function GoLandingPage() {
         title="TrioCRM Demo Landing Page"
         description="Explore TrioCRM features, pricing, integrations, security, and FAQs on the dedicated demo landing page."
       />
-      <Navbar />
+      <Link
+        href="/"
+        className="absolute left-5 top-5 z-[120] inline-flex items-center gap-2.5 sm:left-8"
+        aria-label="Go to home page"
+      >
+        <span className="relative h-10 w-10 shrink-0 overflow-visible">
+          <img
+            src="/trio-logo.png"
+            alt="Triostack Logo"
+            className="h-full w-full object-contain"
+          />
+        </span>
+        <span className="whitespace-nowrap text-[1.2rem] font-black leading-none tracking-normal text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+          Trio-CRM 360
+        </span>
+      </Link>
       <HeroSection {...goLandingData.hero} />
       <TrustStrip {...goLandingData.trustStrip} />
       <ProblemSolutionSection {...goLandingData.whySwitch} />

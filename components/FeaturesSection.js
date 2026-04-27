@@ -30,7 +30,7 @@ const defaultFeatureModules = [
       "Site visit and booking pipeline tracking",
       "Broker, payment, and collection workflows",
     ],
-    image: "/crm screen shot/real state ss.png",
+    image: "/crm screen shot/realEState.png/WhatsApp Image 2026-04-27 at 23.22.24.jpeg",
     href: "/features#real-estate-crm",
     imageSide: "left",
   },
@@ -50,37 +50,56 @@ const defaultFeatureModules = [
   },
 ];
 
-const openBookDemoModal = () => {
-  window.dispatchEvent(
-    new CustomEvent("book-call-modal:open", {
-      detail: {
-        title: "Book Your Free Demo",
-        subtitle: "Share your details and our team will schedule your personalized walkthrough.",
-      },
-    })
-  );
-};
+function LineIcon({ name, className = "" }) {
+  const paths = {
+    check: <path d="M5 12.5 9.5 17 19 7" />,
+    arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
+  };
 
-function ModuleText({ module, index }) {
   return (
-    <Reveal className="w-full lg:basis-[42%]" delay={index * 80}>
-      <div className="max-w-xl">
-        <span className="mb-5 block text-xs font-bold uppercase tracking-[0.22em] text-[#079767]">
-          {module.label}
-        </span>
+    <svg
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {paths[name]}
+    </svg>
+  );
+}
 
-        <h3 className="text-4xl font-bold leading-tight text-slate-950 md:text-5xl">
+function ModuleText({ module, index, isTextRight }) {
+  return (
+    <Reveal
+      from={isTextRight ? "bottom-right" : "bottom-left"}
+      className="w-full lg:basis-[42%]"
+      delay={index * 90}
+    >
+      <div className="max-w-xl">
+        <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-[#079767]">
+          {module.label}
+        </p>
+
+        <h3 className="text-4xl font-semibold leading-tight tracking-normal text-slate-950 md:text-5xl">
           {module.title}
         </h3>
 
-        <p className="mt-5 text-base leading-8 text-slate-600 md:text-lg">
+        <p className="mt-6 text-base leading-8 text-slate-600 md:text-lg">
           {module.description}
         </p>
 
-        <ul className="mt-8 space-y-4">
+        <ul className="mt-9 space-y-5">
           {module.bullets.map((bullet) => (
-            <li key={bullet} className="flex items-start gap-3 text-sm font-medium leading-6 text-slate-700 md:text-base">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00b274]" />
+            <li
+              key={bullet}
+              className="group/item flex items-start gap-4 text-base font-medium leading-7 text-slate-700 transition-all duration-300 hover:translate-x-1 hover:text-slate-950"
+            >
+              <span className="mt-1.5 inline-flex h-5 w-5 shrink-0 items-center justify-center text-[#0caf78] transition-all duration-300 group-hover/item:translate-x-0.5 group-hover/item:text-[#06845b]">
+                <LineIcon name="check" className="h-4 w-4 stroke-[2.25]" />
+              </span>
               <span>{bullet}</span>
             </li>
           ))}
@@ -88,24 +107,29 @@ function ModuleText({ module, index }) {
 
         <Link
           href={module.href}
-          className="group mt-9 inline-flex items-center text-sm font-bold text-[#079767] transition-colors hover:text-[#036b4a]"
+          className="group/link mt-10 inline-flex items-center gap-2 bg-[linear-gradient(90deg,#079767,#22c59a)] bg-left-bottom bg-no-repeat pb-1 text-sm font-bold uppercase tracking-[0.16em] text-[#067a56] transition-all duration-300 bg-[length:0%_1px] hover:translate-x-1 hover:text-[#045d42] hover:bg-[length:100%_1px]"
         >
           Explore Module
-          <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-            &rarr;
-          </span>
+          <LineIcon
+            name="arrow"
+            className="h-4 w-4 stroke-[2.2] transition-transform duration-300 group-hover/link:translate-x-1"
+          />
         </Link>
       </div>
     </Reveal>
   );
 }
 
-function ModuleImage({ module, index }) {
+function ModuleImage({ module, index, isImageRight }) {
   return (
-    <Reveal className="w-full lg:basis-[58%]" delay={120 + index * 80}>
-      <figure className="group/image relative">
-        <div className="pointer-events-none absolute -inset-x-6 -inset-y-8 bg-[linear-gradient(135deg,rgba(0,178,116,0.18),rgba(20,184,166,0.12),rgba(255,255,255,0))] blur-3xl transition-opacity duration-500 group-hover/image:opacity-90" />
-        <div className="pointer-events-none absolute inset-x-10 -bottom-4 h-12 bg-[#00b274]/15 blur-2xl transition-all duration-500 group-hover/image:translate-y-1" />
+    <Reveal
+      from={isImageRight ? "bottom-right" : "bottom-left"}
+      className="w-full lg:basis-[58%]"
+      delay={140 + index * 90}
+    >
+      <figure className="group/visual relative">
+        <div className="pointer-events-none absolute -inset-x-10 -inset-y-8 bg-[radial-gradient(ellipse_at_center,rgba(20,184,166,0.24),rgba(34,197,94,0.09)_42%,transparent_70%)] blur-3xl transition-opacity duration-700 group-hover/visual:opacity-90" />
+        <div className="pointer-events-none absolute inset-x-16 bottom-4 h-16 bg-[#10b981]/16 blur-3xl transition-transform duration-700 group-hover/visual:translate-y-1" />
 
         <Image
           src={module.image}
@@ -113,7 +137,7 @@ function ModuleImage({ module, index }) {
           width={1920}
           height={1080}
           sizes="(min-width: 1024px) 58vw, 100vw"
-          className="relative z-10 h-auto w-full rounded-[1.35rem] object-cover shadow-[0_28px_70px_rgba(15,23,42,0.14)] transition-transform duration-500 group-hover/image:-translate-y-1 group-hover/image:scale-[1.015]"
+          className="relative z-10 h-auto w-full object-contain opacity-[0.98] drop-shadow-[0_24px_38px_rgba(15,118,110,0.11)] transition-all duration-700 group-hover/visual:-translate-y-1 group-hover/visual:scale-[1.01]"
           priority={index === 0}
         />
       </figure>
@@ -131,20 +155,22 @@ export default function FeaturesSection({
   return (
     <section
       id="features"
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#f7fffb_0%,#ffffff_32%,#f4fffb_100%)] py-20 md:py-28"
+      className="relative isolate overflow-hidden bg-white py-20 text-slate-950 md:py-28"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,178,116,0.12),transparent_50%),linear-gradient(90deg,rgba(20,184,166,0.06),transparent_42%,rgba(0,178,116,0.07))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_36%,#f1fff9_72%,#e9fffa_100%)]" />
+      <div className="pointer-events-none absolute right-[-12rem] top-[-12rem] h-[32rem] w-[32rem] bg-[radial-gradient(circle,rgba(45,212,191,0.22),rgba(34,197,94,0.08)_42%,transparent_70%)] blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-[18rem] h-[26rem] w-[54rem] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.13),rgba(236,253,245,0.38)_36%,transparent_68%)] blur-3xl" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <div className="relative z-10 mx-auto max-w-[1480px] px-5 sm:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <span className="mb-5 block text-xs font-bold uppercase tracking-[0.24em] text-[#079767]">
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.32em] text-[#079767]">
               {badge}
-            </span>
+            </p>
           </Reveal>
 
           <Reveal delay={100}>
-            <h2 className="text-4xl font-bold leading-tight text-slate-950 md:text-6xl">
+            <h2 className="text-4xl font-semibold leading-tight tracking-normal text-slate-950 md:text-6xl">
               {title}
             </h2>
           </Reveal>
@@ -156,23 +182,24 @@ export default function FeaturesSection({
           </Reveal>
         </div>
 
-        <div className="mt-20 space-y-20 md:mt-28 md:space-y-28">
+        <div className="mt-20 space-y-24 md:mt-28 md:space-y-32">
           {modules.map((module, index) => {
             const imageFirst = module.imageSide === "left";
+            const isImageRight = !imageFirst;
 
             return (
-              <div key={module.title}>
+              <div key={module.title} className="relative">
                 <div
-                  className={`flex flex-col items-center gap-12 lg:gap-16 ${
+                  className={`flex flex-col items-center gap-14 lg:gap-20 ${
                     imageFirst ? "lg:flex-row-reverse" : "lg:flex-row"
                   }`}
                 >
-                  <ModuleText module={module} index={index} />
-                  <ModuleImage module={module} index={index} />
+                  <ModuleText module={module} index={index} isTextRight={imageFirst} />
+                  <ModuleImage module={module} index={index} isImageRight={isImageRight} />
                 </div>
 
                 {index < modules.length - 1 ? (
-                  <div className="mt-20 h-px w-full bg-gradient-to-r from-transparent via-[#bfe8dc] to-transparent md:mt-28" />
+                  <div className="mt-24 h-px w-full bg-gradient-to-r from-transparent via-emerald-200/70 to-transparent md:mt-32" />
                 ) : null}
               </div>
             );
@@ -180,25 +207,18 @@ export default function FeaturesSection({
         </div>
 
         {showBottomCta ? (
-          <Reveal delay={260}>
-            <div className="mx-auto mt-20 max-w-3xl text-center md:mt-28">
-              <div className="mx-auto mb-10 h-px max-w-xl bg-gradient-to-r from-transparent via-[#bfe8dc] to-transparent" />
-              <h3 className="text-3xl font-bold leading-tight text-slate-950 md:text-5xl">
-                Everything you need to run your business smarter
-              </h3>
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <ContactLink className="inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-[#10b981] to-[#079767] px-8 py-3.5 text-sm font-bold text-white shadow-[0_14px_30px_rgba(16,185,129,0.22)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(16,185,129,0.28)]">
-                  Start Free Trial
-                </ContactLink>
-                <button
-                  type="button"
-                  onClick={openBookDemoModal}
-                  className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#eafff7] px-8 py-3.5 text-sm font-bold text-[#047857] transition-all hover:-translate-y-0.5 hover:bg-[#dffbef]"
-                >
-                  Book Demo
-                </button>
-              </div>
-            </div>
+          <Reveal delay={260} className="mx-auto mt-20 max-w-4xl text-center md:mt-28">
+            <div className="mx-auto mb-9 h-px max-w-2xl bg-gradient-to-r from-transparent via-emerald-200/90 to-transparent" />
+            <h3 className="text-3xl font-semibold leading-tight tracking-normal text-slate-950 md:text-5xl">
+              Everything you need to run your business smarter
+            </h3>
+            <ContactLink className="group/cta mt-8 inline-flex items-center gap-2 bg-[linear-gradient(90deg,#079767,#22c59a)] bg-left-bottom bg-no-repeat pb-1 text-sm font-bold uppercase tracking-[0.16em] text-[#067a56] transition-all duration-300 bg-[length:0%_1px] hover:translate-x-1 hover:text-[#045d42] hover:bg-[length:100%_1px]">
+              Start with TrioCRM
+              <LineIcon
+                name="arrow"
+                className="h-4 w-4 stroke-[2.2] transition-transform duration-300 group-hover/cta:translate-x-1"
+              />
+            </ContactLink>
           </Reveal>
         ) : null}
       </div>

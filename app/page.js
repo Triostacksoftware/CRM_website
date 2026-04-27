@@ -34,7 +34,7 @@ export default function HomePage() {
       <Navbar />
       <HeroSection />
       <TrustStrip />
-      <ProblemSolutionSection />
+      <ProblemSolutionSection showCta={false} />
       <HowItWorksSection />
       <FeaturesSection />
       <IntegrationsSection />

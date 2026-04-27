@@ -2,10 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function Reveal({ children, className = "", delay = 0 }) {
+export default function Reveal({ children, className = "", delay = 0, from = "bottom" }) {
   const ref = useRef(null);
   const [isClientReady, setIsClientReady] = useState(false);
   const [visible, setVisible] = useState(false);
+  const hiddenTransform =
+    from === "bottom-left"
+      ? "-translate-x-6 translate-y-8"
+      : from === "bottom-right"
+        ? "translate-x-6 translate-y-8"
+        : "translate-y-8";
 
   useEffect(() => {
     const node = ref.current;
@@ -42,7 +48,7 @@ export default function Reveal({ children, className = "", delay = 0 }) {
   return (
     <div
       ref={ref}
-      className={`${!isClientReady || visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} transition-all duration-700 ease-out ${className}`}
+      className={`${!isClientReady || visible ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${hiddenTransform}`} transition-all duration-700 ease-out ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}

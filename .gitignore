@@ -50,6 +50,8 @@ yarn-error.log*
 *.backup
 *.orig
 *.rej
+/Screenshot*.png
+/screenshot*.png
 
 # browser/test reports
 /playwright-report/

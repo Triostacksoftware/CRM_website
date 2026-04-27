@@ -126,93 +126,24 @@ export default function GooglePlaySection() {
               <div className="relative w-full max-w-[420px] rounded-[2rem] border border-slate-200 bg-[#f8fbff] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
                 <div className="pointer-events-none absolute inset-x-10 top-0 h-24 rounded-full bg-[#00b274]/10 blur-3xl" />
 
-                <div className="relative mx-auto w-[220px] rounded-[2.6rem] border-[7px] border-[#273247] bg-[#1a2333] p-2.5 shadow-[0_20px_70px_rgba(0,178,116,0.12)] md:w-[250px]">
-                  <div className="absolute left-1/2 top-0 h-6 w-28 -translate-x-1/2 rounded-b-[18px] bg-[#2b3548]" />
+                <div className="relative z-10 mx-auto w-[220px] rounded-[2.6rem] border-[7px] border-[#273247] bg-[#1a2333] p-2.5 shadow-[0_20px_70px_rgba(0,178,116,0.12)] md:w-[250px]">
+                  <div className="absolute left-1/2 top-0 z-20 h-6 w-28 -translate-x-1/2 rounded-b-[18px] bg-[#2b3548]" />
 
-                  <div className="relative overflow-hidden rounded-[2rem] bg-[#091321]">
+                  <div className="relative aspect-[355/620] overflow-hidden rounded-[2rem] bg-[#091321]">
                     <img
-                      src="/crm%20screen%20shot/Screenshot%20(530).png"
-                      alt="TrioCRM mobile workflow preview"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      src="/crmmobile.png"
+                      alt="TrioCRM mobile app preview"
+                      className="h-full w-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#07111f]/82 via-[#081322]/72 to-[#091321]/96" />
-                    <div className="relative flex min-h-[470px] flex-col px-4 pb-4 pt-5">
-                      <div className="flex items-center justify-between border-b border-white/8 pb-3">
-                        <div className="flex items-center gap-2.5">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-white p-1 shadow-sm">
-                            <img
-                              src="/trio-logo.png"
-                              alt="Trio CRM 360 logo"
-                              className="h-full w-full object-contain"
-                            />
-                          </div>
-                          <span className="text-[11px] font-semibold text-white">Trio-CRM 360</span>
-                        </div>
-                        <div className="space-y-1">
-                          <span className="block h-[2px] w-5 rounded-full bg-white/80" />
-                          <span className="block h-[2px] w-5 rounded-full bg-white/80" />
-                          <span className="block h-[2px] w-5 rounded-full bg-white/80" />
-                        </div>
-                      </div>
-
-                      <div className="mt-14">
-                        <p className="text-[8px] font-bold uppercase tracking-[0.42em] text-[#17d29f]">
-                          Sales & Growth Automation
-                        </p>
-                        <h3 className="mt-3 text-[2rem] font-semibold leading-none tracking-[-0.04em] text-white">
-                          TRIO-CRM
-                        </h3>
-                        <p className="mt-4 text-[8px] leading-[1.9] text-slate-200">
-                          Stop losing deals to manual follow-ups. CRM Solutions helps you automate your sales
-                          pipeline, track every interaction, and grow your revenue with India&apos;s smartest CRM
-                          platform.
-                        </p>
-                      </div>
-
-                      <div className="mt-6 space-y-3.5">
-                        {[
-                          "Close deals 30% faster with automated follow-ups",
-                          "Never lose a lead with 24/7 automated capture",
-                          "Gain real-time visibility into your entire sales team",
-                          "Automate lead assignment to the right sales rep instantly",
-                        ].map((item) => (
-                          <div key={item} className="flex items-start gap-2">
-                            <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#00b274]/20 text-[#11cf9d]">
-                              <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                              </svg>
-                            </span>
-                            <span className="text-[8px] font-semibold leading-[1.7] text-slate-100">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="mt-auto border-t border-white/8 pt-5 text-center">
-                        <p className="text-sm font-semibold leading-snug text-white">
-                          Trusted by growing businesses
-                          <span className="block">across India</span>
-                        </p>
-                        <div className="mt-4 flex items-center justify-between text-[7px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                          <div className="flex items-center gap-1.5">
-                            <span>Call:</span>
-                            <span className="text-[8px] text-white">+91 9211941924</span>
-                          </div>
-                          <div className="flex items-center gap-1.5">
-                            <span>WhatsApp:</span>
-                            <span className="text-[8px] text-white">88265 23845</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
-                <div className="float-slow absolute -left-3 top-10 hidden rounded-2xl border border-slate-200 bg-white/95 px-3 py-2 shadow-xl backdrop-blur-md md:block">
+                <div className="float-slow absolute -left-3 top-10 z-30 hidden rounded-2xl border border-slate-200 bg-white/95 px-3 py-2 shadow-xl backdrop-blur-md md:block">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Sync</p>
                   <p className="mt-1 text-sm font-semibold text-slate-950">Offline ready</p>
                 </div>
 
-                <div className="float-slow-delayed absolute -right-3 bottom-12 hidden rounded-2xl border border-[#00b274]/15 bg-white/95 px-3 py-2 shadow-xl backdrop-blur-md md:block">
+                <div className="float-slow-delayed absolute -right-3 bottom-12 z-30 hidden rounded-2xl border border-[#00b274]/15 bg-white/95 px-3 py-2 shadow-xl backdrop-blur-md md:block">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-[#007a50]">Update</p>
                   <p className="mt-1 text-sm font-semibold text-slate-950">Field notes in 1 tap</p>
                 </div>

@@ -50,15 +50,11 @@ export default function ProductShowcase() {
           
           {/* Left Side: Product Visual */}
           <div className="relative group animate-fade-in opacity-100">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#00b274]/20 to-blue-500/20 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-            <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-[0_28px_80px_rgba(15,23,42,0.12)] border border-white bg-white">
-              <img
-                src="/crm screen shot/crmloginpage.png"
-                alt="CRM Login Page"
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-white/5 pointer-events-none" />
-            </div>
+            <img
+              src="/crm screen shot/crmloginpage.png"
+              alt="CRM Login Page"
+              className="h-[22rem] w-full object-fill transition-transform duration-700 group-hover:-translate-y-1 sm:h-[25rem] lg:h-[30rem]"
+            />
           </div>
 
           {/* Right Side: Content */}
