@@ -6,6 +6,7 @@ import ContactSection from "@/components/ContactSection";
 import GoBackButton from "@/components/GoBackButton";
 import {
   getIndustryBySlug,
+  getIndustryImage,
   getIndustrySeoTitle,
   getIndustrySlug,
   getRelatedIndustries,
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }) {
   }
 
   const industrySeoTitle = getIndustrySeoTitle(industry);
+  const industryImage = getIndustryImage(industry) || HERO_IMAGE;
 
   return {
     title: `${industrySeoTitle} | Trio-CRM`,
@@ -46,7 +48,7 @@ export async function generateMetadata({ params }) {
       type: "website",
       images: [
         {
-          url: HERO_IMAGE,
+          url: industryImage,
           width: 1200,
           height: 630,
           alt: industrySeoTitle,
@@ -66,6 +68,7 @@ export default async function IndustryDetailPage({ params }) {
 
 
   const industrySeoTitle = getIndustrySeoTitle(industry);
+  const industryImage = getIndustryImage(industry);
 
   return (
     <main className="min-h-screen overflow-hidden bg-white">
@@ -84,14 +87,29 @@ export default async function IndustryDetailPage({ params }) {
             
             <div className="relative z-10 grid gap-8 p-6 sm:p-8 md:grid-cols-[1.1fr_0.9fr] lg:p-10">
               <div className="flex flex-col justify-center">
-                <div className="mb-4 flex flex-wrap items-center gap-4">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#00b274]/25 bg-[#00b274]/10 text-[8px] font-black uppercase tracking-[0.16em] text-[#00b274]">
-                    CRM
-                  </span>
-                  <span className="inline-flex items-center gap-3 text-[8px] font-black uppercase tracking-[0.34em] text-slate-500">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#00b274]" />
-                    Industry Solutions
-                  </span>
+                <div className="mb-6 flex flex-wrap items-center gap-4">
+                  {industryImage ? (
+                    <span className="relative h-16 w-16 overflow-hidden rounded-2xl border border-[#00b274]/20 bg-white shadow-[0_16px_35px_rgba(15,23,42,0.09)]">
+                      <img
+                        src={industryImage}
+                        alt={`${industry.name} CRM industry visual`}
+                        className="h-full w-full object-cover"
+                      />
+                    </span>
+                  ) : (
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#00b274]/25 bg-[#00b274]/10 text-[9px] font-black uppercase tracking-[0.16em] text-[#00b274]">
+                      CRM
+                    </span>
+                  )}
+                  <div>
+                    <span className="inline-flex items-center gap-3 text-[8px] font-black uppercase tracking-[0.34em] text-slate-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#00b274]" />
+                      Industry Solutions
+                    </span>
+                    <p className="mt-2 text-[10px] font-black uppercase tracking-[0.24em] text-[#00b274]">
+                      {industry.name}
+                    </p>
+                  </div>
                 </div>
 
                 <h1 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl leading-[1.1]">

@@ -18,17 +18,39 @@ http://localhost:5015
 
 ## Active Routes
 
-- `/`
-- `/features`
-- `/pricing`
-- `/industries`
-- `/blogs`
-- `/blogs/[slug]`
-- `/privacy-policy`
-- `/terms-and-conditions`
-- `/crm-brochure`
-- `/api/lead`
-- `/api/blogs`
+Use the same local base URL for every route:
+
+```text
+http://localhost:5015
+```
+
+### Public Pages
+
+| Route | Source file | Purpose |
+| --- | --- | --- |
+| `/` | `app/page.js` | Main CRM Solutions homepage. |
+| `/go` | `app/go/page.js` | Dedicated TrioCRM landing page. |
+| `/features` | `app/features/page.js` | Feature overview page. |
+| `/features/[slug]` | `app/features/[slug]/page.js` | Dynamic feature detail pages. |
+| `/pricing` | `app/pricing/page.js` | Pricing page. |
+| `/industries` | `app/industries/page.js` | Industries overview page. |
+| `/industries/[slug]` | `app/industries/[slug]/page.js` | Dynamic industry detail pages. |
+| `/integrations` | `app/integrations/page.js` | Integrations page. |
+| `/use-cases` | `app/use-cases/page.js` | Use cases page. |
+| `/roi` | `app/roi/page.js` | ROI calculator page. |
+| `/blogs` | `app/blogs/page.js` | Blog listing page. |
+| `/blogs/[slug]` | `app/blogs/[slug]/page.js` | Dynamic blog detail pages. |
+| `/privacy-policy` | `app/privacy-policy/page.js` | Privacy policy page. |
+| `/terms-and-conditions` | `app/terms-and-conditions/page.js` | Terms and conditions page. |
+| `/thank-you-crm-demo` | `app/thank-you-crm-demo/page.js` | Demo form success page. |
+
+### Backend And Download Routes
+
+| Route | Method | Source file | Purpose |
+| --- | --- | --- | --- |
+| `/api/lead` | `POST` | `app/api/lead/route.js` | Sends lead/demo form data to the configured webhook. |
+| `/api/blogs` | `GET` | `app/api/blogs/route.js` | Returns blog data from the configured blog API. |
+| `/crm-brochure` | `GET` | `app/crm-brochure/route.js` | Generates and downloads the CRM brochure PDF. |
 
 ## Main Structure
 
@@ -41,10 +63,17 @@ app/
     [slug]/
   crm-brochure/
   features/
+    [slug]/
+  go/
   industries/
+    [slug]/
+  integrations/
   pricing/
   privacy-policy/
+  roi/
   terms-and-conditions/
+  thank-you-crm-demo/
+  use-cases/
   globals.css
   layout.js
   page.js

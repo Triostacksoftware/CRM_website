@@ -2,7 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import ContactSection from "@/components/ContactSection";
-import { getIndustrySlug, industries } from "@/lib/industries";
+import { getIndustryImage, getIndustrySlug, industries } from "@/lib/industries";
 
 const deliveryModel = [
   {
@@ -74,14 +74,37 @@ export default function IndustriesPage() {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-            {industries.map((industry, index) => (
+            {industries.map((industry, index) => {
+              const industryImage = getIndustryImage(industry);
+
+              return (
               <Reveal key={industry.name} delay={index * 90}>
                 <Link
                   href={`/industries/${getIndustrySlug(industry)}`}
-                  className="group/card flex h-full min-h-[380px] cursor-pointer flex-col rounded-[1rem] border border-slate-200/80 bg-white/90 p-5 shadow-[0_22px_60px_rgba(15,23,42,0.09)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#00b274]/30 hover:bg-white hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.99]"
+                  className="group/card flex h-full min-h-[430px] cursor-pointer flex-col rounded-[1rem] border border-slate-200/80 bg-white/90 p-4 shadow-[0_22px_60px_rgba(15,23,42,0.09)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#00b274]/30 hover:bg-white hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.99]"
                   aria-label={`View details for ${industry.name}`}
                 >
                   <article className="flex h-full flex-col">
+                  <div className="relative mb-5 h-40 overflow-hidden rounded-[0.9rem] border border-slate-200 bg-[#f8fbff]">
+                    {industryImage ? (
+                      <img
+                        src={industryImage}
+                        alt={`${industry.name} CRM industry visual`}
+                        className="h-full w-full object-cover transition duration-500 group-hover/card:scale-[1.04]"
+                      />
+                    ) : (
+                      <div className="flex h-full items-center justify-center bg-[radial-gradient(circle_at_center,rgba(0,178,116,0.14),transparent_62%),linear-gradient(135deg,#f8fffc,#eef6ff)]">
+                        <span className="rounded-2xl border border-[#00b274]/20 bg-white/80 px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#00b274]">
+                          CRM
+                        </span>
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(15,23,42,0.28))]" />
+                    <div className="absolute bottom-3 left-3 rounded-full border border-white/45 bg-white/90 px-3 py-1 text-[9px] font-black uppercase tracking-[0.18em] text-[#007a50] shadow-[0_10px_25px_rgba(15,23,42,0.12)] backdrop-blur">
+                      {industry.name}
+                    </div>
+                  </div>
+
                   <div className="flex items-start justify-between gap-6">
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#00b274]">{industry.tag}</p>
@@ -117,7 +140,8 @@ export default function IndustriesPage() {
                   </article>
                 </Link>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
