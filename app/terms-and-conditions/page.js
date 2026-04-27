@@ -212,9 +212,11 @@ export default function TermsAndConditionsPage() {
                       Office
                     </p>
                     <p className="mt-2 text-base leading-7">
-                      Sector 63, Noida
+                      Triostack Technologies Private Limited
                       <br />
-                      Uttar Pradesh, India
+                      Plot No. 19 &amp; 20, near IIMT Group of Colleges
+                      <br />
+                      Knowledge Park III, Greater Noida, Uttar Pradesh 201310
                     </p>
                   </div>
                 </div>

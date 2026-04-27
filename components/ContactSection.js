@@ -3,7 +3,10 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
-import OfficeMapPreview from "./OfficeMapPreview";
+import OfficeMapPreview, {
+  OFFICE_ADDRESS_LINES,
+  OFFICE_PLACE_NAME,
+} from "./OfficeMapPreview";
 
 export default function ContactSection({ 
   title = "Talk to Our CRM Experts", 
@@ -157,8 +160,12 @@ export default function ContactSection({
                   </svg>
                 </div>
                 <div>
-                  <p className="text-slate-950 text-[15px] font-bold">Sector 63, Noida</p>
-                  <p className="text-slate-500 text-xs mt-0.5">Uttar Pradesh, India</p>
+                  <p className="text-slate-950 text-[15px] font-bold">{OFFICE_PLACE_NAME}</p>
+                  <p className="text-slate-500 text-xs mt-0.5">
+                    {OFFICE_ADDRESS_LINES[0]}
+                    <br />
+                    {OFFICE_ADDRESS_LINES[1]}
+                  </p>
                 </div>
               </div>
 

@@ -11,7 +11,9 @@ const brochureLines = [
   "Contact",
   "hello@crmwebsite.com",
   "+91 92119 41924",
-  "Sector 63, Noida, Uttar Pradesh, India",
+  "Triostack Technologies Private Limited",
+  "Plot No. 19 & 20, near IIMT Group of Colleges",
+  "Knowledge Park III, Greater Noida, Uttar Pradesh 201310",
 ];
 
 const encoder = new TextEncoder();
