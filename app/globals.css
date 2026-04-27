@@ -350,4 +350,310 @@
     background: linear-gradient(180deg, rgba(100, 116, 139, 1), rgba(71, 85, 105, 1));
   }
 
+  .trio-logo-launch-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    contain: layout style paint;
+  }
+
+  .trio-logo-launch-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 8, 20, 0.84);
+    backdrop-filter: blur(7px);
+    opacity: 0;
+    will-change: opacity;
+    animation: trioLogoBackdrop 1.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .trio-logo-launch-overlay::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(58vmin, 560px);
+    aspect-ratio: 1;
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle, rgba(85, 242, 238, 0.18) 0 20%, transparent 58%),
+      radial-gradient(circle, rgba(0, 178, 116, 0.18) 0 6%, transparent 42%);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.72);
+    will-change: opacity, transform;
+    animation: trioLogoHalo 1.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .trio-logo-launch-mark {
+    position: relative;
+    z-index: 2;
+    width: var(--logo-end-size);
+    height: var(--logo-end-size);
+    transform-origin: center;
+    will-change: transform, opacity, filter;
+    animation: trioLogoFlight 1.9s cubic-bezier(0.68, -0.2, 0.2, 1.12) forwards;
+  }
+
+  .trio-logo-launch-image {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 34px rgba(85, 242, 238, 0.56));
+  }
+
+  .trio-logo-launch-ring {
+    position: absolute;
+    inset: -32%;
+    z-index: 1;
+    border: 1px solid rgba(85, 242, 238, 0.5);
+    border-radius: 9999px;
+    box-shadow:
+      0 0 36px rgba(85, 242, 238, 0.36),
+      inset 0 0 28px rgba(0, 178, 116, 0.18);
+    opacity: 0;
+    transform: scale(0.68);
+    will-change: opacity, transform;
+    animation: trioLogoPulseRing 1.9s ease-in-out forwards;
+  }
+
+  .trio-logo-launch-wordmark {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 18px);
+    z-index: 2;
+    color: #ffffff;
+    font-size: clamp(1.15rem, 5vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1;
+    opacity: 0;
+    text-shadow:
+      0 0 18px rgba(85, 242, 238, 0.48),
+      0 10px 32px rgba(0, 0, 0, 0.42);
+    transform: translate(-50%, 10px);
+    white-space: nowrap;
+    will-change: opacity, transform;
+    animation: trioLogoWordmark 1.9s ease-in-out forwards;
+  }
+
+  .trio-logo-launch-burst {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 1px;
+    height: 1px;
+  }
+
+  .trio-logo-launch-particle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: #55f2ee;
+    box-shadow: 0 0 18px rgba(85, 242, 238, 0.88);
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--particle-rotation)) translateY(0) scale(0.35);
+    will-change: transform, opacity;
+    animation: trioLogoParticle 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--particle-delay);
+  }
+
+  @keyframes trioLogoBackdrop {
+    0% {
+      opacity: 0;
+    }
+    18%,
+    78% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes trioLogoHalo {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.72);
+    }
+    42% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    74% {
+      opacity: 0.68;
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+
+  @keyframes trioLogoFlight {
+    0% {
+      opacity: 0.95;
+      filter: drop-shadow(0 0 0 rgba(85, 242, 238, 0));
+      transform:
+        translate3d(
+          calc(var(--logo-origin-x) - 50vw),
+          calc(var(--logo-origin-y) - 50vh),
+          0
+        )
+        scale(var(--logo-origin-scale))
+        rotate(0deg);
+    }
+    18% {
+      opacity: 1;
+      filter: drop-shadow(0 0 24px rgba(85, 242, 238, 0.42));
+      transform:
+        translate3d(
+          calc(var(--logo-origin-x) - 50vw),
+          calc(var(--logo-origin-y) - 50vh),
+          0
+        )
+        scale(var(--logo-origin-scale))
+        rotate(-4deg);
+    }
+    58% {
+      opacity: 1;
+      filter: drop-shadow(0 0 42px rgba(85, 242, 238, 0.68));
+      transform: translate3d(0, 0, 0) scale(1.08) rotate(7deg);
+    }
+    74% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1.2) rotate(-3deg);
+    }
+    88% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1.04) rotate(0deg);
+    }
+    100% {
+      opacity: 0;
+      filter: drop-shadow(0 0 10px rgba(85, 242, 238, 0));
+      transform: translate3d(0, 0, 0) scale(0.82) rotate(0deg);
+    }
+  }
+
+  @keyframes trioLogoPulseRing {
+    0%,
+    20% {
+      opacity: 0;
+      transform: scale(0.68);
+    }
+    46% {
+      opacity: 0.85;
+      transform: scale(0.92);
+    }
+    66% {
+      opacity: 0.5;
+      transform: scale(1.24);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.62);
+    }
+  }
+
+  @keyframes trioLogoWordmark {
+    0%,
+    36% {
+      opacity: 0;
+      transform: translate(-50%, 10px);
+    }
+    54%,
+    78% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -8px);
+    }
+  }
+
+  @keyframes trioLogoParticle {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(var(--particle-rotation)) translateY(0) scale(0.35);
+    }
+    26% {
+      opacity: 0.95;
+    }
+    100% {
+      opacity: 0;
+      transform:
+        translate(-50%, -50%)
+        rotate(var(--particle-rotation))
+        translateY(calc(0px - var(--particle-distance)))
+        scale(0.08);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trio-logo-launch-overlay::after,
+    .trio-logo-launch-ring,
+    .trio-logo-launch-particle {
+      display: none;
+    }
+
+    .trio-logo-launch-overlay::before {
+      animation: trioLogoReducedBackdrop 700ms ease-out forwards;
+    }
+
+    .trio-logo-launch-mark {
+      transform: translate3d(0, 0, 0) scale(0.9);
+      animation: trioLogoReducedMark 700ms ease-out forwards;
+    }
+
+    .trio-logo-launch-wordmark {
+      animation: trioLogoReducedWordmark 700ms ease-out forwards;
+    }
+  }
+
+  @keyframes trioLogoReducedBackdrop {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    45% {
+      opacity: 0.78;
+    }
+  }
+
+  @keyframes trioLogoReducedMark {
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    45% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes trioLogoReducedWordmark {
+    0%,
+    100% {
+      opacity: 0;
+      transform: translate(-50%, 6px);
+    }
+    45% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+
 }

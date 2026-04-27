@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Home } from "lucide-react";
 import BookCallModal from "./BookCallModal";
+import LogoAnimationLink from "./LogoAnimationLink";
 
 const CRM_LOGIN_URL = "https://crm.triostack.in/login";
 
@@ -86,25 +88,28 @@ export default function Navbar() {
         }`}
       >
         <div className="pointer-events-auto relative z-10 mx-auto flex max-w-[1720px] items-center justify-between gap-4 px-5 sm:px-8">
-          <Link
-            href="/"
+          <LogoAnimationLink
             className="relative z-10 inline-flex min-w-[158px] shrink-0 items-center gap-2.5 cursor-pointer"
-            aria-label="Go to home page"
-          >
-            <div className="relative h-10 w-10 overflow-visible">
-              <img
-                src="/trio-logo.png"
-                alt="Triostack Logo"
-                className="h-full w-full object-contain"
-              />
-            </div>
-            <span className="whitespace-nowrap text-[1.2rem] font-black leading-none tracking-normal text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-              Trio-CRM 360
-            </span>
-          </Link>
+            logoClassName="relative h-10 w-10 overflow-visible"
+            textClassName="whitespace-nowrap text-[1.2rem] font-black leading-none tracking-normal text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+            onBeforeLaunch={() => setIsMobileMenuOpen(false)}
+          />
 
           <div className="hidden flex-1 justify-center xl:flex">
             <div className="inline-flex min-h-[3.45rem] items-center justify-center gap-1 rounded-full bg-[#0a1d36]/92 px-3 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_14px_38px_rgba(0,0,0,0.16)] ring-1 ring-white/5">
+              <Link
+                href="/"
+                aria-label="Home"
+                aria-current={pathname === "/" ? "page" : undefined}
+                title="Home"
+                className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors ${
+                  pathname === "/"
+                    ? "bg-white/10 text-[#55f2ee]"
+                    : "text-white hover:bg-white/10 hover:text-[#55f2ee]"
+                }`}
+              >
+                <Home aria-hidden="true" className="h-[18px] w-[18px]" strokeWidth={2.2} />
+              </Link>
               {desktopLinks.map((link) => (
                 link.external ? (
                   <a
