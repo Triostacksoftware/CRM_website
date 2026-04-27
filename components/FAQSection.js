@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import OfficeMapPreview from './OfficeMapPreview';
 
 const defaultFaqData = [
   {
@@ -73,6 +74,7 @@ const FAQSection = ({
   title = "Answers to Common Questions",
   description = "Explore quick answers about implementation, integrations, timelines, and support.",
   faqData = defaultFaqData,
+  showOfficeMap = false,
 }) => {
   const [openIndex, setOpenIndex] = useState(-1);
   const [isVisible, setIsVisible] = useState(false);
@@ -105,17 +107,26 @@ const FAQSection = ({
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-white blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className={`max-w-lg space-y-4 transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <span className="text-[#00b274] text-[10px] font-bold uppercase tracking-[0.5em] block">
-              {badge}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-950 tracking-tight leading-[1.2]">
-              {title}
-            </h2>
-            <p className="text-base md:text-lg text-slate-600 font-light leading-relaxed">
-              {description}
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-10 lg:gap-14 items-start">
+          <div className={`w-full transition-all duration-1000 ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="max-w-lg space-y-4">
+              <span className="text-[#00b274] text-[10px] font-bold uppercase tracking-[0.5em] block">
+                {badge}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-950 tracking-tight leading-[1.2]">
+                {title}
+              </h2>
+              <p className="text-base md:text-lg text-slate-600 font-light leading-relaxed">
+                {description}
+              </p>
+            </div>
+
+            {showOfficeMap ? (
+              <OfficeMapPreview
+                className="mt-6 w-full max-w-md lg:mt-8"
+                heightClassName="h-40 sm:h-44 lg:h-48"
+              />
+            ) : null}
           </div>
 
           <div className={`w-full max-w-2xl ml-auto transition-all duration-1000 delay-300 ${isVisible ? 'animate-slide-up opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>

@@ -40,7 +40,7 @@ export default function GoLandingPage() {
       <IntegrationsSection {...goLandingData.integrations} />
       <PricingSection {...goLandingData.pricing} />
       <TrustSecuritySection {...goLandingData.trustSecurity} />
-      <FAQSection {...goLandingData.faqs} />
+      <FAQSection {...goLandingData.faqs} showOfficeMap />
     </main>
   );
 }

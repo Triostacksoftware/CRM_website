@@ -3,12 +3,14 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
+import OfficeMapPreview from "./OfficeMapPreview";
 
 export default function ContactSection({ 
   title = "Talk to Our CRM Experts", 
   subtitle = "CONTACT US", 
   description = "Learn how TrioCRM can help you capture leads, automate workflows, and close deals faster. Get a personalized consultation tailored to your business needs.",
   tagline = "Trusted by 1000+ growing business across India",
+  showOfficeMap = false,
   buttonText = "Book a Free Demo",
   bottomNote = "No obligation • Quick response • 100% secure"
 }) {
@@ -91,7 +93,9 @@ export default function ContactSection({
     <section
       id="contact"
       ref={sectionRef}
-      className="relative scroll-mt-28 py-16 md:py-24 bg-white overflow-hidden"
+      className={`relative scroll-mt-28 bg-white pt-16 md:pt-24 overflow-hidden ${
+        showOfficeMap ? "pb-32 md:pb-40" : "pb-16 md:pb-24"
+      }`}
     >
       {/* Background Decorative Blobs */}
       <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#00b274]/6 rounded-full blur-[120px] pointer-events-none" />
@@ -153,10 +157,14 @@ export default function ContactSection({
                   </svg>
                 </div>
                 <div>
-                  <p className="text-slate-950 text-[15px] font-bold">India</p>
-                  <p className="text-slate-500 text-xs mt-0.5">Serving businesses across India</p>
+                  <p className="text-slate-950 text-[15px] font-bold">Sector 63, Noida</p>
+                  <p className="text-slate-500 text-xs mt-0.5">Uttar Pradesh, India</p>
                 </div>
               </div>
+
+              {showOfficeMap ? (
+                <OfficeMapPreview className="max-w-xl" />
+              ) : null}
             </div>
           </div>
 

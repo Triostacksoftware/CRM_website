@@ -46,7 +46,7 @@ export default function HomePage() {
       <TrustSecuritySection />
       <ConsultationSection />
       <GooglePlaySection />
-      <FAQSection />
+      <FAQSection showOfficeMap />
 
       <ContactSection />
     </main>
