@@ -9,14 +9,24 @@ const CRM_LOGIN_URL = "https://crm.triostack.in/login";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const isLightHeaderPage =
     pathname === "/features" ||
     pathname === "/pricing" ||
+    pathname === "/use-cases" ||
     pathname.startsWith("/industries") ||
     pathname.startsWith("/blogs");
+
+  useEffect(() => {
+    const handleChatbotState = (e) => {
+      setIsChatbotOpen(e.detail.isOpen);
+    };
+    window.addEventListener('chatbotStateChange', handleChatbotState);
+    return () => window.removeEventListener('chatbotStateChange', handleChatbotState);
+  }, []);
 
   const handleLoginClick = () => {
     window.location.assign(CRM_LOGIN_URL);
@@ -53,18 +63,21 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    document.body.style.overflow = (isMobileMenuOpen || isChatbotOpen) ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isChatbotOpen]);
 
   const links = [
     { name: "Home", href: "/" },
     { name: "Features", href: "/features" },
     { name: "Pricing", href: "/pricing" },
+    { name: "ROI", href: "/roi" },
+    { name: "Integrations", href: "/integrations" },
     { name: "Industries", href: "/industries" },
+    { name: "Use cases", href: "/use-cases" },
     { name: "Blogs", href: "/blogs" },
     { name: "Triostack", href: "https://www.triostack.in/", external: true },
   ];
@@ -72,7 +85,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-none transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        className={`fixed top-0 left-0 w-full z-[200] isolate pointer-events-none transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) ${isVisible && !isChatbotOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
           } bg-transparent py-6`}
       >
         <div className="pointer-events-auto relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between">

@@ -28,8 +28,6 @@
 /.cache/
 /.docker/
 /.vscode/
-/public/crm screen shot/
-/public/screenshots/
 
 # logs
 logs/

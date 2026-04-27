@@ -5,6 +5,12 @@ import { submitLead } from "@/lib/submitLead";
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // Dispatch custom event for global components to react (e.g. Navbar)
+    window.dispatchEvent(new CustomEvent('chatbotStateChange', { detail: { isOpen } }));
+  }, [isOpen]);
+
   const [isLeadsCaptured, setIsLeadsCaptured] = useState(false);
   const [step, setStep] = useState("questions"); // questions, complete
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
