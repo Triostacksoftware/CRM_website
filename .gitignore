@@ -34,6 +34,8 @@ logs/
 *.log
 *.err
 *.pid
+# local Next.js dev server output
+next-dev*.err
 next-dev*.log
 next-start*.log
 npm-debug.log*
@@ -68,6 +70,8 @@ next-env.d.ts
 Thumbs.db
 Desktop.ini
 *.pem
+
+# one-off local scripts
 /scratch/
 .idea/
 *.swp
