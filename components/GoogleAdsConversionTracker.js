@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function GoogleAdsConversionTracker() {
   useEffect(() => {
-    if (typeof window === "undefined" || typeof window.gtag !== "function") {
+    if (typeof window === "undefined") {
       return;
     }
 
@@ -14,7 +14,9 @@ export default function GoogleAdsConversionTracker() {
       return;
     }
 
-    window.gtag("event", "conversion", {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "google_ads_conversion",
       send_to: `${conversionId}/${conversionLabel}`,
       value: 1.0,
       currency: "INR",
