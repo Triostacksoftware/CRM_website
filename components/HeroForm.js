@@ -58,7 +58,7 @@ export default function HeroForm() {
             name="name"
             type="text" 
             placeholder="Full Name *" 
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#00b274]/20 focus:border-[#00b274] transition-all"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20 focus:border-[#00b274] transition-all"
             required
           />
         </div>
@@ -67,7 +67,7 @@ export default function HeroForm() {
             name="phone"
             type="tel" 
             placeholder="Phone Number *" 
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#00b274]/20 focus:border-[#00b274] transition-all"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20 focus:border-[#00b274] transition-all"
             required
           />
         </div>
@@ -76,7 +76,7 @@ export default function HeroForm() {
             name="email"
             type="email" 
             placeholder="Work Email *" 
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#00b274]/20 focus:border-[#00b274] transition-all"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20 focus:border-[#00b274] transition-all"
             required
           />
         </div>
@@ -85,7 +85,7 @@ export default function HeroForm() {
             name="company"
             type="text" 
             placeholder="Company Name (Optional)" 
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#00b274]/20 focus:border-[#00b274] transition-all"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00b274]/20 focus:border-[#00b274] transition-all"
           />
         </div>
         <div className="relative">
