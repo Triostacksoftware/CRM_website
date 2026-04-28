@@ -5,8 +5,6 @@ export const metadata = {
   description: "Explore the wide range of integrations available with CRM Solutions. Connect your favorite tools like WhatsApp, Google Ads, Meta Ads, and Cloud Telephony.",
 };
 
-export const dynamic = "force-dynamic";
-
 export default function IntegrationsPage() {
   return <IntegrationsContent />;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import BookCallModal from "@/components/BookCallModal";
@@ -76,6 +77,15 @@ const integrationSections = [
 
 export default function IntegrationsContent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [shouldPlayHeroVideo, setShouldPlayHeroVideo] = useState(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const smallScreen = window.matchMedia("(max-width: 767px)").matches;
+    const saveData = navigator.connection?.saveData === true;
+
+    setShouldPlayHeroVideo(!reduceMotion && !smallScreen && !saveData);
+  }, []);
 
   const handleModalOpen = () => {
     setIsModalOpen(true);
@@ -93,16 +103,19 @@ export default function IntegrationsContent() {
       <div className="relative overflow-hidden pt-28 pb-16 min-h-[68vh] flex items-center bg-slate-950">
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-40 scale-110"
-            style={{ filter: "brightness(0.5) blue(50%)" }}
-          >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-blue-data-clouds-and-network-12586-large.mp4" type="video/mp4" />
-          </video>
+          {shouldPlayHeroVideo ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-40 scale-110"
+              style={{ filter: "brightness(0.5) blue(50%)" }}
+            >
+              <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-blue-data-clouds-and-network-12586-large.mp4" type="video/mp4" />
+            </video>
+          ) : null}
           {/* Overlays */}
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-white" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,178,116,0.1),transparent_70%)]" />

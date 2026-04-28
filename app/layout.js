@@ -1,12 +1,13 @@
 import "./globals.css";
+import dynamic from "next/dynamic";
+import Script from "next/script";
 import BookCallModalProvider from "@/components/BookCallModalProvider";
-import Chatbot from "@/components/Chatbot";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import SocialStickyBar from "@/components/SocialStickyBar";
-import BottomHelpBar from "@/components/BottomHelpBar";
-import LeadSuccessToast from "@/components/LeadSuccessToast";
 
-export const dynamic = 'force-dynamic';
+const Chatbot = dynamic(() => import("@/components/Chatbot"));
+const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"));
+const SocialStickyBar = dynamic(() => import("@/components/SocialStickyBar"));
+const BottomHelpBar = dynamic(() => import("@/components/BottomHelpBar"));
+const LeadSuccessToast = dynamic(() => import("@/components/LeadSuccessToast"));
 
 const GTM_ID = "GTM-NM63CZBW";
 
@@ -58,8 +59,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Google Tag Manager */}
-        <script
+        <Script
+          id="gtm-init"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -68,7 +70,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_ID}');`,
           }}
         />
-        {/* End Google Tag Manager */}
       </head>
       <body className="antialiased">
         {/* Google Tag Manager (noscript) */}

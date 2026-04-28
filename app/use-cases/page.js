@@ -5,8 +5,6 @@ export const metadata = {
   description: "Discover how Trio-CRM 360 solves complex business problems with specialized tools for lead management, sales automation, and customer support.",
 };
 
-export const dynamic = "force-dynamic";
-
 export default function UseCasesPage() {
   return <UseCasesContent />;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import BookCallModal from "@/components/BookCallModal";
@@ -60,6 +61,15 @@ const useCaseSections = [
 
 export default function UseCasesContent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [shouldPlayHeroVideo, setShouldPlayHeroVideo] = useState(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const smallScreen = window.matchMedia("(max-width: 767px)").matches;
+    const saveData = navigator.connection?.saveData === true;
+
+    setShouldPlayHeroVideo(!reduceMotion && !smallScreen && !saveData);
+  }, []);
 
   const handleModalOpen = () => {
     setIsModalOpen(true);
@@ -77,17 +87,20 @@ export default function UseCasesContent() {
       <div className="relative overflow-hidden pt-28 pb-14 min-h-[64vh] flex items-center bg-white">
         {/* Video Background - Reduced opacity for white background compatibility */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-20"
-            style={{ filter: "grayscale(1) brightness(1.2)" }}
-          >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-his-laptop-32890-large.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          {shouldPlayHeroVideo ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-20"
+              style={{ filter: "grayscale(1) brightness(1.2)" }}
+            >
+              <source src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-his-laptop-32890-large.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : null}
           {/* Gradient Overlay: White to Black */}
           <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-slate-950" />
         </div>

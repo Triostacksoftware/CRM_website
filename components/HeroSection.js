@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import HeroForm from "./HeroForm";
 
 const defaultFeaturePoints = [
@@ -21,10 +22,13 @@ export default function HeroSection({
     <>
       <section data-hero="true" className="relative min-h-[78vh] flex items-center pt-24 md:pt-28 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <img
+          <Image
             src={backgroundImage}
             alt="TrioCRM sales dashboard preview"
-            className="w-full h-full object-cover filter brightness-[1.1] contrast-[1.05]"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover filter brightness-[1.1] contrast-[1.05]"
           />
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0b1220]/95 via-[#0b1220]/60 to-transparent backdrop-blur-[1px]" />
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-[#0b1220]/90" />

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Image from "next/image";
 
 
 
@@ -100,7 +101,13 @@ export default function GooglePlaySection() {
                     className="group inline-flex items-center justify-center gap-3 rounded-2xl border border-[#00b274]/25 bg-[linear-gradient(90deg,rgba(20,195,142,0.12),rgba(56,189,248,0.06))] px-6 py-4 text-left transition-all hover:border-[#00b274]/45 hover:shadow-[0_16px_40px_rgba(20,195,142,0.14)]"
                   >
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white overflow-hidden shadow-sm">
-                      <img src="/play-store.jpg" alt="Play Store Icon" className="w-full h-full object-cover" />
+                      <Image
+                        src="/play-store.jpg"
+                        alt="Play Store Icon"
+                        width={44}
+                        height={44}
+                        className="h-full w-full object-cover"
+                      />
                     </div>
                     <div>
                       <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500">Mobile access</span>
@@ -130,10 +137,12 @@ export default function GooglePlaySection() {
                   <div className="absolute left-1/2 top-0 z-20 h-6 w-28 -translate-x-1/2 rounded-b-[18px] bg-[#2b3548]" />
 
                   <div className="relative aspect-[355/620] overflow-hidden rounded-[2rem] bg-[#091321]">
-                    <img
+                    <Image
                       src="/crmmobile.png"
                       alt="TrioCRM mobile app preview"
-                      className="h-full w-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 220px, 250px"
+                      className="object-cover"
                     />
                   </div>
                 </div>
