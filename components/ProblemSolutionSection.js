@@ -196,14 +196,14 @@ export default function ProblemSolutionSection({
   return (
     <section
       id="why-switch"
-      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#fbfffd_45%,#effff9_100%)] py-20 text-slate-950 md:py-28"
+      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#fbfffd_45%,#effff9_100%)] py-14 text-slate-950 md:py-20"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_82%_44%,rgba(0,178,116,0.14),transparent_58%),radial-gradient(ellipse_at_16%_50%,rgba(244,63,94,0.065),transparent_56%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),transparent)]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(0deg,rgba(255,255,255,0.96),transparent)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
-        <Reveal className="mx-auto mb-14 max-w-3xl text-center md:mb-20">
+        <Reveal className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.32em] text-[#079767]">
             {badge}
           </p>
@@ -219,7 +219,7 @@ export default function ProblemSolutionSection({
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-200/80 to-transparent" />
 
-          <div className="grid gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_8rem_minmax(0,1fr)] lg:gap-8 lg:py-16">
+          <div className="grid gap-9 py-8 lg:grid-cols-[minmax(0,1fr)_7rem_minmax(0,1fr)] lg:gap-7 lg:py-10">
             <Reveal delay={100} from="bottom-left">
               <FlowColumn
                 eyebrow="Before TrioCRM"
@@ -241,9 +241,6 @@ export default function ProblemSolutionSection({
                     className="h-6 w-6 rotate-90 stroke-[2.2] lg:rotate-0"
                   />
                 </div>
-                <p className="absolute left-1/2 top-full mt-4 hidden w-44 -translate-x-1/2 text-center text-[0.65rem] font-bold uppercase tracking-[0.24em] text-slate-400 lg:block">
-                  Connected revenue flow
-                </p>
               </div>
             </Reveal>
 
@@ -261,7 +258,7 @@ export default function ProblemSolutionSection({
 
         {showCta ? (
           <Reveal delay={280}>
-            <div className="mx-auto mt-12 flex max-w-3xl flex-col items-center gap-5 border-t border-slate-200/80 pt-9 text-center sm:flex-row sm:justify-center">
+            <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 border-t border-slate-200/80 pt-7 text-center sm:flex-row sm:justify-center">
               <button
                 type="button"
                 onClick={handleStartTrial}

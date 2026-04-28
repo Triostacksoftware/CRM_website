@@ -33,7 +33,7 @@ export default function FeaturesPage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <div className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] pt-32 pb-6">
+      <div className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] pt-28 pb-5">
         <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-[#00b274]/10 blur-[110px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[130px] pointer-events-none" />
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
@@ -61,12 +61,12 @@ export default function FeaturesPage() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,23,42,0.035)_1px,transparent_1px),linear-gradient(180deg,rgba(15,23,42,0.035)_1px,transparent_1px)] bg-[size:54px_54px] opacity-40 pointer-events-none" />
 
         <div className="container max-w-7xl mx-auto relative z-10">
-          <div className="space-y-16">
+          <div className="space-y-10 md:space-y-12">
             {allFeatures.map((group) => (
               <div
                 key={group.category}
                 id={getCategoryAnchor(group.category)}
-                className="space-y-10 scroll-mt-28"
+                className="space-y-7 scroll-mt-28"
               >
                 <div className="flex items-center gap-4">
                   <h2 className="text-2xl md:text-3xl font-bold text-slate-950 whitespace-nowrap">
@@ -75,11 +75,11 @@ export default function FeaturesPage() {
                   <div className="h-px w-full bg-slate-200" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {group.items.map((feature, idx) => (
                     <Reveal key={feature.slug} delay={idx * 50}>
                       <Link href={`/features/${feature.slug}`}>
-                        <div className="p-8 rounded-2xl bg-white/90 border border-slate-200 shadow-[0_22px_60px_rgba(15,23,42,0.08)] hover:-translate-y-1 hover:bg-white hover:border-[#00b274]/30 hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)] transition-all duration-500 group h-full">
+                        <div className="p-6 rounded-2xl bg-white/90 border border-slate-200 shadow-[0_22px_60px_rgba(15,23,42,0.08)] hover:-translate-y-1 hover:bg-white hover:border-[#00b274]/30 hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)] transition-all duration-500 group h-full">
                           <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-[#00b274]/15 bg-white text-[#0b8f66] shadow-[0_16px_35px_rgba(15,23,42,0.08)] transition-transform duration-500 group-hover:scale-110 group-hover:border-[#00b274]/30 group-hover:bg-[#00b274] group-hover:text-white">
                             <FeatureIcon type={feature.icon} />
                           </div>
@@ -104,11 +104,11 @@ export default function FeaturesPage() {
             ))}
           </div>
 
-          <div className="mt-12 p-12 rounded-3xl bg-white/95 border border-slate-200 text-center relative overflow-hidden shadow-[0_28px_80px_rgba(15,23,42,0.1)]">
+          <div className="mt-10 p-8 md:p-10 rounded-3xl bg-white/95 border border-slate-200 text-center relative overflow-hidden shadow-[0_28px_80px_rgba(15,23,42,0.1)]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,178,116,0.09),transparent_48%)] rounded-full" />
             <div className="relative z-10">
               <h3 className="text-3xl font-bold text-slate-950 mb-6">Ready to see these features in action?</h3>
-              <p className="text-slate-600 mb-10 max-w-2xl mx-auto text-lg">
+              <p className="text-slate-600 mb-7 max-w-2xl mx-auto text-lg">
                 Join hundreds of Indian enterprises that use Triostack to automate their sales and grow 2x faster.
               </p>
               <button

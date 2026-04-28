@@ -97,8 +97,8 @@ export default function ContactSection({
     <section
       id="contact"
       ref={sectionRef}
-      className={`relative scroll-mt-28 bg-white pt-16 md:pt-24 overflow-hidden ${
-        showOfficeMap ? "pb-32 md:pb-40" : "pb-16 md:pb-24"
+      className={`relative scroll-mt-28 bg-white pt-12 md:pt-16 overflow-hidden ${
+        showOfficeMap ? "pb-20 md:pb-24" : "pb-12 md:pb-16"
       }`}
     >
       {/* Background Decorative Blobs */}
@@ -106,7 +106,7 @@ export default function ContactSection({
       <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-blue-500/6 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
           
           {/* Left Side: Content + Contact Details */}
           <div className={`${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
@@ -116,7 +116,7 @@ export default function ContactSection({
             <h2 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 leading-[1.1] tracking-tight">
               {title}
             </h2>
-            <div className="space-y-4 mb-10 max-w-lg">
+            <div className="space-y-3 mb-7 max-w-lg">
               <p className="text-slate-600 text-base leading-relaxed">
                 {description}
               </p>
@@ -128,7 +128,7 @@ export default function ContactSection({
             </div>
 
             {/* Contact Info Cards */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center gap-5 p-4 rounded-2xl bg-white border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:border-[#00b274]/20 hover:shadow-xl transition-all group max-w-md">
                 <div className="w-12 h-12 rounded-xl bg-[#00b274]/10 flex items-center justify-center border border-[#00b274]/10 group-hover:bg-[#00b274]/20 transition-colors">
                   <svg className="w-6 h-6 text-[#00b274]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -178,12 +178,12 @@ export default function ContactSection({
 
           {/* Right Side: Contact Form Card */}
           <div className={`${isVisible ? 'animate-slide-up opacity-100' : 'opacity-0'} [animation-delay:200ms] transition-all duration-500`}>
-            <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-[0_28px_80px_rgba(15,23,42,0.12)] relative overflow-hidden">
+            <div className="bg-white border border-slate-200 rounded-[2rem] p-7 md:p-9 shadow-[0_28px_80px_rgba(15,23,42,0.12)] relative overflow-hidden">
               {/* Subtle inner glow */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#00b274]/5 blur-3xl pointer-events-none" />
               
-              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
+                <div className="grid md:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <label className="text-[11px] font-bold text-slate-500 ml-1 uppercase tracking-wider">Full Name *</label>
                     <input 

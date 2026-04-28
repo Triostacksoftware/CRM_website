@@ -19,7 +19,7 @@ export default function HeroSection({
 }) {
   return (
     <>
-      <section data-hero="true" className="relative min-h-[85vh] flex items-center pt-32 overflow-hidden">
+      <section data-hero="true" className="relative min-h-[78vh] flex items-center pt-24 md:pt-28 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <img
             src={backgroundImage}
@@ -31,7 +31,7 @@ export default function HeroSection({
         </div>
 
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
-          <div className="flex flex-col-reverse gap-6 lg:grid lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="flex flex-col-reverse gap-5 lg:grid lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="relative z-10">
               <div className="mb-4">
                 <span className="text-[#00b274] text-[10px] font-bold tracking-[0.4em] uppercase block mb-3">
@@ -40,12 +40,12 @@ export default function HeroSection({
                 <h1 className="text-[2rem] sm:text-[2.8rem] lg:text-[3.5rem] font-semibold text-white mb-4 leading-[1.08] tracking-[-0.02em]">
                   {title}
                 </h1>
-                <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl">
+                <p className="text-lg text-slate-300 leading-relaxed mb-6 max-w-2xl">
                   {description}
                 </p>
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-6">
                 {featurePoints.map((item, index) => (
                   <li key={index} className="flex items-center gap-4 group">
                     <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#00b274]/20 flex items-center justify-center">

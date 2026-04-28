@@ -95,7 +95,7 @@ export default function ResultsMetricsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#fffdfa_0%,#ffffff_42%,#f8fffc_100%)] py-16 md:py-20"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#fffdfa_0%,#ffffff_42%,#f8fffc_100%)] py-12 md:py-16"
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-12 h-80 w-[36rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(131,231,198,0.18),transparent_68%)] blur-3xl" />
@@ -103,7 +103,7 @@ export default function ResultsMetricsSection() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
+        <div className="mx-auto mb-9 max-w-3xl text-center md:mb-11">
           <span className="mb-5 block text-xs font-bold uppercase tracking-[0.18em] text-[#1baf78]">
             Results
           </span>
@@ -120,7 +120,7 @@ export default function ResultsMetricsSection() {
 
           <div className="flex flex-col lg:flex-row lg:items-stretch">
             {metrics.map((metric, index) => (
-              <div key={metric.label} className="group relative flex flex-1 items-center py-8 transition-all duration-500 hover:-translate-y-1 lg:block lg:px-8 lg:py-2">
+              <div key={metric.label} className="group relative flex flex-1 items-center py-6 transition-all duration-500 hover:-translate-y-1 lg:block lg:px-8 lg:py-2">
                 <div className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8ece4] to-transparent lg:hidden" />
                 <div className="pointer-events-none absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00b274]/0 blur-2xl transition-all duration-500 group-hover:bg-[#00b274]/14" />
 
@@ -141,7 +141,7 @@ export default function ResultsMetricsSection() {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 max-w-3xl border-t border-[#d8ece4] pt-10 text-center md:mt-16 md:pt-12">
+        <div className="mx-auto mt-8 max-w-3xl border-t border-[#d8ece4] pt-8 text-center md:mt-10 md:pt-9">
           <h3 className="mb-5 text-3xl font-bold leading-tight text-slate-950 md:text-4xl">
             See these results in your business
           </h3>

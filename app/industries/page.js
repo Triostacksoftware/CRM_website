@@ -33,7 +33,7 @@ export default function IndustriesPage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] px-6 pb-4 pt-32">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] px-6 pb-4 pt-28">
         <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-[#00b274]/10 blur-[110px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[130px] pointer-events-none" />
         <div className="relative mx-auto max-w-7xl">
@@ -58,13 +58,13 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <section className="relative bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#f8fbff_0%,#ffffff_42%,#eef6f4_100%)] px-6 py-12 pb-10 lg:pr-20">
+      <section className="relative bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#f8fbff_0%,#ffffff_42%,#eef6f4_100%)] px-6 py-10 pb-9 lg:pr-20">
         <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#00b274]/10 blur-[120px] pointer-events-none" />
         <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-sky-500/10 blur-[120px] pointer-events-none" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,23,42,0.035)_1px,transparent_1px),linear-gradient(180deg,rgba(15,23,42,0.035)_1px,transparent_1px)] bg-[size:54px_54px] opacity-40 pointer-events-none" />
 
         <div className="relative mx-auto max-w-7xl">
-          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#00b274]">Where we fit best</p>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-950 md:text-4xl">
@@ -81,7 +81,7 @@ export default function IndustriesPage() {
               <Reveal key={industry.name} delay={index * 90}>
                 <Link
                   href={`/industries/${getIndustrySlug(industry)}`}
-                  className="group/card flex h-full min-h-[430px] cursor-pointer flex-col rounded-[1rem] border border-slate-200/80 bg-white/90 p-4 shadow-[0_22px_60px_rgba(15,23,42,0.09)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#00b274]/30 hover:bg-white hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.99]"
+                  className="group/card flex h-full min-h-[390px] cursor-pointer flex-col rounded-[1rem] border border-slate-200/80 bg-white/90 p-4 shadow-[0_22px_60px_rgba(15,23,42,0.09)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[#00b274]/30 hover:bg-white hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00b274] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.99]"
                   aria-label={`View details for ${industry.name}`}
                 >
                   <article className="flex h-full flex-col">

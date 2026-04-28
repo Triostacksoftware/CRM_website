@@ -155,7 +155,7 @@ export default function FeaturesSection({
   return (
     <section
       id="features"
-      className="relative isolate overflow-hidden bg-white py-20 text-slate-950 md:py-28"
+      className="relative isolate overflow-hidden bg-white py-14 text-slate-950 md:py-20"
     >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_36%,#f1fff9_72%,#e9fffa_100%)]" />
       <div className="pointer-events-none absolute right-[-12rem] top-[-12rem] h-[32rem] w-[32rem] bg-[radial-gradient(circle,rgba(45,212,191,0.22),rgba(34,197,94,0.08)_42%,transparent_70%)] blur-3xl" />
@@ -182,7 +182,7 @@ export default function FeaturesSection({
           </Reveal>
         </div>
 
-        <div className="mt-20 space-y-24 md:mt-28 md:space-y-32">
+        <div className="mt-12 space-y-14 md:mt-16 md:space-y-20">
           {modules.map((module, index) => {
             const imageFirst = module.imageSide === "left";
             const isImageRight = !imageFirst;
@@ -190,7 +190,7 @@ export default function FeaturesSection({
             return (
               <div key={module.title} className="relative">
                 <div
-                  className={`flex flex-col items-center gap-14 lg:gap-20 ${
+                  className={`flex flex-col items-center gap-10 lg:gap-14 ${
                     imageFirst ? "lg:flex-row-reverse" : "lg:flex-row"
                   }`}
                 >
@@ -199,7 +199,7 @@ export default function FeaturesSection({
                 </div>
 
                 {index < modules.length - 1 ? (
-                  <div className="mt-24 h-px w-full bg-gradient-to-r from-transparent via-emerald-200/70 to-transparent md:mt-32" />
+                  <div className="mt-14 h-px w-full bg-gradient-to-r from-transparent via-emerald-200/70 to-transparent md:mt-20" />
                 ) : null}
               </div>
             );
@@ -207,8 +207,8 @@ export default function FeaturesSection({
         </div>
 
         {showBottomCta ? (
-          <Reveal delay={260} className="mx-auto mt-20 max-w-4xl text-center md:mt-28">
-            <div className="mx-auto mb-9 h-px max-w-2xl bg-gradient-to-r from-transparent via-emerald-200/90 to-transparent" />
+          <Reveal delay={260} className="mx-auto mt-14 max-w-4xl text-center md:mt-20">
+            <div className="mx-auto mb-7 h-px max-w-2xl bg-gradient-to-r from-transparent via-emerald-200/90 to-transparent" />
             <h3 className="text-3xl font-semibold leading-tight tracking-normal text-slate-950 md:text-5xl">
               Everything you need to run your business smarter
             </h3>

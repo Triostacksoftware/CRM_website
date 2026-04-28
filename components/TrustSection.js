@@ -37,7 +37,7 @@ export default function TrustSection() {
       <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-[#00b274]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           
           {/* Left Side: Brand Card */}
           <div className={`${isVisible ? 'animate-fade-in opacity-100' : 'opacity-0'} transition-all duration-700`}>

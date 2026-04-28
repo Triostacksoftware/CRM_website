@@ -80,7 +80,7 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
       />
       <Navbar />
 
-      <section className="pt-32 pb-16 px-6 relative overflow-hidden">
+      <section className="pt-28 pb-12 px-6 relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_40%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(180deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:56px_56px] opacity-40" />
         
@@ -112,9 +112,9 @@ export default function BlogClient({ slug, initialPost, initialRecentPosts }) {
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-[1fr_350px] gap-12 mt-12">
+          <div className="grid lg:grid-cols-[1fr_350px] gap-10 mt-8">
             {/* Main Content */}
-            <div className="space-y-10">
+            <div className="space-y-7">
               {post.image && (
                 <div className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-slate-200 shadow-[0_28px_80px_rgba(15,23,42,0.12)] animate-fade-in [animation-delay:200ms]">
                   <img 

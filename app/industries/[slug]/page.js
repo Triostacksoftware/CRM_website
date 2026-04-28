@@ -74,7 +74,7 @@ export default async function IndustryDetailPage({ params }) {
     <main className="min-h-screen overflow-hidden bg-white">
       <Navbar />
 
-      <section className="relative bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] px-4 pb-6 pt-28 sm:px-6 md:pt-32">
+      <section className="relative bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] px-4 pb-6 pt-24 sm:px-6 md:pt-28">
         <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-[#00b274]/10 blur-[110px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[130px] pointer-events-none" />
         <div className="mx-auto max-w-[1500px]">

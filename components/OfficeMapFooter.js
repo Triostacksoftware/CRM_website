@@ -5,7 +5,7 @@ import OfficeMapPreview, {
 
 export default function OfficeMapFooter() {
   return (
-    <footer className="bg-white px-6 pb-32 pt-8 sm:pb-36 md:pb-40">
+    <footer className="bg-white px-6 pb-20 pt-6 sm:pb-24 md:pb-28">
       <div className="mx-auto flex max-w-7xl flex-col gap-5 border-t border-slate-100 pt-7 md:flex-row md:items-center md:justify-between">
         <p className="text-sm font-medium leading-6 text-slate-600">
           {OFFICE_PLACE_NAME}

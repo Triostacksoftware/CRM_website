@@ -117,12 +117,12 @@ export default function HowItWorksSection({
   };
 
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#fffdfa_0%,#ffffff_45%,#f8fffc_100%)] py-16 md:py-20">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#fffdfa_0%,#ffffff_45%,#f8fffc_100%)] py-12 md:py-16">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8ece4] to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#d8ece4] to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-14 max-w-3xl text-center md:mb-20">
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-12">
           <span className="mb-5 inline-flex rounded-full border border-[#cfeee3] bg-[#effaf4] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#1baf78] shadow-[0_10px_24px_rgba(11,143,102,0.08)]">
             {badge}
           </span>
@@ -146,7 +146,7 @@ export default function HowItWorksSection({
         </div>
 
         {showCta ? (
-          <div className="mx-auto mt-10 max-w-3xl border-t border-[#d8ece4] pt-10 text-center md:mt-16 md:pt-12">
+          <div className="mx-auto mt-8 max-w-3xl border-t border-[#d8ece4] pt-8 text-center md:mt-10 md:pt-9">
             <h3 className="mb-5 text-3xl font-bold leading-tight text-slate-950 md:text-4xl">
               Start managing your leads smarter today
             </h3>

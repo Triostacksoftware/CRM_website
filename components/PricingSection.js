@@ -54,14 +54,14 @@ export default function PricingSection({
   return (
     <section
       ref={sectionRef}
-      className="relative pt-8 pb-16 md:pt-10 md:pb-24 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_48%,#eef6f4_100%)] overflow-hidden"
+      className="relative pt-6 pb-12 md:pt-8 md:pb-16 bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_48%,#eef6f4_100%)] overflow-hidden"
     >
       <div className="absolute top-1/2 -left-20 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
         <div
-          className={`text-center mb-10 md:mb-12 ${isVisible ? "animate-fade-in opacity-100" : "opacity-0"} transition-opacity duration-700`}
+          className={`text-center mb-8 md:mb-9 ${isVisible ? "animate-fade-in opacity-100" : "opacity-0"} transition-opacity duration-700`}
         >
           <span className="text-[#00b274] text-xs font-bold tracking-[0.3em] uppercase block mb-4">
             {badge}
@@ -75,7 +75,7 @@ export default function PricingSection({
         </div>
 
         <div
-          className={`flex justify-center mb-10 md:mb-12 ${isVisible ? "animate-fade-in opacity-100" : "opacity-0"} [animation-delay:200ms]`}
+          className={`flex justify-center mb-8 md:mb-9 ${isVisible ? "animate-fade-in opacity-100" : "opacity-0"} [animation-delay:200ms]`}
         >
           <div className="bg-white/85 backdrop-blur-md p-1.5 rounded-full flex items-center gap-1 border border-slate-200/80 shadow-[0_18px_50px_rgba(15,23,42,0.10)] relative">
             {["quarterly", "semiannual", "annual"].map((cycle) => (
@@ -95,7 +95,7 @@ export default function PricingSection({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {plans.map((plan, index) => (
             <div
               key={plan.name}
@@ -103,7 +103,7 @@ export default function PricingSection({
               style={{ animationDelay: `${(index + 2) * 100}ms` }}
             >
               <div
-                className={`h-full relative group bg-white/90 backdrop-blur-md border rounded-2xl p-8 transition-all duration-500 hover:scale-[1.05] flex flex-col ${
+                className={`h-full relative group bg-white/90 backdrop-blur-md border rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03] flex flex-col ${
                   plan.highlighted
                     ? "border-[#00b274] shadow-[0_24px_70px_rgba(0,178,116,0.18)] scale-[1.02]"
                     : "border-slate-200/80 shadow-[0_22px_60px_rgba(15,23,42,0.09)]"
@@ -115,7 +115,7 @@ export default function PricingSection({
                   </div>
                 )}
 
-                <div className="mb-8">
+                <div className="mb-6">
                   <h3 className="text-xl font-bold text-slate-950 mb-2">{plan.name}</h3>
                   <div className="flex items-baseline gap-1 mb-4">
                     <span className="text-2xl text-slate-500">{"\u20B9"}</span>
@@ -132,7 +132,7 @@ export default function PricingSection({
                   <p className="text-slate-600 text-sm leading-relaxed">{plan.description}</p>
                 </div>
 
-                <div className="mb-10 flex-grow space-y-6">
+                <div className="mb-8 flex-grow space-y-5">
                   <div>
                     <h4 className="text-sm font-bold text-slate-950 mb-4">
                       {plan.featureSectionTitle || "Features Included"}

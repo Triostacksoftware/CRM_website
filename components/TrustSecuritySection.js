@@ -61,12 +61,12 @@ export default function TrustSecuritySection({
   items = defaultSecurityItems,
 }) {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f8fffc_52%,#f8fbff_100%)] py-16 md:py-20">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f8fffc_52%,#f8fbff_100%)] py-12 md:py-16">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8ece4] to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#d8ece4] to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
+        <div className="mx-auto mb-9 max-w-3xl text-center md:mb-11">
           <Reveal>
             <span className="mb-5 block text-xs font-bold uppercase tracking-[0.18em] text-[#1baf78]">
               {badge}

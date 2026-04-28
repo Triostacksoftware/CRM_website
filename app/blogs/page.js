@@ -114,7 +114,7 @@ export default function BlogsPage() {
       />
       <Navbar />
 
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] px-6 pb-8 pt-32">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] px-6 pb-6 pt-28">
         <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-[#00b274]/10 blur-[110px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[130px] pointer-events-none" />
         <div className="relative mx-auto max-w-7xl">
@@ -318,7 +318,7 @@ export default function BlogsPage() {
                 );
               })
             ) : (
-              <div className="col-span-full py-20 text-center">
+              <div className="col-span-full py-12 text-center">
                 <p className="text-slate-500">No posts found in this category.</p>
               </div>
             )}
@@ -326,7 +326,7 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-16 bg-white">
+      <section className="px-6 py-12 bg-white">
         <div className="mx-auto max-w-7xl rounded-[1.75rem] border border-slate-200 bg-white/95 p-7 shadow-[0_28px_80px_rgba(15,23,42,0.1)] md:p-9">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>

@@ -81,7 +81,7 @@ export default function ROIContent() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-slate-950 overflow-hidden">
+      <section className="relative pt-28 pb-14 bg-slate-950 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,178,116,0.15),transparent_70%)]" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px]" />
@@ -108,20 +108,20 @@ export default function ROIContent() {
       </section>
 
       {/* Calculator Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-14 md:py-16 bg-slate-50">
         <div className="container max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             
             {/* Inputs Card */}
-            <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100">
+            <div className="bg-white p-7 md:p-9 rounded-[2rem] shadow-xl border border-slate-100">
               <Reveal>
-                <h2 className="text-2xl font-bold mb-10 flex items-center gap-3 text-slate-900">
+                <h2 className="text-2xl font-bold mb-7 flex items-center gap-3 text-slate-900">
                   <span className="w-8 h-8 rounded-lg bg-[#00b274]/10 text-[#00b274] flex items-center justify-center text-sm">1</span>
                   Business Input Metrics
                 </h2>
               </Reveal>
 
-              <div className="space-y-12">
+              <div className="space-y-8">
                 {/* Leads Input */}
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
@@ -215,15 +215,15 @@ export default function ROIContent() {
 
             {/* Results Card */}
             <div className="lg:sticky lg:top-32 space-y-6">
-              <div className="bg-slate-950 p-10 md:p-14 rounded-[3rem] shadow-2xl relative overflow-hidden text-white border border-white/5">
+              <div className="bg-slate-950 p-8 md:p-10 rounded-[2.25rem] shadow-2xl relative overflow-hidden text-white border border-white/5">
                 <div className="absolute top-0 right-0 w-80 h-80 bg-[#00b274]/20 rounded-full blur-[100px] -mr-40 -mt-40" />
                 
-                <h2 className="text-2xl font-bold mb-12 flex items-center gap-3 relative z-10">
+                <h2 className="text-2xl font-bold mb-8 flex items-center gap-3 relative z-10">
                   <span className="w-8 h-8 rounded-lg bg-white/10 text-[#00b274] flex items-center justify-center text-sm">2</span>
                   ROI Summary
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-8 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-7 gap-x-8 relative z-10">
                   <div className="space-y-1">
                     <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.2em]">Net Annual Profit</p>
                     <p className="text-4xl md:text-5xl font-black text-[#00b274] tracking-tight">
@@ -252,7 +252,7 @@ export default function ROIContent() {
                   </div>
                 </div>
 
-                <div className="mt-12 pt-10 border-t border-white/10 relative z-10">
+                <div className="mt-8 pt-7 border-t border-white/10 relative z-10">
                   <p className="text-slate-400 text-sm italic mb-8">
                     *Estimates based on average Trio-CRM customer performance data. Actual results may vary based on implementation and team usage.
                   </p>
@@ -283,9 +283,9 @@ export default function ROIContent() {
       </section>
 
       {/* Core ROI Drivers Section */}
-      <section className="py-24 bg-white border-t border-slate-100">
+      <section className="py-14 md:py-16 bg-white border-t border-slate-100">
         <div className="container max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <Reveal>
               <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
                 Core ROI <span className="text-[#00b274]">Drivers</span>
@@ -300,7 +300,7 @@ export default function ROIContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Reveal delay={200}>
-              <div className="p-10 rounded-[2rem] bg-slate-50 border border-slate-100 hover:border-[#00b274]/30 transition-all group">
+              <div className="p-7 rounded-[2rem] bg-slate-50 border border-slate-100 hover:border-[#00b274]/30 transition-all group">
                 <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                   <svg className="w-7 h-7 text-[#00b274]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -314,7 +314,7 @@ export default function ROIContent() {
             </Reveal>
 
             <Reveal delay={300}>
-              <div className="p-10 rounded-[2rem] bg-slate-50 border border-slate-100 hover:border-[#00b274]/30 transition-all group">
+              <div className="p-7 rounded-[2rem] bg-slate-50 border border-slate-100 hover:border-[#00b274]/30 transition-all group">
                 <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                   <svg className="w-7 h-7 text-[#00b274]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -328,7 +328,7 @@ export default function ROIContent() {
             </Reveal>
 
             <Reveal delay={400}>
-              <div className="p-10 rounded-[2rem] bg-slate-50 border border-slate-100 hover:border-[#00b274]/30 transition-all group">
+              <div className="p-7 rounded-[2rem] bg-slate-50 border border-slate-100 hover:border-[#00b274]/30 transition-all group">
                 <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                   <svg className="w-7 h-7 text-[#00b274]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -345,10 +345,10 @@ export default function ROIContent() {
       </section>
 
       {/* Comparison Grid */}
-      <section className="py-24 bg-slate-950 text-white overflow-hidden relative">
+      <section className="py-14 md:py-16 bg-slate-950 text-white overflow-hidden relative">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
         <div className="container max-w-5xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-black mb-4">The Cost of <span className="text-red-500">Inaction</span></h2>
             <p className="text-slate-400">What happens when you continue using spreadsheets or basic tools?</p>
           </div>
@@ -387,7 +387,7 @@ export default function ROIContent() {
       <BookCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       {/* Footer */}
-      <footer className="py-20 border-t border-slate-100 bg-white">
+      <footer className="py-10 border-t border-slate-100 bg-white">
         <div className="container max-w-7xl mx-auto px-6 text-center">
           <p className="text-slate-400 text-sm">© 2026 CRM Solutions. The ROI calculator provides estimates based on industry benchmarks. Actual performance may vary based on business model and CRM usage.</p>
         </div>

@@ -11,6 +11,8 @@ import SEOComponent from "@/components/SEOComponent";
 import LogoAnimationLink from "@/components/LogoAnimationLink";
 import { goLandingData } from "@/lib/go-landing-data";
 
+const LOGO_LOAD_ANIMATION_SESSION_KEY = "trio-logo-load-animation-played";
+
 export const metadata = {
   title: "TrioCRM Landing Page",
   description:
@@ -34,6 +36,7 @@ export default function GoLandingPage() {
         text="Trio-CRM 360"
         wordmark="Trio-CRM 360"
         playOnMount
+        playOnceSessionKey={LOGO_LOAD_ANIMATION_SESSION_KEY}
       />
       <HeroSection {...goLandingData.hero} />
       <TrustStrip {...goLandingData.trustStrip} />

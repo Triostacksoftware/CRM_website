@@ -17,17 +17,21 @@
 # production
 /build/
 /dist/
+/.output/
 
 # environment
 .env
 .env.local
 .env.*
 .env.*.local
+*.env
 
 # local tooling
 /.cache/
 /.docker/
 /.vscode/
+.idea/
+docker-compose.override.yml
 
 # logs
 logs/
@@ -59,6 +63,8 @@ yarn-error.log*
 
 # cache
 .eslintcache
+.parcel-cache/
+.stylelintcache
 
 # vercel
 .vercel/
@@ -67,15 +73,21 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# local databases
+*.db
+*.sqlite
+*.sqlite3
+
 # misc
 .DS_Store
 Thumbs.db
 Desktop.ini
 *.pem
+*.key
+*.crt
 
 # one-off local scripts
 /scratch/
-.idea/
 *.swp
 *.swo
 .gemini/

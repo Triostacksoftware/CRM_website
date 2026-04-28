@@ -90,7 +90,7 @@ export default function IntegrationsContent() {
       <Navbar />
 
       {/* Hero Section - Upgraded with Video and Floating Elements */}
-      <div className="relative overflow-hidden pt-32 pb-24 min-h-[80vh] flex items-center bg-slate-950">
+      <div className="relative overflow-hidden pt-28 pb-16 min-h-[68vh] flex items-center bg-slate-950">
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
@@ -153,12 +153,12 @@ export default function IntegrationsContent() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-8 leading-[1.1]">
+            <h1 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-6 leading-[1.1]">
               Connect Your Entire <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00b274] to-blue-400">Business Ecosystem</span>
             </h1>
           </Reveal>
           <Reveal delay={200}>
-            <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-12 font-medium leading-relaxed">
+            <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-8 font-medium leading-relaxed">
               Eliminate data silos and manual entry. CRM Solutions integrates with 50+ tools to keep your marketing, sales, and support in perfect sync.
             </p>
           </Reveal>
@@ -179,15 +179,15 @@ export default function IntegrationsContent() {
       </div>
 
       {/* Alternating Content Sections */}
-      <div className="py-20 space-y-32">
+      <div className="py-14 md:py-16 space-y-16 md:space-y-20">
         {integrationSections.map((section, index) => (
           <section
             key={section.id}
             id={section.id}
             className={`container max-w-7xl mx-auto px-6 scroll-mt-32`}
           >
-            <div className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16`}>
-              <div className="flex-1 space-y-8">
+            <div className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-10 lg:gap-12`}>
+              <div className="flex-1 space-y-6">
                 <Reveal>
                   <div className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${section.color} text-white shadow-lg`}>
                     <FeatureIcon type={section.icon} className="h-8 w-8" />
@@ -271,7 +271,7 @@ export default function IntegrationsContent() {
       <BookCallModal isOpen={isModalOpen} onClose={handleModalClose} />
 
       {/* Footer */}
-      <footer className="py-20 border-t border-slate-100 bg-slate-50/50">
+      <footer className="py-10 border-t border-slate-100 bg-slate-50/50">
         <div className="container max-w-7xl mx-auto px-6 text-center">
           <p className="text-slate-400 text-sm">© 2026 CRM Solutions. All rights reserved. Powering growth for modern enterprises.</p>
         </div>

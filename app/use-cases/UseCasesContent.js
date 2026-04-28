@@ -74,7 +74,7 @@ export default function UseCasesContent() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="relative overflow-hidden pt-32 pb-20 min-h-[75vh] flex items-center bg-white">
+      <div className="relative overflow-hidden pt-28 pb-14 min-h-[64vh] flex items-center bg-white">
         {/* Video Background - Reduced opacity for white background compatibility */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
@@ -104,7 +104,7 @@ export default function UseCasesContent() {
             </h1>
           </Reveal>
           <Reveal delay={200}>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg mb-10 font-medium">
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg mb-8 font-medium">
               Discover how Trio-CRM 360 transforms your business operations across departments with tailored tools for modern enterprises.
             </p>
           </Reveal>
@@ -125,15 +125,15 @@ export default function UseCasesContent() {
       </div>
 
       {/* Content Sections */}
-      <div className="py-20 space-y-32">
+      <div className="py-14 md:py-16 space-y-16 md:space-y-20">
         {useCaseSections.map((section, index) => (
           <section
             key={section.id}
             id={section.id}
             className={`container max-w-7xl mx-auto px-6 scroll-mt-32`}
           >
-            <div className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16`}>
-              <div className="flex-1 space-y-8">
+            <div className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-10 lg:gap-12`}>
+              <div className="flex-1 space-y-6">
                 <Reveal>
                   <div className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${section.color} text-white shadow-lg`}>
                     <FeatureIcon type={section.icon} className="h-8 w-8" />

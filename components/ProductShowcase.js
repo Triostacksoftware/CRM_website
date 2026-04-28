@@ -40,13 +40,13 @@ export default function ProductShowcase() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_32%),linear-gradient(180deg,#ffffff_0%,#f8fbff_52%,#eef6f4_100%)] py-8 md:py-10">
+    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_32%),linear-gradient(180deg,#ffffff_0%,#f8fbff_52%,#eef6f4_100%)] py-6 md:py-8">
       {/* Premium white section glow */}
       <div className="absolute top-1/2 -right-40 w-96 h-96 bg-[#00b274]/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container relative z-10 max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           
           {/* Left Side: Product Visual */}
           <div className="relative group animate-fade-in opacity-100">
@@ -61,7 +61,7 @@ export default function ProductShowcase() {
 
           {/* Right Side: Content */}
           <div className="animate-slide-up opacity-100">
-            <div className="mb-8 text-center lg:text-left">
+            <div className="mb-6 text-center lg:text-left">
               <span className="text-[#00b274] text-xs font-bold tracking-[0.3em] uppercase block mb-4">
                 Our Product
               </span>
@@ -75,7 +75,7 @@ export default function ProductShowcase() {
             </div>
 
             {/* Feature Highlights */}
-            <div className="space-y-6 mb-10">
+            <div className="space-y-5 mb-8">
               {productHighlights.map((feature, index) => (
                 <div key={index} className="flex items-start gap-4 group">
                   <div className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[#00b274]/15 bg-white text-[#0b8f66] shadow-[0_16px_35px_rgba(15,23,42,0.08)] transition-all duration-300 group-hover:border-[#00b274]/25 group-hover:bg-[#00b274] group-hover:text-white">

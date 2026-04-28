@@ -15,9 +15,9 @@ export default function TrustStrip({
   brands = defaultBrands,
 }) {
   return (
-    <section className="bg-[#0b1220] border-y border-white/5 py-10 relative overflow-hidden">
+    <section className="bg-[#0b1220] border-y border-white/5 py-7 md:py-8 relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-7 lg:gap-10">
           <div className="max-w-md text-center lg:text-left">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-2">
               {title}
@@ -28,7 +28,7 @@ export default function TrustStrip({
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-9 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
             {brands.map((brand, i) => (
               <div key={i} className="h-8 md:h-10 w-auto relative">
                 <img

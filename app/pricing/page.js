@@ -31,7 +31,7 @@ export default function PricingPage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="relative pt-32 pb-4 overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)]">
+      <section className="relative pt-28 pb-4 overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)]">
         <div className="absolute top-0 right-0 h-72 w-72 rounded-full bg-[#00b274]/10 blur-[110px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-blue-500/10 blur-[130px] pointer-events-none" />
         <div className="container max-w-7xl mx-auto px-6 relative z-10">

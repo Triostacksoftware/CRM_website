@@ -34,10 +34,10 @@ export default function IntegrationsSection({
   return (
     <section
       id="integrations"
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#fffefc_0%,#ffffff_48%,#f8fffc_100%)] py-16 md:py-20"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#fffefc_0%,#ffffff_48%,#f8fffc_100%)] py-12 md:py-16"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
+        <div className="mx-auto mb-9 max-w-3xl text-center md:mb-11">
           <Reveal>
             <span className="mb-5 block text-xs font-bold uppercase tracking-[0.18em] text-[#1baf78]">
               {badge}
@@ -55,7 +55,7 @@ export default function IntegrationsSection({
           </Reveal>
         </div>
 
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-2 md:gap-x-12 lg:grid-cols-4 lg:gap-x-10">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-2 md:gap-x-10 lg:grid-cols-4 lg:gap-x-8">
           {integrations.map((integration, index) => (
             <Reveal key={integration.name} delay={index * 80}>
               <div className="group flex h-full flex-col items-center text-center transition-all duration-300 hover:-translate-y-1">
@@ -80,7 +80,7 @@ export default function IntegrationsSection({
         </div>
 
         <Reveal delay={420}>
-          <p className="mx-auto mt-12 max-w-2xl text-center text-sm font-semibold leading-6 text-slate-500 md:mt-14">
+          <p className="mx-auto mt-8 max-w-2xl text-center text-sm font-semibold leading-6 text-slate-500 md:mt-10">
             {footerNote}
           </p>
         </Reveal>

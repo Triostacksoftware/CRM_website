@@ -303,7 +303,7 @@ export default function FeatureDetailPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 md:pt-48 pb-32 md:pb-40 overflow-hidden">
+      <section className="relative pt-28 md:pt-32 pb-16 md:pb-20 overflow-hidden">
         {/* Background Video with Overlay */}
         {activeHeroVideo ? (
           <div className="absolute inset-0 z-0 overflow-hidden">
@@ -331,8 +331,8 @@ export default function FeatureDetailPage() {
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
 
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center -mt-1 md:-mt-6 lg:-mt-10">
-            <div className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div className="space-y-6">
               <Reveal delay={200}>
                 <h1 className="text-3xl md:text-5xl font-bold leading-tight">
                   {feature.details?.subtitle || feature.title}
@@ -386,11 +386,11 @@ export default function FeatureDetailPage() {
 
       {/* Overview Section */}
       {feature.details?.overview && (
-        <section id="overview" className="py-24 relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#f8fbff_0%,#ffffff_42%,#eef6f4_100%)]">
+        <section id="overview" className="py-14 md:py-16 relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#f8fbff_0%,#ffffff_42%,#eef6f4_100%)]">
           <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#00b274]/10 blur-[120px] pointer-events-none" />
           <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-sky-500/10 blur-[120px] pointer-events-none" />
           <div className="container max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
               <Reveal>
                 <div className="space-y-6">
                   <h2 className="text-3xl md:text-4xl font-bold text-slate-950">{feature.details.overview.heading}</h2>
@@ -401,7 +401,7 @@ export default function FeatureDetailPage() {
                 </div>
               </Reveal>
 
-              <div className="space-y-12">
+              <div className="space-y-8">
                 <Reveal delay={200}>
                   <h3 className="text-xl font-bold uppercase tracking-widest text-[#00b274]">Key Features</h3>
                 </Reveal>
@@ -427,10 +427,10 @@ export default function FeatureDetailPage() {
 
       {/* How It Helps Section */}
       {feature.details?.howItHelps && (
-        <section className="py-24 bg-white">
+        <section className="py-14 md:py-16 bg-white">
           <div className="container max-w-7xl mx-auto px-6">
             <Reveal>
-              <div className="text-center mb-20">
+              <div className="text-center mb-10 md:mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-950">How It Helps</h2>
                 <p className="text-slate-600 max-w-2xl mx-auto">Discover the tangible benefits our {feature.title} brings to your sales organization.</p>
               </div>
@@ -439,7 +439,7 @@ export default function FeatureDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {feature.details.howItHelps.map((item, idx) => (
                 <Reveal key={idx} delay={idx * 100} className="group h-full">
-                  <div className="relative h-full p-8 rounded-3xl bg-white/95 border border-slate-200 shadow-[0_22px_60px_rgba(15,23,42,0.09)] hover:border-[#00b274]/30 transition-all duration-500 group-hover:bg-white group-hover:-translate-y-1 group-hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)]">
+                  <div className="relative h-full p-6 rounded-3xl bg-white/95 border border-slate-200 shadow-[0_22px_60px_rgba(15,23,42,0.09)] hover:border-[#00b274]/30 transition-all duration-500 group-hover:bg-white group-hover:-translate-y-1 group-hover:shadow-[0_28px_75px_rgba(0,178,116,0.14)]">
                     <div className="w-12 h-12 rounded-2xl bg-[#00b274]/10 flex items-center justify-center mb-8 text-[#00b274] group-hover:bg-[#00b274] group-hover:text-white transition-all duration-500">
                       <span className="text-xl font-bold">{idx + 1}</span>
                     </div>
@@ -455,11 +455,11 @@ export default function FeatureDetailPage() {
 
       {/* Use Case Section */}
       {feature.details?.useCase && (
-        <section className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] pt-8 pb-24 md:pt-10 md:pb-24">
+        <section className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] pt-6 pb-14 md:pt-8 md:pb-16">
           <div className="container max-w-7xl mx-auto px-6">
             <Reveal>
-              <div className="max-w-4xl mx-auto p-12 rounded-[2.5rem] bg-white/95 border border-slate-200 shadow-[0_28px_80px_rgba(15,23,42,0.1)]">
-                <div className="flex flex-col md:flex-row gap-10 items-center">
+              <div className="max-w-4xl mx-auto p-8 md:p-10 rounded-[2rem] bg-white/95 border border-slate-200 shadow-[0_28px_80px_rgba(15,23,42,0.1)]">
+                <div className="flex flex-col md:flex-row gap-7 items-center">
                   <div className="w-20 h-20 rounded-full bg-[#00b274] flex items-center justify-center flex-shrink-0 shadow-[0_0_30px_rgba(0,178,116,0.5)]">
                     <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0012 18.75c-1.03 0-1.9-.4-2.593-1.003l-.548-.547z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
@@ -480,15 +480,15 @@ export default function FeatureDetailPage() {
 
       {/* Best For Section */}
       {feature.details?.bestFor && (
-        <section className="py-24 bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.1),transparent_28%),linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)]">
+        <section className="py-14 md:py-16 bg-[radial-gradient(circle_at_top_right,rgba(0,178,116,0.1),transparent_28%),linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)]">
           <div className="container max-w-7xl mx-auto px-6">
-            <div className="p-12 md:p-20 rounded-[3rem] bg-white/95 border border-slate-200 relative overflow-hidden shadow-[0_28px_80px_rgba(15,23,42,0.1)]">
+            <div className="p-8 md:p-12 rounded-[2.25rem] bg-white/95 border border-slate-200 relative overflow-hidden shadow-[0_28px_80px_rgba(15,23,42,0.1)]">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#00b274]/10 blur-[100px]" />
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 blur-[100px]" />
               
               <div className="relative z-10 text-center">
                 <Reveal>
-                  <h2 className="text-3xl font-bold mb-12 text-slate-950">Who is this best for?</h2>
+                  <h2 className="text-3xl font-bold mb-8 text-slate-950">Who is this best for?</h2>
                 </Reveal>
                 <div className="flex flex-wrap justify-center gap-4">
                   {feature.details.bestFor.map((item, idx) => (
@@ -507,9 +507,9 @@ export default function FeatureDetailPage() {
 
       {/* Final CTA Section */}
       {feature.details?.ctaSection && (
-        <section className="py-20 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_40%,#ffffff_100%)] border-t border-slate-100">
+        <section className="py-14 md:py-16 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_40%,#ffffff_100%)] border-t border-slate-100">
           <div className="container max-w-7xl mx-auto px-6">
-            <div className="space-y-14">
+            <div className="space-y-10">
               <div className="text-center">
                 <span className="text-[11px] font-bold uppercase tracking-[0.32em] text-[#00b274]">
                   Testimonials

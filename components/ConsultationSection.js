@@ -62,12 +62,12 @@ export default function ConsultationSection() {
   ];
 
   return (
-    <section id="consultation" className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#f8fbff_0%,#ffffff_42%,#eef6f4_100%)] px-6 py-20 md:py-32">
+    <section id="consultation" className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(0,178,116,0.12),transparent_30%),linear-gradient(180deg,#f8fbff_0%,#ffffff_42%,#eef6f4_100%)] px-6 py-14 md:py-20">
       <div className="pointer-events-none absolute left-0 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#00b274]/12 blur-[120px]" />
       <div className="pointer-events-none absolute right-0 bottom-0 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 rounded-full bg-sky-500/12 blur-[120px]" />
 
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.12fr_0.98fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.12fr_0.98fr] lg:gap-12">
           <div className="relative">
             <div className="relative rounded-[2rem] bg-slate-100/70 p-3 lg:p-4">
               <img
@@ -79,7 +79,7 @@ export default function ConsultationSection() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <div className="space-y-6 lg:space-y-7">
+            <div className="space-y-5 lg:space-y-6">
               <div className="inline-flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#00b274]" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#00b274]">
@@ -95,7 +95,7 @@ export default function ConsultationSection() {
                 Track every lead source, automate WhatsApp engagement, and run GST-aligned sales workflows built for Indian teams that handle high daily volume.
               </p>
 
-              <ul className="space-y-4 pt-1">
+              <ul className="space-y-3 pt-1">
                 {benefits.map((benefit) => (
                   <li key={benefit.title} className="flex items-start gap-3">
                     <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#00b274]/12 text-[#00b274]">

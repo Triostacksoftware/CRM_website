@@ -8,16 +8,15 @@ import BookCallModal from "./BookCallModal";
 import LogoAnimationLink from "./LogoAnimationLink";
 
 const CRM_LOGIN_URL = "https://crm.triostack.in/login";
-let hasConsumedRefreshLogoAnimation = false;
+let hasConsumedLoadLogoAnimation = false;
 
-function wasPageRefresh() {
-  const [navigationEntry] = performance.getEntriesByType("navigation");
-
-  if (navigationEntry) {
-    return navigationEntry.type === "reload";
+function shouldPlayLoadLogoAnimation() {
+  if (hasConsumedLoadLogoAnimation) {
+    return false;
   }
 
-  return performance.navigation?.type === performance.navigation?.TYPE_RELOAD;
+  hasConsumedLoadLogoAnimation = true;
+  return true;
 }
 
 export default function Navbar() {
@@ -72,12 +71,9 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    if (hasConsumedRefreshLogoAnimation || !wasPageRefresh()) {
-      return;
+    if (shouldPlayLoadLogoAnimation()) {
+      setPlayLogoOnMount(true);
     }
-
-    hasConsumedRefreshLogoAnimation = true;
-    setPlayLogoOnMount(true);
   }, []);
 
   useEffect(() => {

@@ -62,9 +62,9 @@ const CARD_ACCENTS = [
 
 export default function UseCasesSection() {
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-16 bg-white relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-12">
           <Reveal>
             <span className="text-[#00b274] text-sm font-bold tracking-[0.4em] uppercase block mb-4">
               Solutions
@@ -85,7 +85,7 @@ export default function UseCasesSection() {
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {useCases.map((useCase, index) => (
             <Reveal key={index} delay={index * 100}>
-              <div className="group relative flex h-full min-h-[21rem] flex-col overflow-hidden rounded-[2rem] border border-[#e8f1ec] bg-white px-7 py-7 shadow-[0_16px_44px_rgba(15,23,42,0.08),0_2px_12px_rgba(11,143,102,0.04)] transition-all duration-500 hover:-translate-y-1 hover:border-[#bfead8] hover:shadow-[0_22px_60px_rgba(15,23,42,0.1),0_10px_30px_rgba(11,143,102,0.08)]">
+              <div className="group relative flex h-full min-h-[19rem] flex-col overflow-hidden rounded-[2rem] border border-[#e8f1ec] bg-white px-6 py-6 shadow-[0_16px_44px_rgba(15,23,42,0.08),0_2px_12px_rgba(11,143,102,0.04)] transition-all duration-500 hover:-translate-y-1 hover:border-[#bfead8] hover:shadow-[0_22px_60px_rgba(15,23,42,0.1),0_10px_30px_rgba(11,143,102,0.08)]">
                 <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${CARD_ACCENTS[index % CARD_ACCENTS.length].glow} opacity-80`} />
                 <div className={`pointer-events-none absolute bottom-0 right-0 h-32 w-32 rounded-tl-[4.5rem] ${CARD_ACCENTS[index % CARD_ACCENTS.length].blob}`} />
 

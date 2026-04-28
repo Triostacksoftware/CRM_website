@@ -88,7 +88,7 @@ export default function TermsAndConditionsPage() {
     <main className="min-h-screen bg-[#0b1220]">
       <Navbar />
 
-      <section className="relative overflow-hidden px-6 pb-10 pt-28 md:pb-14 md:pt-32">
+      <section className="relative overflow-hidden px-6 pb-8 pt-24 md:pb-10 md:pt-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,195,142,0.16),transparent_25%),radial-gradient(circle_at_top_right,rgba(56,189,248,0.16),transparent_28%)]" />
 
         <div className="relative mx-auto max-w-7xl">
@@ -104,7 +104,7 @@ export default function TermsAndConditionsPage() {
             </div>
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(6,15,27,0.72),rgba(8,24,38,0.5)),linear-gradient(135deg,rgba(20,195,142,0.32),rgba(9,16,30,0.35)_55%,rgba(56,189,248,0.28))]" />
 
-            <div className="relative flex min-h-[320px] items-center justify-center px-8 py-16 text-center md:min-h-[390px] md:px-16">
+            <div className="relative flex min-h-[280px] items-center justify-center px-8 py-12 text-center md:min-h-[330px] md:px-16">
               <div className="max-w-3xl">
                 <p className="text-sm font-semibold uppercase tracking-[0.34em] text-[#8ef9d0]">
                   Legal
@@ -125,7 +125,7 @@ export default function TermsAndConditionsPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-24">
+      <section className="px-6 pb-16 md:pb-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start">
             <div>
@@ -145,7 +145,7 @@ export default function TermsAndConditionsPage() {
                 </p>
               </div>
 
-              <div className="mt-14 space-y-12">
+              <div className="mt-10 space-y-8">
                 {termsSections.map((section) => (
                   <article key={section.id} className="max-w-6xl">
                     <h3 className="text-3xl font-semibold tracking-[-0.04em] text-white md:text-[2.25rem]">
@@ -163,7 +163,7 @@ export default function TermsAndConditionsPage() {
                 ))}
               </div>
 
-              <div className="mt-16 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(245,248,255,0.92))] px-6 py-8 shadow-[0_28px_80px_rgba(0,0,0,0.26)] md:px-9">
+              <div className="mt-10 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(245,248,255,0.92))] px-6 py-7 shadow-[0_28px_80px_rgba(0,0,0,0.26)] md:px-9">
                 <div className="flex flex-col items-center justify-between gap-5 text-center lg:flex-row lg:text-left">
                   <a
                     href="/crm-brochure"

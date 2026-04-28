@@ -10,6 +10,16 @@ const PARTICLES = Array.from({ length: 16 }, (_, index) => ({
   delay: 90 + (index % 5) * 32,
 }));
 
+function wasPageRefresh() {
+  const [navigationEntry] = performance.getEntriesByType("navigation");
+
+  if (navigationEntry) {
+    return navigationEntry.type === "reload";
+  }
+
+  return performance.navigation?.type === performance.navigation?.TYPE_RELOAD;
+}
+
 export default function LogoAnimationLink({
   ariaLabel = "Play Trio-CRM 360 logo animation",
   className = "",
@@ -18,6 +28,7 @@ export default function LogoAnimationLink({
   text = "Trio-CRM 360",
   wordmark = "Trio-CRM 360",
   playOnMount = true,
+  playOnceSessionKey,
   onBeforeLaunch,
 }) {
   const logoRef = useRef(null);
@@ -56,13 +67,25 @@ export default function LogoAnimationLink({
     setIsMounted(true);
 
     if (playOnMount) {
+      if (playOnceSessionKey && !wasPageRefresh()) {
+        try {
+          if (window.sessionStorage.getItem(playOnceSessionKey) === "1") {
+            return;
+          }
+
+          window.sessionStorage.setItem(playOnceSessionKey, "1");
+        } catch {
+          // If storage is unavailable, still let the visual moment play.
+        }
+      }
+
       window.requestAnimationFrame(playLaunchAnimation);
     }
 
     return () => {
       window.clearTimeout(hideTimerRef.current);
     };
-  }, [playLaunchAnimation, playOnMount]);
+  }, [playLaunchAnimation, playOnMount, playOnceSessionKey]);
 
   const handleLogoClick = useCallback(
     (event) => {
