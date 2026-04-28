@@ -50,11 +50,11 @@ const defaultFeatureModules = [
   },
   {
     label: "CATEGORY 04",
-    title: "WhatsApp CRM",
+    title: "WhatsApp + Telecalling CRM",
     description:
-      "Engage customers instantly with a unified WhatsApp inbox, automated templates, broadcast campaigns, and visual flow builders.",
+      "Engage customers instantly with a unified WhatsApp inbox and integrated telecalling, automated templates, and broadcast campaigns.",
     bullets: [
-      "Consolidated WhatsApp inbox for the whole team",
+      "Consolidated WhatsApp inbox & call logs for the team",
       "Template management and automated replies",
       "Broadcast campaigns and flow builders",
     ],
