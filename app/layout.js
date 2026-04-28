@@ -4,9 +4,10 @@ import Chatbot from "@/components/Chatbot";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SocialStickyBar from "@/components/SocialStickyBar";
 import BottomHelpBar from "@/components/BottomHelpBar";
-import Script from "next/script";
 
 export const dynamic = 'force-dynamic';
+
+const GTM_ID = "GTM-NM63CZBW";
 
 export const metadata = {
   metadataBase: new URL('https://triostack.in'),
@@ -53,32 +54,32 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
-  const googleAdsTagId = "AW-18122809504";
-  const gtagLoadId = gaId || googleAdsTagId;
-
   return (
     <html lang="en">
       <head>
-        {gtagLoadId ? (
-          <>
-            <Script
-              strategy="lazyOnload"
-              src={`https://www.googletagmanager.com/gtag/js?id=${gtagLoadId}`}
-            />
-            <Script id="google-analytics" strategy="lazyOnload">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                ${gaId ? `gtag('config', '${gaId}');` : ""}
-                gtag('config', '${googleAdsTagId}');
-              `}
-            </Script>
-          </>
-        ) : null}
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
+        />
+        {/* End Google Tag Manager */}
       </head>
       <body className="antialiased">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         <BookCallModalProvider />
         <SocialStickyBar />
         {children}
