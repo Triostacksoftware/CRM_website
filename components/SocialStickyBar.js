@@ -6,7 +6,7 @@ const socials = [
   {
     name: "X",
     href: "https://x.com/triostack",
-    brand: "#000000",
+    brand: "#a7b0be",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6">
         <path
