@@ -22,16 +22,16 @@ const defaultFeatureModules = [
   },
   {
     label: "CATEGORY 02",
-    title: "Real Estate CRM",
+    title: "Dealers & Agencies CRM",
     description:
-      "Run projects, inventory, site visits, bookings, partners, and collections with real estate teams in sync.",
+      "Run partner networks, inventory, orders, distribution, and collections with dealer and agency teams in sync.",
     bullets: [
-      "Project, unit, and inventory visibility",
-      "Site visit and booking pipeline tracking",
-      "Broker, payment, and collection workflows",
+      "Partner, order, and inventory visibility",
+      "Distribution and sales pipeline tracking",
+      "Dealer, payment, and collection workflows",
     ],
-    image: "/crm screen shot/realEState.png/RealEstate.jpeg",
-    href: "/features#real-estate-crm",
+    image: "/crm screen shot/dealers_agencies.png",
+    href: "/features#dealers-and-agencies",
     imageSide: "left",
   },
   {
