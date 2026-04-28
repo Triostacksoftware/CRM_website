@@ -13,6 +13,11 @@ const defaultIntegrations = [
     logo: "/integrations/meta.png",
   },
   {
+    name: "Google Ads",
+    description: "Sync campaign data and track conversions",
+    logo: "/integrations/google-ads.svg",
+  },
+  {
     name: "Telephony",
     description: "Track calls and manage conversations efficiently",
     logo: "/integrations/telephony.svg",
@@ -55,7 +60,7 @@ export default function IntegrationsSection({
           </Reveal>
         </div>
 
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-2 md:gap-x-10 lg:grid-cols-4 lg:gap-x-8">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-3 md:gap-x-10 lg:grid-cols-5 lg:gap-x-8">
           {integrations.map((integration, index) => (
             <Reveal key={integration.name} delay={index * 80}>
               <div className="group flex h-full flex-col items-center text-center transition-all duration-300 hover:-translate-y-1">
