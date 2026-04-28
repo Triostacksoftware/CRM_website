@@ -103,7 +103,7 @@ const FAQSection = ({
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative pt-8 pb-3 md:pt-10 md:pb-4 px-6 overflow-hidden bg-white">
+    <section ref={sectionRef} className="relative pt-8 pb-14 md:pt-10 md:pb-20 px-6 overflow-hidden bg-white">
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-white blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto relative z-10">
