@@ -11,11 +11,13 @@ const PARTICLES = Array.from({ length: 16 }, (_, index) => ({
 }));
 
 export default function LogoAnimationLink({
-  ariaLabel = "Play TrioCRM logo animation",
+  ariaLabel = "Play Trio-CRM 360 logo animation",
   className = "",
   logoClassName = "relative h-10 w-10 overflow-visible",
   textClassName = "",
   text = "Trio-CRM 360",
+  wordmark = "Trio-CRM 360",
+  playOnMount = true,
   onBeforeLaunch,
 }) {
   const logoRef = useRef(null);
@@ -23,13 +25,44 @@ export default function LogoAnimationLink({
   const [isMounted, setIsMounted] = useState(false);
   const [launch, setLaunch] = useState(null);
 
+  const playLaunchAnimation = useCallback(() => {
+    const rect = logoRef.current?.getBoundingClientRect();
+    const viewportMin = Math.min(window.innerWidth, window.innerHeight);
+    const endSize = Math.round(Math.min(Math.max(viewportMin * 0.22, 112), 184));
+    const originX = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
+    const originY = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
+    const originScale = Math.max((rect?.width || endSize) / endSize, 0.18);
+    const nextLaunch = {
+      id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      originX,
+      originY,
+      originScale,
+      endSize,
+    };
+
+    window.clearTimeout(hideTimerRef.current);
+    setLaunch(null);
+
+    window.requestAnimationFrame(() => {
+      setLaunch(nextLaunch);
+    });
+
+    hideTimerRef.current = window.setTimeout(() => {
+      setLaunch(null);
+    }, ANIMATION_MS);
+  }, []);
+
   useEffect(() => {
     setIsMounted(true);
+
+    if (playOnMount) {
+      window.requestAnimationFrame(playLaunchAnimation);
+    }
 
     return () => {
       window.clearTimeout(hideTimerRef.current);
     };
-  }, []);
+  }, [playLaunchAnimation, playOnMount]);
 
   const handleLogoClick = useCallback(
     (event) => {
@@ -46,31 +79,9 @@ export default function LogoAnimationLink({
 
       event.preventDefault();
       onBeforeLaunch?.();
-
-      const rect = logoRef.current?.getBoundingClientRect() || event.currentTarget.getBoundingClientRect();
-      const viewportMin = Math.min(window.innerWidth, window.innerHeight);
-      const endSize = Math.round(Math.min(Math.max(viewportMin * 0.22, 112), 184));
-      const originScale = Math.max(rect.width / endSize, 0.18);
-      const nextLaunch = {
-        id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
-        originX: rect.left + rect.width / 2,
-        originY: rect.top + rect.height / 2,
-        originScale,
-        endSize,
-      };
-
-      window.clearTimeout(hideTimerRef.current);
-      setLaunch(null);
-
-      window.requestAnimationFrame(() => {
-        setLaunch(nextLaunch);
-      });
-
-      hideTimerRef.current = window.setTimeout(() => {
-        setLaunch(null);
-      }, ANIMATION_MS);
+      playLaunchAnimation();
     },
-    [onBeforeLaunch]
+    [onBeforeLaunch, playLaunchAnimation]
   );
 
   return (
@@ -116,7 +127,7 @@ export default function LogoAnimationLink({
               <div className="trio-logo-launch-mark">
                 <span className="trio-logo-launch-ring" />
                 <img src="/trio-logo.png" alt="" className="trio-logo-launch-image" />
-                <span className="trio-logo-launch-wordmark">TrioCRM</span>
+                <span className="trio-logo-launch-wordmark">{wordmark}</span>
               </div>
             </div>,
             document.body

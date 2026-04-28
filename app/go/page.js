@@ -31,6 +31,9 @@ export default function GoLandingPage() {
         className="absolute left-5 top-5 z-[120] inline-flex items-center gap-2.5 sm:left-8"
         logoClassName="relative h-10 w-10 shrink-0 overflow-visible"
         textClassName="whitespace-nowrap text-[1.2rem] font-black leading-none tracking-normal text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+        text="Trio-CRM 360"
+        wordmark="Trio-CRM 360"
+        playOnMount
       />
       <HeroSection {...goLandingData.hero} />
       <TrustStrip {...goLandingData.trustStrip} />
