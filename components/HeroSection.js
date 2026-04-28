@@ -63,7 +63,7 @@ export default function HeroSection({
               </ul>
             </div>
 
-            <div id="hero-form-container" className="relative z-20 hidden justify-center lg:flex lg:justify-end">
+            <div id="hero-form-container" className="relative z-20 flex justify-center lg:justify-end w-full">
               {showForm ? <HeroForm /> : null}
             </div>
           </div>
