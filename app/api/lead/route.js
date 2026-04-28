@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
-const LEAD_SUCCESS_COOKIE = "crm_demo_submitted";
-const LEAD_SUCCESS_COOKIE_MAX_AGE_SECONDS = 60 * 10;
 
 const RESERVED_FIELDS = new Set(["name", "email", "phone", "company", "message", "notes"]);
 
@@ -108,17 +106,7 @@ export async function POST(request) {
     }
 
     const data = await response.json().catch(() => null);
-    const successResponse = NextResponse.json({ success: true, data });
-    successResponse.cookies.set({
-      name: LEAD_SUCCESS_COOKIE,
-      value: "1",
-      httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-      path: "/",
-      maxAge: LEAD_SUCCESS_COOKIE_MAX_AGE_SECONDS,
-    });
-    return successResponse;
+    return NextResponse.json({ success: true, data });
   } catch (error) {
     return NextResponse.json(
       {
