@@ -10,7 +10,7 @@ const defaultIntegrations = [
   {
     name: "Meta Ads",
     description: "Capture and manage ad leads automatically",
-    logo: "/integrations/facebook-ads.svg",
+    logo: "/integrations/meta.png",
   },
   {
     name: "Telephony",
