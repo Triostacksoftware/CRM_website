@@ -4,6 +4,7 @@ import Chatbot from "@/components/Chatbot";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SocialStickyBar from "@/components/SocialStickyBar";
 import BottomHelpBar from "@/components/BottomHelpBar";
+import LeadSuccessToast from "@/components/LeadSuccessToast";
 
 export const dynamic = 'force-dynamic';
 
@@ -81,6 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         <BookCallModalProvider />
+        <LeadSuccessToast />
         <SocialStickyBar />
         {children}
         <div className="hidden md:block">

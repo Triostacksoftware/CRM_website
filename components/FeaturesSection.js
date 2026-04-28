@@ -30,7 +30,7 @@ const defaultFeatureModules = [
       "Site visit and booking pipeline tracking",
       "Broker, payment, and collection workflows",
     ],
-    image: "/crm screen shot/realEState.png/WhatsApp Image 2026-04-27 at 23.22.24.jpeg",
+    image: "/crm screen shot/realEState.png/RealEstate.jpeg",
     href: "/features#real-estate-crm",
     imageSide: "left",
   },

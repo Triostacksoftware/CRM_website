@@ -8,12 +8,24 @@ import BookCallModal from "./BookCallModal";
 import LogoAnimationLink from "./LogoAnimationLink";
 
 const CRM_LOGIN_URL = "https://crm.triostack.in/login";
+let hasConsumedRefreshLogoAnimation = false;
+
+function wasPageRefresh() {
+  const [navigationEntry] = performance.getEntriesByType("navigation");
+
+  if (navigationEntry) {
+    return navigationEntry.type === "reload";
+  }
+
+  return performance.navigation?.type === performance.navigation?.TYPE_RELOAD;
+}
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const [isBookCallOpen, setIsBookCallOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [playLogoOnMount, setPlayLogoOnMount] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -60,6 +72,15 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
+    if (hasConsumedRefreshLogoAnimation || !wasPageRefresh()) {
+      return;
+    }
+
+    hasConsumedRefreshLogoAnimation = true;
+    setPlayLogoOnMount(true);
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = (isMobileMenuOpen || isChatbotOpen) ? "hidden" : "";
 
     return () => {
@@ -92,6 +113,7 @@ export default function Navbar() {
             className="relative z-10 inline-flex min-w-[158px] shrink-0 items-center gap-2.5 cursor-pointer"
             logoClassName="relative h-10 w-10 overflow-visible"
             textClassName="whitespace-nowrap text-[1.2rem] font-black leading-none tracking-normal text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+            playOnMount={playLogoOnMount}
             onBeforeLaunch={() => setIsMobileMenuOpen(false)}
           />
 

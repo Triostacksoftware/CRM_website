@@ -11,9 +11,19 @@ function cleanString(value) {
 }
 
 function getWebhookConfig() {
+  const webhookUrl =
+    cleanString(process.env.TRIO_CRM_WEBSITE_WEBHOOK_URL) ||
+    cleanString(process.env.LEAD_WEBHOOK_URL) ||
+    cleanString(process.env.CRM_WEBSITE_WEBHOOK_URL);
+
+  const webhookSecret =
+    cleanString(process.env.TRIO_CRM_WEBSITE_WEBHOOK_SECRET) ||
+    cleanString(process.env.LEAD_WEBHOOK_SECRET) ||
+    cleanString(process.env.CRM_WEBSITE_WEBHOOK_SECRET);
+
   return {
-    webhookUrl: cleanString(process.env.TRIO_CRM_WEBSITE_WEBHOOK_URL),
-    webhookSecret: cleanString(process.env.TRIO_CRM_WEBSITE_WEBHOOK_SECRET),
+    webhookUrl,
+    webhookSecret,
   };
 }
 
@@ -88,7 +98,8 @@ export async function POST(request) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-webhook-secret": webhookSecret,
+        ...(webhookSecret ? { "x-webhook-secret": webhookSecret } : {}),
+        ...(webhookSecret ? { Authorization: `Bearer ${webhookSecret}` } : {}),
       },
       body: JSON.stringify(payload),
       cache: "no-store",
@@ -96,12 +107,16 @@ export async function POST(request) {
 
     if (!response.ok) {
       const details = await response.text().catch(() => "");
+      const isAuthError = response.status === 401 || response.status === 403;
 
       return NextResponse.json(
         {
           success: false,
-          error: "Lead webhook request failed.",
+          error: isAuthError
+            ? "Lead webhook authentication failed. Please verify the webhook URL/secret in server environment."
+            : "Lead webhook request failed.",
           details: details.slice(0, 500),
+          status: response.status,
         },
         { status: 502 }
       );

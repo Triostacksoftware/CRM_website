@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
+import { triggerLeadSuccessToast } from "@/lib/leadSuccessToast";
 
 export default function WhatsAppButton() {
   const router = useRouter();
@@ -50,7 +51,11 @@ export default function WhatsAppButton() {
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(finalMsg)}`;
       window.open(whatsappUrl, "_blank");
       setSubmitState("success");
-      router.push("/thank-you-crm-demo");
+      if (pathname === "/go") {
+        router.push("/thank-you-crm-demo");
+      } else {
+        triggerLeadSuccessToast("Thanks! Opening WhatsApp chat now.");
+      }
     } catch (error) {
       setSubmitState("error");
       setSubmitError(

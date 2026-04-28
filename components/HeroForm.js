@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
+import { triggerLeadSuccessToast } from "@/lib/leadSuccessToast";
 
 export default function HeroForm() {
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,7 +32,11 @@ export default function HeroForm() {
 
       form.reset();
       setStatus("success");
-      router.push("/thank-you-crm-demo");
+      if (pathname === "/go") {
+        router.push("/thank-you-crm-demo");
+      } else {
+        triggerLeadSuccessToast("Thanks! Our team will contact you shortly.");
+      }
     } catch (error) {
       setStatus("error");
       setErrorMessage(

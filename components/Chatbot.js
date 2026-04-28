@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
+import { triggerLeadSuccessToast } from "@/lib/leadSuccessToast";
 
 export default function Chatbot() {
   const router = useRouter();
@@ -64,7 +65,13 @@ export default function Chatbot() {
       });
 
       setLeadStatus("success");
-      router.push("/thank-you-crm-demo");
+      if (pathname === "/go") {
+        router.push("/thank-you-crm-demo");
+      } else {
+        triggerLeadSuccessToast("Thanks! Let's continue with a few quick questions.");
+        setIsLeadsCaptured(true);
+        setMessages((prev) => [...prev, { role: "bot", content: questions[0] }]);
+      }
     } catch (error) {
       setLeadStatus("error");
       setLeadError(

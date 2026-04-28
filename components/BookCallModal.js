@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 import { submitLead } from "@/lib/submitLead";
+import { triggerLeadSuccessToast } from "@/lib/leadSuccessToast";
 
 export default function BookCallModal({
   isOpen,
@@ -14,6 +15,7 @@ export default function BookCallModal({
   billingCycle = "annual",
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [isMounted, setIsMounted] = useState(false);
@@ -70,7 +72,11 @@ export default function BookCallModal({
       form.reset();
       setStatus("success");
       onClose();
-      router.push("/thank-you-crm-demo");
+      if (pathname === "/go") {
+        router.push("/thank-you-crm-demo");
+      } else {
+        triggerLeadSuccessToast("Thanks! Your request has been submitted.");
+      }
     } catch (error) {
       setStatus("error");
       setErrorMessage(

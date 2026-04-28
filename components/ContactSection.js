@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { submitLead } from "@/lib/submitLead";
+import { triggerLeadSuccessToast } from "@/lib/leadSuccessToast";
 import OfficeMapPreview, {
   OFFICE_ADDRESS_LINES,
   OFFICE_PLACE_NAME,
@@ -18,6 +19,7 @@ export default function ContactSection({
   bottomNote = "No obligation • Quick response • 100% secure"
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
   const [formData, setFormData] = useState({
@@ -77,12 +79,11 @@ export default function ContactSection({
         message: ""
       });
       setSubmitState("success");
-      
-      // Attempt to redirect if the page exists, otherwise stay on page with success message
-      try {
+
+      if (pathname === "/go") {
         router.push("/thank-you-crm-demo");
-      } catch (e) {
-        console.log("Redirect failed, staying on page.");
+      } else {
+        triggerLeadSuccessToast("Thanks! Your message was received. We will call you back soon.");
       }
     } catch (error) {
       setSubmitState("error");
