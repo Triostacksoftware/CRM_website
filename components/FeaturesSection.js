@@ -48,6 +48,20 @@ const defaultFeatureModules = [
     href: "/features#admin-analytics-and-platform",
     imageSide: "right",
   },
+  {
+    label: "CATEGORY 04",
+    title: "WhatsApp CRM",
+    description:
+      "Engage customers instantly with a unified WhatsApp inbox, automated templates, broadcast campaigns, and visual flow builders.",
+    bullets: [
+      "Consolidated WhatsApp inbox for the whole team",
+      "Template management and automated replies",
+      "Broadcast campaigns and flow builders",
+    ],
+    image: "/crm screen shot/whatsapp-crm.png",
+    href: "/features#whatsapp-crm",
+    imageSide: "left",
+  },
 ];
 
 function LineIcon({ name, className = "" }) {
